@@ -74,7 +74,7 @@ module.exports = config
 
 **Create nginx server** on `80` for proxy webpack dev server through upstreams if enable or proxy production.
 
-[nginx-config](https://github.com/andrepolischuk/webpack-through-nginx-example/blob/master/nginx-config):
+[nginx.awesome.conf](https://github.com/andrepolischuk/webpack-through-nginx-example/blob/master/nginx.awesome.conf):
 
 ```
 upstream login {
