@@ -1,0 +1,28 @@
+extend layout
+
+block title
+  title= site.title
+
+block meta
+  meta(property='description', content=site.description)
+  meta(name='og:url', content=site.site_url)
+  meta(name='og:title', content=site.title)
+  meta(name='og:description', content=site.description)
+
+block header
+  h1= site.title
+  p= site.description
+  nav
+    a(href='https://github.com/andrepolischuk') Code
+    a(href='https://twitter.com/andrepolischuk') Twitter
+    a(href='/rss.xml') RSS
+
+
+block content
+  each note in notes
+    section
+      h2
+        a(href='/' + note.url)= note.title.text
+      em
+        time= note.date.text
+      p!= note.desc.html

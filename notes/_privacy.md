@@ -1,5 +1,7 @@
 # Privacy
 
+_July 18, 2017_
+
 * Avoid social networks and google products
 * Avoid discount and loyalty cards
 * Enable 2FA

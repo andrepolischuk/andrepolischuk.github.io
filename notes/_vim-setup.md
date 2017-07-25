@@ -1,5 +1,7 @@
 # Vim setup
 
+_July 17, 2017_
+
 ## Why I use vim?
 
 * Less entities

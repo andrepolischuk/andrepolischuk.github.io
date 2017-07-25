@@ -1,0 +1,67 @@
+{
+  "name": "andrepolischuk.com",
+  "version": "0.0.0",
+  "description": "Andrey Polischuk",
+  "main": "gulpfile.babel.js",
+  "scripts": {
+    "start": "NODE_ENV=development gulp",
+    "build": "NODE_ENV=development gulp build",
+    "deploy": "NODE_ENV=production gulp deploy",
+    "test": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrepolischuk/andrepolischuk.github.io.git"
+  },
+  "author": "Andrey Polischuk <me@andrepolischuk.com> (https://andrepolischuk.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andrepolischuk/andrepolischuk.github.io/issues"
+  },
+  "homepage": "https://github.com/andrepolischuk/andrepolischuk.github.io#readme",
+  "site": {
+    "title": "Andrey Polischuk",
+    "description": "Frontend engineer",
+    "author": "Andrey Polischuk",
+    "feed_url": "https://andrepolischuk.com/rss.xml",
+    "site_url": "https://andrepolischuk.com/",
+    "managingEditor": "me@andrepolischuk.com (Andrey Polischuk)",
+    "webMaster": "me@andrepolischuk.com (Andrey Polischuk)",
+    "language": "en-us",
+    "categories": [
+      "frontend",
+      "javascript"
+    ]
+  },
+  "dependencies": {
+    "article-data": "^0.3.1",
+    "autoprefixer": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-register": "^6.24.1",
+    "del": "^3.0.0",
+    "each-done": "^1.0.0",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-data": "^1.2.1",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^7.0.0",
+    "gulp-pug": "^3.3.0",
+    "gulp-rename": "^1.2.2",
+    "koa": "^2.3.0",
+    "koa-static": "^4.0.1",
+    "moment": "^2.18.1",
+    "remark": "^8.0.0",
+    "remark-textr": "^3.0.1",
+    "rss": "^1.2.2",
+    "through2": "^2.0.3",
+    "typographic-base": "^1.0.4"
+  },
+  "devDependencies": {
+    "standard": "^10.0.2"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  }
+}

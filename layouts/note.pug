@@ -1,0 +1,25 @@
+extend layout
+
+block title
+  title= note.title.text
+
+block meta
+  meta(property='description', content=note.desc.text)
+  meta(name='og:url', content=site.site_url + note.url)
+  meta(name='og:title', content=note.title.text)
+  meta(name='og:description', content=note.desc.text)
+  if (note.image)
+    meta(name='og:image', content=note.image.src)
+    meta(name='twitter:image', content=note.image.src)
+
+block header
+  a(href='/')= site.title
+
+block content
+  article
+    nav
+      a(href='https://github.com/andrepolischuk/andrepolischuk.github.io/edit/master/notes/' + note.filename) Edit on github
+    h1= note.title.text
+    em
+      time= note.date.text
+    != note.content.html

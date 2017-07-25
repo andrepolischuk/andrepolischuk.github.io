@@ -2,14 +2,16 @@
 
 _July 25, 2017_
 
-I have some requirements for dev enviroment.
+Currently I work on project containing a lot of applications. Each of them has
+its own structure and development process. And all of these applications
+have some requirements for dev enviroment.
 
 1. Strict origin is required for application backend and authorization cookies.
 
 2. Sometimes the development of frontend and backend is parallel. And I need
 possibility of switching between development, test or production backends.
 
-3. I have a lot of related projects and applications. Each of them does not work
+3. I have a lot of related repos and applications. Each of them does not work
 correctly without other. Some applications may have a hot module replacement
 in development or may be served from production.
 
