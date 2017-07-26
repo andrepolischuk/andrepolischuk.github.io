@@ -9,7 +9,7 @@ Finally I desided to create this site by reading some ideas:
 
 > You should have ability to write it, readers — to read it. Content is a king.
 >
->  — [Vladimir Starkov](https://iamstarkov.com/mvb/)
+> — [Vladimir Starkov](https://iamstarkov.com/mvb/)
 
 > Document everything. Your memory is not infallible; future you will thank you.
 >
@@ -17,8 +17,7 @@ Finally I desided to create this site by reading some ideas:
 >
 > — [Yoshua Wuyts](https://medium.com/@yoshuawuyts/how-to-become-a-successful-developer-6058723583ef)
 
-So I will publish what I found useful. Maybe this will iteresting for others.
-I hope I will write regularly.
+So I'll publish what I find useful. Maybe this will be interest others. I hope I'll write regularly.
 
 This site was created as simple as possible:
 
