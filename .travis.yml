@@ -2,7 +2,8 @@ language: node_js
 node_js:
 - stable
 branches:
-  only: premaster
+  only: 
+  - premaster
 before_script:
 - git config --global user.email "me@andrepolischuk.com"
 - git config --global user.name "Travis Builder"
