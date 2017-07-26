@@ -151,8 +151,8 @@ gulp.task('build', gulp.series(
 gulp.task('deploy', gulp.series('build', () =>
   gulp.src('dist/**/*')
     .pipe(deploy({
-      branch: 'gh-pages',
-      push: true
+      push: true,
+      branch: 'master'
     }))
 ))
 
