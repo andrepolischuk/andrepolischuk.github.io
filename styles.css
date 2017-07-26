@@ -31,10 +31,6 @@ header p {
   font-weight: 300;
 }
 
-header a + a {
-  margin-left: 1rem;
-}
-
 article,
 section {
   margin-top: 3rem;
