@@ -13,10 +13,16 @@ block header
   h1= site.title
   p= site.description
   nav
-    a(href='https://github.com/andrepolischuk') Code
+    | Find me on
+    |
+    a(href='https://github.com/andrepolischuk') GitHub
+    | ,
+    |
     a(href='https://twitter.com/andrepolischuk') Twitter
-    a(href='/rss.xml') RSS
-
+    |
+    | or follow the
+    |
+    a(href='/rss.xml') RSS-feed
 
 block content
   each note in notes
