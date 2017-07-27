@@ -11,6 +11,8 @@ Finally I desided to create this site by reading some ideas:
 >
 > — [Vladimir Starkov](https://iamstarkov.com/mvb/)
 
+&nbsp;
+
 > Document everything. Your memory is not infallible; future you will thank you.
 >
 > Publish everything you do. No matter how small, send it out into the world.
