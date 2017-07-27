@@ -4,13 +4,17 @@ block title
   title= note.title.text
 
 block meta
-  meta(property='description', content=note.desc.text)
-  meta(name='og:url', content=site.site_url + note.url)
-  meta(name='og:title', content=note.title.text)
-  meta(name='og:description', content=note.desc.text)
+  meta(name='description', content=note.desc.text)
+  meta(property='og:title', content=note.title.text)
+  meta(property='og:description', content=note.desc.text)
+  meta(property='og:url', content=site.site_url + note.url)
+  meta(property='og:type', content='article')
   if (note.image)
-    meta(name='og:image', content=note.image.src)
+    meta(property='og:image', content=note.image.src)
     meta(name='twitter:image', content=note.image.src)
+  else
+    meta(property='og:image', content='https://github.com/andrepolischuk.png')
+    meta(name='twitter:image', content='https://github.com/andrepolischuk.png')
 
 block header
   a(href='/')= site.title
