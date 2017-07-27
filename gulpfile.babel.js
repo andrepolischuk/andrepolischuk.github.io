@@ -16,6 +16,7 @@ import Koa from 'koa'
 import statics from 'koa-static'
 import postcss from 'gulp-postcss'
 import autoprefixer from 'autoprefixer'
+import customProperties from 'postcss-custom-properties'
 import {writeFile} from 'fs'
 import {basename, extname} from 'path'
 import {site} from './package'
@@ -102,6 +103,7 @@ gulp.task('styles', () =>
   gulp.src('styles.css')
     .pipe(plumber())
     .pipe(postcss([
+      customProperties(),
       autoprefixer()
     ]))
     .pipe(gulp.dest('dist'))
