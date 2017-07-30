@@ -20,12 +20,12 @@ each of my applications and **nginx server** as a proxy.
 
 ## webpack dev server
 
-Create two applications with own webpack dev server on different ports:
+Create two applications with own [webpack dev server](https://webpack.js.org/configuration/dev-server/) on different ports:
 
 * [login](https://github.com/andrepolischuk/webpack-nginx-example/tree/master/login) — http://localhost:3001/
 * [profile](https://github.com/andrepolischuk/webpack-nginx-example/tree/master/profile) — http://localhost:3002/
 
-Configure webpack for each of them.
+Configure [webpack](https://webpack.js.org/configuration/) for each of them.
 
 [login/webpack.config.js](https://github.com/andrepolischuk/webpack-nginx-example/blob/master/login/webpack.config.js):
 
@@ -81,8 +81,9 @@ module.exports = config
 
 ## nginx server
 
-Create nginx server on `awesome.app:80` to proxy webpack dev server through
-upstreams if it's reachable or proxy production.
+Create nginx server on `awesome.app:80` to [proxy](http://nginx.org/en/docs/http/ngx_http_proxy_module.html)
+webpack dev server through [upstreams](http://nginx.org/en/docs/http/ngx_http_upstream_module.html)
+if it's reachable or proxy production.
 
 [nginx.awesome.conf](https://github.com/andrepolischuk/webpack-nginx-example/blob/master/nginx.awesome.conf):
 
