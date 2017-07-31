@@ -22,8 +22,8 @@ each of my applications and **nginx server** as a proxy.
 
 Create two applications with own [webpack dev server](https://webpack.js.org/configuration/dev-server/) on different ports:
 
-* [login](https://github.com/andrepolischuk/webpack-nginx-example/tree/master/login) — http://localhost:3001/
-* [profile](https://github.com/andrepolischuk/webpack-nginx-example/tree/master/profile) — http://localhost:3002/
+* [login](https://github.com/andrepolischuk/webpack-nginx-example/tree/master/login) — http://awesome.app:3001/
+* [profile](https://github.com/andrepolischuk/webpack-nginx-example/tree/master/profile) — http://awesome.app:3002/
 
 Configure [webpack](https://webpack.js.org/configuration/) for each of them.
 
@@ -46,7 +46,7 @@ if (process.env.NODE_ENV !== 'production') {
     inline: true,
     historyApiFallback: true,
     port: 3001,
-    disableHostCheck: true
+    host: 'awesome.app'
   }
 }
 
@@ -72,7 +72,7 @@ if (process.env.NODE_ENV !== 'production') {
     inline: true,
     historyApiFallback: true,
     port: 3002,
-    disableHostCheck: true
+    host: 'awesome.app'
   }
 }
 
@@ -90,12 +90,12 @@ if it's reachable or proxy production.
 ```
 upstream login {
   server awesome.app:80 backup;
-  server localhost:3001;
+  server awesome.app:3001;
 }
 
 upstream profile {
   server awesome.app:80 backup;
-  server localhost:3002;
+  server awesome.app:3002;
 }
 
 server {
