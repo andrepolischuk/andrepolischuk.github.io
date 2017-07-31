@@ -17,16 +17,18 @@ back absolutely.
 1. I try to use less entities in all. Vim allows me to use terminal things
   and text editing in one place.
 
-2. I use one enviroment configuration on all platforms. One Vim, zsh, aliases
-  on laptop, virtual servers, anywhere.
+2. Vim allows me to use one enviroment configuration on all platforms.
+  One Vim, zsh, aliases on laptop, virtual servers, anywhere.
 
-3. Vim is a modal and have reach [shortkeys](https://vim.rtorr.com)
+3. Vim is open sourced.
+
+4. Vim is a modal and have reach [shortkeys](https://vim.rtorr.com)
   mostly without `ctrl`/`alt` prefix. I glad every time using `ya{` combination
   to copy JavaScript object with surrounding curly braces.
 
-4. Vim use less resources than Atom or most other editors.
+5. Vim uses less resources and starts faster than Atom or most other editors and IDE.
 
-5. Fully customizable by [plugins](http://vimawesome.com): syntax highlighting, color schemes, tools.
+6. Vim is fully customizable by [plugins](http://vimawesome.com): syntax highlighting, color schemes, tools.
 
 ## My setup for frontend
 
