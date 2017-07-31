@@ -53,8 +53,8 @@ each of my applications and <strong>nginx server</strong> as a proxy.</p>
 <h2>webpack dev server</h2>
 <p>Create two applications with own <a href="https://webpack.js.org/configuration/dev-server/">webpack dev server</a> on different ports:</p>
 <ul>
-<li><a href="https://github.com/andrepolischuk/webpack-nginx-example/tree/master/login">login</a> — <a href="http://localhost:3001/">http://localhost:3001/</a></li>
-<li><a href="https://github.com/andrepolischuk/webpack-nginx-example/tree/master/profile">profile</a> — <a href="http://localhost:3002/">http://localhost:3002/</a></li>
+<li><a href="https://github.com/andrepolischuk/webpack-nginx-example/tree/master/login">login</a> — <a href="http://awesome.app:3001/">http://awesome.app:3001/</a></li>
+<li><a href="https://github.com/andrepolischuk/webpack-nginx-example/tree/master/profile">profile</a> — <a href="http://awesome.app:3002/">http://awesome.app:3002/</a></li>
 </ul>
 <p>Configure <a href="https://webpack.js.org/configuration/">webpack</a> for each of them.</p>
 <p><a href="https://github.com/andrepolischuk/webpack-nginx-example/blob/master/login/webpack.config.js">login/webpack.config.js</a>:</p>
@@ -74,7 +74,7 @@ if (process.env.NODE_ENV !== 'production') {
     inline: true,
     historyApiFallback: true,
     port: 3001,
-    disableHostCheck: true
+    host: 'awesome.app'
   }
 }
 
@@ -97,7 +97,7 @@ if (process.env.NODE_ENV !== 'production') {
     inline: true,
     historyApiFallback: true,
     port: 3002,
-    disableHostCheck: true
+    host: 'awesome.app'
   }
 }
 
@@ -110,12 +110,12 @@ if it’s reachable or proxy production.</p>
 <p><a href="https://github.com/andrepolischuk/webpack-nginx-example/blob/master/nginx.awesome.conf">nginx.awesome.conf</a>:</p>
 <pre><code>upstream login {
   server awesome.app:80 backup;
-  server localhost:3001;
+  server awesome.app:3001;
 }
 
 upstream profile {
   server awesome.app:80 backup;
-  server localhost:3002;
+  server awesome.app:3002;
 }
 
 server {
