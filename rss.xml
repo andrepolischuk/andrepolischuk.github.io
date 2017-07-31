@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title><![CDATA[Andrey Polischuk]]></title>
+        <description><![CDATA[Frontend engineer]]></description>
+        <link>https://andrepolischuk.com/</link>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Mon, 31 Jul 2017 15:32:50 GMT</lastBuildDate>
+        <atom:link href="https://andrepolischuk.com/rss.xml" rel="self" type="application/rss+xml"/>
+        <author><![CDATA[Andrey Polischuk]]></author>
+        <language><![CDATA[en-us]]></language>
+        <managingEditor><![CDATA[me@andrepolischuk.com (Andrey Polischuk)]]></managingEditor>
+        <webMaster><![CDATA[me@andrepolischuk.com (Andrey Polischuk)]]></webMaster>
+        <category><![CDATA[frontend]]></category>
+        <category><![CDATA[javascript]]></category>
+        <item>
+            <title><![CDATA[Webpack with nginx upstreams]]></title>
+            <description><![CDATA[Currently I work on project containing a lot of applications. Each of them has
+its own structure and development process. And all of these applications
+have some requirements for dev enviroment.]]></description>
+            <link>https://andrepolischuk.com/webpack-with-nginx-upstreams/</link>
+            <guid isPermaLink="true">https://andrepolischuk.com/webpack-with-nginx-upstreams/</guid>
+            <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
+            <pubDate>Tue, 25 Jul 2017 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Entry point]]></title>
+            <description><![CDATA[I’m Andrey Polischuk, frontend engineer and open-source fan. This site is my
+first try to write about tech things.]]></description>
+            <link>https://andrepolischuk.com/entry-point/</link>
+            <guid isPermaLink="true">https://andrepolischuk.com/entry-point/</guid>
+            <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
+            <pubDate>Thu, 20 Jul 2017 00:00:00 GMT</pubDate>
+        </item>
+    </channel>
+</rss>

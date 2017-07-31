@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Webpack with nginx upstreams</title>
+    <link href="https://andrepolischuk.com/rss.xml" title="Andrey Polischuk" rel="alternate" type="application/rss+xml">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" ref="/favicon.png" sizes="32x32">
+    <meta name="author" content="Andrey Polischuk">
+    <meta property="og:site_name" content="Andrey Polischuk">
+    <meta property="article:author" content="https://andrepolischuk.com/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@andrepolischuk">
+    <meta name="description" content="Currently I work on project containing a lot of applications. Each of them has
+its own structure and development process. And all of these applications
+have some requirements for dev enviroment.">
+    <meta property="og:title" content="Webpack with nginx upstreams">
+    <meta property="og:description" content="Currently I work on project containing a lot of applications. Each of them has
+its own structure and development process. And all of these applications
+have some requirements for dev enviroment.">
+    <meta property="og:url" content="https://andrepolischuk.com/webpack-with-nginx-upstreams/">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://github.com/andrepolischuk.png">
+    <meta name="twitter:image" content="https://github.com/andrepolischuk.png">
+  </head>
+  <body>
+    <header><a href="/">Andrey Polischuk</a>
+    </header>
+    <main>
+      <article>
+        <nav><a href="https://github.com/andrepolischuk/andrepolischuk.github.io/edit/premaster/notes/webpack-with-nginx-upstreams.md">Edit on github</a></nav>
+        <h1>Webpack with nginx upstreams</h1><em>
+          <time>July 25, 2017</time></em><p>Currently I work on project containing a lot of applications. Each of them has
+its own structure and development process. And all of these applications
+have some requirements for dev enviroment.</p>
+<ol>
+<li>
+<p>Strict origin is required for application backend and authorization cookies.</p>
+</li>
+<li>
+<p>Sometimes the development of frontend and backend is parallel. And I need
+possibility of switching between development, test or production backends.</p>
+</li>
+<li>
+<p>I have a lot of related repos and applications. Each of them does not work
+correctly without other. Some applications may have a hot module replacement
+in development or may be served from production.</p>
+</li>
+</ol>
+<p>Therefore to start enviroment I will need to create <strong>webpack dev server</strong> for
+each of my applications and <strong>nginx server</strong> as a proxy.</p>
+<h2>webpack dev server</h2>
+<p>Create two applications with own <a href="https://webpack.js.org/configuration/dev-server/">webpack dev server</a> on different ports:</p>
+<ul>
+<li><a href="https://github.com/andrepolischuk/webpack-nginx-example/tree/master/login">login</a> — <a href="http://localhost:3001/">http://localhost:3001/</a></li>
+<li><a href="https://github.com/andrepolischuk/webpack-nginx-example/tree/master/profile">profile</a> — <a href="http://localhost:3002/">http://localhost:3002/</a></li>
+</ul>
+<p>Configure <a href="https://webpack.js.org/configuration/">webpack</a> for each of them.</p>
+<p><a href="https://github.com/andrepolischuk/webpack-nginx-example/blob/master/login/webpack.config.js">login/webpack.config.js</a>:</p>
+<pre><code class="language-js">var webpack = require('webpack')
+
+var config = {
+  entry: './index',
+  output: {
+    filename: 'bundle.js',
+    path: __dirname,
+    publicPath: '/login/'
+  }
+}
+
+if (process.env.NODE_ENV !== 'production') {
+  config.devServer = {
+    inline: true,
+    historyApiFallback: true,
+    port: 3001,
+    disableHostCheck: true
+  }
+}
+
+module.exports = config
+</code></pre>
+<p><a href="https://github.com/andrepolischuk/webpack-nginx-example/blob/master/profile/webpack.config.js">profile/webpack.config.js</a>:</p>
+<pre><code class="language-js">var webpack = require('webpack')
+
+var config = {
+  entry: './index',
+  output: {
+    filename: 'bundle.js',
+    path: __dirname,
+    publicPath: '/profile/'
+  }
+}
+
+if (process.env.NODE_ENV !== 'production') {
+  config.devServer = {
+    inline: true,
+    historyApiFallback: true,
+    port: 3002,
+    disableHostCheck: true
+  }
+}
+
+module.exports = config
+</code></pre>
+<h2>nginx server</h2>
+<p>Create nginx server on <code>awesome.app:80</code> to <a href="http://nginx.org/en/docs/http/ngx_http_proxy_module.html">proxy</a>
+webpack dev server through <a href="http://nginx.org/en/docs/http/ngx_http_upstream_module.html">upstreams</a>
+if it’s reachable or proxy production.</p>
+<p><a href="https://github.com/andrepolischuk/webpack-nginx-example/blob/master/nginx.awesome.conf">nginx.awesome.conf</a>:</p>
+<pre><code>upstream login {
+  server awesome.app:80 backup;
+  server localhost:3001;
+}
+
+upstream profile {
+  server awesome.app:80 backup;
+  server localhost:3002;
+}
+
+server {
+  listen 80;
+  server_name awesome.app;
+  sendfile off;
+  proxy_max_temp_file_size 0;
+
+  location /login {
+    proxy_set_header Host      $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_pass http://login;
+  }
+
+  location /profile {
+    proxy_set_header Host      $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_pass http://profile;
+  }
+
+  location / {
+    proxy_set_header Host      $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_pass http://awesome.app;
+  }
+}
+</code></pre>
+<p>Append domain into the <code>hosts</code> file:</p>
+<pre><code>0.0.0.0 awesome.app
+</code></pre>
+<h2>Summary</h2>
+<p>Congrats! You have a simple dev enviroment for your projects. Now you just need
+to start nginx and webpack dev server for application you want make some magic.</p>
+<p>You can find all sources in <a href="https://github.com/andrepolischuk/webpack-nginx-example">example</a> repo and play with it.</p>
+
+      </article>
+    </main>
+  </body>
+</html>
