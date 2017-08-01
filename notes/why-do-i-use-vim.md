@@ -5,33 +5,33 @@ _August 1, 2017_
 Vim is amazing. I use it to write code, text notes, check lists. I use it to
 write this article. I use Vim everytime and everywhere.
 
-Previously I was happy with Sublime and Atom. They were perfect until I firstly
-tried Vim in December 2015. The whole week I effort to use it for all my needs.
-I could not get used to them ideas and came back to Atom. But I did not like
+Previously I was happy using Sublime and Atom. They were perfect until I have
+tried Vim in December 2015. I effort to use it for all my needs for a whole
+week. I couldn't get used to its ideas and came back to Atom. But I didn't like
 it anymore. At the same time I continued to use Vim for small tasks: edit
 configs, things over ssh.
 
-I removed Atom and moved to Vim completely in April 2016. And now I do not want
-back absolutely. Vim is the best editor I ever used to use.
+I removed Atom and moved to Vim completely in April 2016. And now I don't want
+back absolutely. Vim is the best editor I have ever used.
 
 1. It allows me to use terminal things and edit text in one place.
 
 2. It allows me to use one enviroment configuration on all platforms.
   One Vim, zsh, aliases on laptop, virtual servers, anywhere.
 
-3. It's open sourced and updated regularly.
+3. It's open sourced and regularly updated.
 
 4. It's a modal and have reach [shortkeys](https://vim.rtorr.com)
-  mostly without `ctrl`/`alt` prefix. I glad every time using `ya{` combination
+  mostly without `ctrl`/`alt` prefix. I am glad every time using `ya{` combination
   to copy JavaScript object with surrounding curly braces.
 
 5. It starts extremely fast and uses less resources than Atom or most other editors and IDE.
 
-6. It's fully customizable by [plugins](http://vimawesome.com): syntax highlighting, color schemes, tools.
+6. It's customizable by [plugins](http://vimawesome.com): syntax highlighting, color schemes, tools.
 
 ## My setup
 
-I do not use custom key bingings. I think the built-in ones are good. I prefer
+I don't use custom key bingings. I think the built-in ones are good. I prefer
 a simple configuration, but use some plugins for increase productivity:
 
 * [YAJS](https://github.com/othree/yajs.vim), [ES.NEXT syntax](https://github.com/othree/es.next.syntax.vim) for latest JavaScript features
