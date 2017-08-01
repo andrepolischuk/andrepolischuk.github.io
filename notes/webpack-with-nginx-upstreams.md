@@ -9,11 +9,17 @@ have some requirements for dev enviroment.
 1. Strict origin is required for application backend and authorization cookies.
 
 2. Sometimes the development of frontend and backend is parallel. And I need
-possibility of switching between development, test or production backends.
+  possibility of switching between development, test or production backends.
 
-3. I have a lot of related repos and applications. Each of them does not work
-correctly without other. Some applications may have a hot module replacement
-in development or may be served from production.
+3. I have a lot of related applications and scripts. Each of them does not work
+  correctly without other. Some applications may have a hot module replacement
+  in development or may be served from production.
+
+4. Some of applications are used in `iframe`. In this case strict origin is
+  required to test application in dev mode with parent page from production.
+
+5. I need to use dev mode for few applications sometimes. This is not achived
+  by proxy application parts with built-in webpack dev server proxy.
 
 Therefore to start enviroment I will need to create **webpack dev server** for
 each of my applications and **nginx server** as a proxy.
