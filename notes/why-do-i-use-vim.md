@@ -1,4 +1,4 @@
-# Why I use Vim?
+# Why do I use Vim?
 
 _August 1, 2017_
 
