@@ -4,7 +4,7 @@
         <description><![CDATA[Frontend engineer]]></description>
         <link>https://andrepolischuk.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 01 Aug 2017 10:36:42 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 01 Aug 2017 12:15:09 GMT</lastBuildDate>
         <atom:link href="https://andrepolischuk.com/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Andrey Polischuk]]></author>
         <language><![CDATA[en-us]]></language>
@@ -12,6 +12,15 @@
         <webMaster><![CDATA[me@andrepolischuk.com (Andrey Polischuk)]]></webMaster>
         <category><![CDATA[frontend]]></category>
         <category><![CDATA[javascript]]></category>
+        <item>
+            <title><![CDATA[Why I use Vim?]]></title>
+            <description><![CDATA[Vim is amazing. I use it to write code, text notes, check lists. I use it to
+write this article. I use Vim everytime and everywhere.]]></description>
+            <link>https://andrepolischuk.com/why-do-i-use-vim/</link>
+            <guid isPermaLink="true">https://andrepolischuk.com/why-do-i-use-vim/</guid>
+            <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
+            <pubDate>Tue, 01 Aug 2017 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Webpack with nginx upstreams]]></title>
             <description><![CDATA[Currently I work on project containing a lot of applications. Each of them has
