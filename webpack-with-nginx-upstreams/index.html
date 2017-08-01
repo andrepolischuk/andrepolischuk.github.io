@@ -43,9 +43,17 @@ have some requirements for dev enviroment.</p>
 possibility of switching between development, test or production backends.</p>
 </li>
 <li>
-<p>I have a lot of related repos and applications. Each of them does not work
+<p>I have a lot of related applications and scripts. Each of them does not work
 correctly without other. Some applications may have a hot module replacement
 in development or may be served from production.</p>
+</li>
+<li>
+<p>Some of applications are used in <code>iframe</code>. In this case strict origin is
+required to test application in dev mode with parent page from production.</p>
+</li>
+<li>
+<p>I need to use dev mode for few applications sometimes. This is not achived
+by proxy application parts with built-in webpack dev server proxy.</p>
 </li>
 </ol>
 <p>Therefore to start enviroment I will need to create <strong>webpack dev server</strong> for
