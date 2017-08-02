@@ -15,7 +15,7 @@ block meta
 block header
   h1= site.title
   p= site.description
-  nav
+  p
     | Find me on
     |
     a(href='https://github.com/andrepolischuk') GitHub
@@ -28,10 +28,11 @@ block header
     a(href='/rss.xml') RSS-feed
 
 block content
-  each note in notes
-    section
-      h2
-        a(href='/' + note.url)= note.title.text
-      em
-        time= note.date.text
-      p!= note.desc.html
+  main
+    each note in notes
+      section
+        h2
+          a(href='/' + note.url)= note.title.text
+        em
+          time= note.date.text
+        p!= note.desc.html

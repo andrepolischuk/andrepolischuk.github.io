@@ -21,9 +21,19 @@ block header
 
 block content
   article
-    nav
+    header
       a(href='https://github.com/andrepolischuk/andrepolischuk.github.io/edit/premaster/notes/' + note.filename) Edit on github
-    h1= note.title.text
+      h1= note.title.text
+
     em
       time= note.date.text
     != note.content.html
+
+    footer
+      nav
+        span
+          if (prevNote)
+            a(href='/' + prevNote.url)= '← ' + prevNote.title.text
+        span
+          if (nextNote)
+            a(href='/' + nextNote.url)= nextNote.title.text + ' →'

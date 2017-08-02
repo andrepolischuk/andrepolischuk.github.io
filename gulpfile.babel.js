@@ -66,11 +66,13 @@ gulp.task('collect', () => {
 })
 
 gulp.task('notes', next => {
-  each(notes, note => gulp.src('layouts/note.pug')
+  each(notes, (note, i) => gulp.src('layouts/note.pug')
     .pipe(plumber())
     .pipe(put({
       site,
-      note
+      note,
+      prevNote: notes[i + 1],
+      nextNote: notes[i - 1]
     }))
     .pipe(pug({
       pretty: true
