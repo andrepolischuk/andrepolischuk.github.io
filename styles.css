@@ -18,21 +18,22 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-header,
-main {
+body > header,
+body > main,
+body > article {
   margin-left: auto;
   margin-right: auto;
   width: 90%;
   max-width: 650px;
 }
 
-header p {
+header h1 + p {
   font-size: 1.3rem;
   font-weight: 300;
 }
 
-header nav {
-  margin-bottom: 4rem;
+main {
+  margin-top: 4rem;
 }
 
 article,
@@ -40,10 +41,28 @@ section {
   margin-top: 3rem;
 }
 
-article nav {
+article header a {
   float: right;
   margin-top: 0.5rem;
   font-size: 0.9rem;
+}
+
+article footer {
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}
+
+article footer nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 h1 {
