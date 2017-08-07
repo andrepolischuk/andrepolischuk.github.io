@@ -16,6 +16,7 @@ body {
   text-rendering: optimizeLegibility;
   letter-spacing: 0.01rem;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body > header,
