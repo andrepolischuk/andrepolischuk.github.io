@@ -111,3 +111,7 @@ a {
 a:hover {
   color: #1fc8a9;
 }
+
+img {
+  max-width: 100%;
+}

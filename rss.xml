@@ -4,7 +4,7 @@
         <description><![CDATA[Frontend engineer]]></description>
         <link>https://andrepolischuk.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 08 Aug 2017 10:52:04 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 08 Aug 2017 12:21:21 GMT</lastBuildDate>
         <atom:link href="https://andrepolischuk.com/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Andrey Polischuk]]></author>
         <language><![CDATA[en-us]]></language>
@@ -23,7 +23,8 @@ for me than old ones. Early I wrote about I started use Vim and still use it.]]>
         </item>
         <item>
             <title><![CDATA[Why do I use Vim?]]></title>
-            <description><![CDATA[Vim is amazing. I use it to write code, text notes, check lists. I use it to
+            <description><![CDATA[This article in vim
+Vim is amazing. I use it to write code, text notes, check lists. I use it to
 write this article. I use Vim everytime and everywhere.]]></description>
             <link>https://andrepolischuk.com/why-do-i-use-vim/</link>
             <guid isPermaLink="true">https://andrepolischuk.com/why-do-i-use-vim/</guid>
