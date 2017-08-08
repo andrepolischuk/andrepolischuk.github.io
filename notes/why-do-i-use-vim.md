@@ -2,6 +2,7 @@
 
 _August 1, 2017_
 
+![This article in vim](//i.imgur.com/3X4YTeg.png)  
 Vim is amazing. I use it to write code, text notes, check lists. I use it to
 write this article. I use Vim everytime and everywhere.
 

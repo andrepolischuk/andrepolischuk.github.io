@@ -110,3 +110,7 @@ a {
 a:hover {
   color: var(--accent);
 }
+
+img {
+  max-width: 100%;
+}
