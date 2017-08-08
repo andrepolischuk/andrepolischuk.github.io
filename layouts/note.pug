@@ -33,7 +33,7 @@ block content
       nav
         span
           if (prevNote)
-            a(href='/' + prevNote.url)= '← ' + prevNote.title.text
+            a(href='/' + prevNote.url)!= '←&nbsp;' + prevNote.title.text
         span
           if (nextNote)
-            a(href='/' + nextNote.url)= nextNote.title.text + ' →'
+            a(href='/' + nextNote.url)!= nextNote.title.text + '&nbsp;→'
