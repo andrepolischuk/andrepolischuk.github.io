@@ -10,8 +10,8 @@ blogs or socials. We sync personal photos by centralized clouds.
 >
 > — [Ev Bogue](http://evbogue.com/distributedeverything/)
 
-We trust our data to these services too. But we don't know how they use it,
-and what they will do with it the future.
+We trust our data to these services too much. But we don't know how they use
+it, and what they will do with it the future.
 
 Centralized services store our photos, contacts, emails. They collect search
 and purchase history. They track locations we visited and our activities across
