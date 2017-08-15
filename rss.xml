@@ -4,7 +4,7 @@
         <description><![CDATA[Frontend engineer]]></description>
         <link>https://andrepolischuk.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 08 Aug 2017 12:38:48 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 15 Aug 2017 20:05:09 GMT</lastBuildDate>
         <atom:link href="https://andrepolischuk.com/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Andrey Polischuk]]></author>
         <language><![CDATA[en-us]]></language>
@@ -12,6 +12,15 @@
         <webMaster><![CDATA[me@andrepolischuk.com (Andrey Polischuk)]]></webMaster>
         <category><![CDATA[frontend]]></category>
         <category><![CDATA[javascript]]></category>
+        <item>
+            <title><![CDATA[Personal should be a personal]]></title>
+            <description><![CDATA[We send messages by centralized messengers. We post thoughts by centralized
+blogs or socials. We sync personal photos by centralized clouds.]]></description>
+            <link>https://andrepolischuk.com/personal-should-be-a-personal/</link>
+            <guid isPermaLink="true">https://andrepolischuk.com/personal-should-be-a-personal/</guid>
+            <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
+            <pubDate>Tue, 15 Aug 2017 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Latest tools]]></title>
             <description><![CDATA[Sometimes I try to use new tools for experiment. And new are often better
