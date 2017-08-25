@@ -4,7 +4,7 @@
         <description><![CDATA[Frontend engineer]]></description>
         <link>https://andrepolischuk.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 15 Aug 2017 21:28:49 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 25 Aug 2017 12:20:21 GMT</lastBuildDate>
         <atom:link href="https://andrepolischuk.com/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Andrey Polischuk]]></author>
         <language><![CDATA[en-us]]></language>
@@ -12,6 +12,15 @@
         <webMaster><![CDATA[me@andrepolischuk.com (Andrey Polischuk)]]></webMaster>
         <category><![CDATA[frontend]]></category>
         <category><![CDATA[javascript]]></category>
+        <item>
+            <title><![CDATA[Code without comments]]></title>
+            <description><![CDATA[Ideally code should be neat, clean and odorless. But in real world we everyday
+work with a mass of ugly and smelly commented code.]]></description>
+            <link>https://andrepolischuk.com/code-without-comments/</link>
+            <guid isPermaLink="true">https://andrepolischuk.com/code-without-comments/</guid>
+            <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
+            <pubDate>Fri, 25 Aug 2017 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Personal should be a personal]]></title>
             <description><![CDATA[We send messages by centralized messengers. We post thoughts by centralized
