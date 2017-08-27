@@ -19,4 +19,7 @@ I have five reasons to avoid comments:
 5. Better comment is a meaningful name for variable, function or class. You can
   extract some code part to them to explain how this part works.
 
-Don't create a dead matter.
+Let's create a clean self-explaining code:
+
+<blockquote class="twitter-tweet tw-align-center" data-lang="en"><p lang="en" dir="ltr">Explain yourself in code ☺️ <a href="https://twitter.com/hashtag/cleancode?src=hash">#cleancode</a> <a href="https://t.co/UlpipWO3Oq">pic.twitter.com/UlpipWO3Oq</a></p>&mdash; David Santos (@dsantosmerino) <a href="https://twitter.com/dsantosmerino/status/856272579421761537">April 23, 2017</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
