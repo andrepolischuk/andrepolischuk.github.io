@@ -2,8 +2,8 @@
 
 _July 20, 2017_
 
-I'm Andrey Polischuk, frontend engineer and open-source fan. This site is my
-first try to write about tech things.
+I'm Andrey Polischuk, frontend engineer, open-source fan, automation tools
+addict and privacy partisan. This site is my first try to write about tech things.
 
 Finally I desided to create this site by reading some ideas:
 
@@ -17,7 +17,7 @@ Finally I desided to create this site by reading some ideas:
 >
 > — [Yoshua Wuyts](https://medium.com/@yoshuawuyts/how-to-become-a-successful-developer-6058723583ef)
 
-So I'll publish what I find useful. Maybe this will be interest others. I hope I'll write regularly.
+So I'll publish what I find useful. Maybe this will be interest others.
 
 This site was created as simple as possible:
 
