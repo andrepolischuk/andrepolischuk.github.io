@@ -4,7 +4,7 @@
         <description><![CDATA[Frontend engineer]]></description>
         <link>https://andrepolischuk.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sun, 27 Aug 2017 13:06:51 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 28 Aug 2017 10:40:37 GMT</lastBuildDate>
         <atom:link href="https://andrepolischuk.com/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Andrey Polischuk]]></author>
         <language><![CDATA[en-us]]></language>
@@ -61,8 +61,8 @@ have some requirements for dev enviroment.]]></description>
         </item>
         <item>
             <title><![CDATA[Entry point]]></title>
-            <description><![CDATA[I’m Andrey Polischuk, frontend engineer and open-source fan. This site is my
-first try to write about tech things.]]></description>
+            <description><![CDATA[I’m Andrey Polischuk, frontend engineer, open-source fan, automation tools
+addict and privacy partisan. This site is my first try to write about tech things.]]></description>
             <link>https://andrepolischuk.com/entry-point/</link>
             <guid isPermaLink="true">https://andrepolischuk.com/entry-point/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
