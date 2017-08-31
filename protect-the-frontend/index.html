@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#1fc8a9">
+    <title>Protect the frontend</title>
+    <link href="https://andrepolischuk.com/rss.xml" title="Andrey Polischuk" rel="alternate" type="application/rss+xml">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" ref="/favicon.png" sizes="32x32">
+    <meta name="author" content="Andrey Polischuk">
+    <meta property="og:site_name" content="Andrey Polischuk">
+    <meta property="article:author" content="https://andrepolischuk.com/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@andrepolischuk">
+    <meta name="description" content="Modern web application uses a lot of resources: own scripts, styles, requests,
+url queries, external analytics, fonts and other stuff receiving from cdns.
+And each of them may be malicious under certain conditions.">
+    <meta property="og:title" content="Protect the frontend">
+    <meta property="og:description" content="Modern web application uses a lot of resources: own scripts, styles, requests,
+url queries, external analytics, fonts and other stuff receiving from cdns.
+And each of them may be malicious under certain conditions.">
+    <meta property="og:url" content="https://andrepolischuk.com/protect-the-frontend/">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://github.com/andrepolischuk.png">
+    <meta name="twitter:image" content="https://github.com/andrepolischuk.png">
+  </head>
+  <body>
+    <header><a href="/">Andrey Polischuk</a>
+    </header>
+    <article>
+      <header><a href="https://github.com/andrepolischuk/andrepolischuk.github.io/edit/premaster/notes/protect-the-frontend.md">Edit on github</a>
+        <h1>Protect the frontend</h1>
+      </header><em>
+        <time>August 31, 2017</time></em><p>Modern web application uses a lot of resources: own scripts, styles, requests,
+url queries, external analytics, fonts and other stuff receiving from cdns.
+And each of them may be malicious under certain conditions.</p>
+<p>Application runs in an unpredictable browser environment with possibly malware
+extensions. And all documents, scripts, requests transmit over potentially unsecured networks.</p>
+<p>Every day we improve ui, accessibility, perfomance. But what about security?
+As frontend engineers we should always think about all aspects of development
+including security of users using our products.</p>
+<h2>Possible attacks</h2>
+<p>Web applications have some vulnerabilities which enable the following attacks:</p>
+<h3><a href="https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)">XSS</a> <small>(Cross-site Scripting)</small></h3>
+<ul>
+<li>
+<p>Injection an unsafe code to html from db, for example in forum comments,
+<a href="https://www.owasp.org/index.php/Testing_for_Stored_Cross_site_scripting_(OTG-INPVAL-002)">stored XSS</a>.</p>
+<p>For example, you has template where you passes values from api response:</p>
+<pre><code class="language-html">&lt;header&gt;
+  &lt;h1&gt;{{user.name}}&lt;/h1&gt;
+  &lt;p&gt;{{user.description}}&lt;/p&gt;
+&lt;/header&gt;
+</code></pre>
+<p>But after compiling the template you will has extraneous script in DOM:</p>
+<pre><code class="language-html">&lt;header&gt;
+  &lt;h1&gt;Unicorn&lt;/h1&gt;
+  &lt;p&gt;
+    &lt;script&gt;alert(&quot;your password has been stolen&quot;)&lt;/script&gt;
+  &lt;/p&gt;
+&lt;/header&gt;
+</code></pre>
+</li>
+<li>
+<p>Injection to url params, redirect url substitution,
+<a href="https://www.owasp.org/index.php/Testing_for_Reflected_Cross_site_scripting_(OTG-INPVAL-001)">reflected XSS</a>.</p>
+<p>For example, you received email with link to site that you use:</p>
+<pre><code>Hi,
+
+Go to the link and win
+https://awesome.app/login?redirect_uri=javascript:alert(&quot;your password has been stolen&quot;)
+</code></pre>
+</li>
+<li>
+<p>Injection a malicious code to requesting scripts, styles, stealing session
+identifier from request headers,
+<a href="https://www.veracode.com/security/man-middle-attack">Man-in-the-middle attack</a>.</p>
+<p>For example, your server serve following script to your application:</p>
+<pre><code class="language-js">const element = document.querySelector('app')
+
+function render () {
+  // ...
+}
+
+element.appendChild(render())
+</code></pre>
+<p>But browser will get it modified:</p>
+<pre><code class="language-js">const element = document.querySelector('app')
+
+function render () {
+  // ...
+}
+
+element.appendChild(render())
+
+// ha-ha
+alert(&quot;your password has been stolen&quot;)
+</code></pre>
+</li>
+</ul>
+<p>Each of them can result in opening and executing a malicious resource in application.
+Users may lose them data or access to account. Or may be taken away to external site.</p>
+<h3><a href="https://www.owasp.org/index.php/Clickjacking">Clickjacking</a></h3>
+<ul>
+<li>Application is opened in iframe on a malicious site under the hidden form</li>
+<li>All resources of application are proxied by external host</li>
+</ul>
+<p>In these ways users may lose credentials when type their in hidden inputs placed
+over real application or when try to authorize on proxied page.</p>
+<h2>Defense</h2>
+<p>So we explored possible categories of attacks. And now we should find ways to
+protect users from losing their sensitive data such as credentials or session ids.</p>
+<p>There are several techniques to protect apps against attacks:</p>
+<ul>
+<li>
+<p>Use HTTPS everywhere with <a href="https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet">HSTS</a>
+(HTTP Strict Transport Security) for all pages, scripts and others. HTTPS
+prevents XSS and Man-in-the-middle attack: appending unsafe code to styles,
+scripts or replace them, and reading credentials or session id from headers.</p>
+</li>
+<li>
+<p>Use <a href="https://www.owasp.org/index.php/HttpOnly">HttpOnly cookie</a>
+for session identifier to disallow external scripts access to it.</p>
+</li>
+<li>
+<p>Validate and escape url query parameters and data received from api before
+inserting their into html to prevent XSS with executing dangerous scripts.</p>
+</li>
+<li>
+<p>Validate format of redirect url and check it by the list of allowed recources.
+In this way we can prevent redirect to external site and execute a malicious
+code by redirecting to it.</p>
+</li>
+<li>
+<p>Validate application origin and origin of site that embeded your application
+by the allowed list to detect possible clickjacking. If origin isn’t allowed
+we should hide input fields and show warning for user.</p>
+</li>
+<li>
+<p>Forbid embed application into iframe by send
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options"><code>X-FRAME-OPTIONS</code></a>
+header in response.</p>
+<pre><code>X-Frame-Options: DENY
+X-Frame-Options: SAMEORIGIN
+X-Frame-Options: ALLOW-FROM https://awesome.app/
+</code></pre>
+</li>
+<li>
+<p>Use the <a href="https://content-security-policy.com">Content Security Policy</a>.
+With it we can define some rules for browser to control loading
+and behavior of scripts, images, requests and other sources by send
+<code>Content-Security-Policy</code> header.</p>
+<pre><code># default policy allows only self sources over HTTPS
+default-src 'self' https:
+
+# allows self sources of JavaScript and one external domain
+script-src 'self' https://www.google-analytics.com
+
+# allows self stylesheets and also inline styles
+style-src 'self' 'unsafe-inline'
+
+# allows self images and Base64 encoded
+img-src 'self' data:
+
+# allows self urls for XMLHttpRequest, WebSocket
+connect-src 'self'
+
+# prevent audio and video loading
+media-src 'none'
+
+# prevent opening frames on current page
+child-src 'none'
+</code></pre>
+</li>
+</ul>
+<h2>Summary</h2>
+<p>That’s all. I hope my little review of attacks and defend methods helps you to
+protect applications you creating. Also you can get more information by
+following the links referred in the article.</p>
+
+      <footer>
+        <nav><span><a href="/code-without-comments/">←&nbsp;Code without comments</a></span><span><a href="/">All notes&nbsp;↑</a></span></nav>
+      </footer>
+    </article>
+  </body>
+</html>

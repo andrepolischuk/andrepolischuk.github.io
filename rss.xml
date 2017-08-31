@@ -4,7 +4,7 @@
         <description><![CDATA[Frontend engineer]]></description>
         <link>https://andrepolischuk.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 28 Aug 2017 10:40:37 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 31 Aug 2017 10:53:47 GMT</lastBuildDate>
         <atom:link href="https://andrepolischuk.com/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Andrey Polischuk]]></author>
         <language><![CDATA[en-us]]></language>
@@ -12,6 +12,16 @@
         <webMaster><![CDATA[me@andrepolischuk.com (Andrey Polischuk)]]></webMaster>
         <category><![CDATA[frontend]]></category>
         <category><![CDATA[javascript]]></category>
+        <item>
+            <title><![CDATA[Protect the frontend]]></title>
+            <description><![CDATA[Modern web application uses a lot of resources: own scripts, styles, requests,
+url queries, external analytics, fonts and other stuff receiving from cdns.
+And each of them may be malicious under certain conditions.]]></description>
+            <link>https://andrepolischuk.com/protect-the-frontend/</link>
+            <guid isPermaLink="true">https://andrepolischuk.com/protect-the-frontend/</guid>
+            <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
+            <pubDate>Thu, 31 Aug 2017 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Code without comments]]></title>
             <description><![CDATA[Ideally code should be neat, clean and odorless. But in real world we everyday
