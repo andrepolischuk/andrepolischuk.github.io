@@ -4,6 +4,7 @@ import pug from 'gulp-pug'
 import put from 'gulp-data'
 import rename from 'gulp-rename'
 import extract from 'article-data'
+import getLinks from 'get-md-links'
 import del from 'del'
 import RSS from 'rss'
 import through from 'through2'
@@ -20,6 +21,12 @@ import customProperties from 'postcss-custom-properties'
 import {writeFile} from 'fs'
 import {basename, extname} from 'path'
 import {site} from './package'
+
+const getAllLinks = notes => notes
+  .reduce((acc, note) => acc.concat(note.links), [])
+  .map(({href}) => href)
+  .filter(link => link.match(/^https?:\/\/(localhost|awesome\.app|andrepolischuk\.com)/) === null)
+  .sort()
 
 let notes = []
 
@@ -46,6 +53,7 @@ gulp.task('collect', () => {
         notes.push(Object.assign(
           {
             filename: file.relative,
+            links: getLinks(article),
             url: `${basename(file.relative, extname(file.relative))}/`
           },
           extract(article, 'MMMM D, YYYY', 'en')
@@ -101,6 +109,23 @@ gulp.task('index', () =>
     .pipe(gulp.dest('dist'))
 )
 
+gulp.task('links', () =>
+  gulp.src('layouts/links.pug')
+    .pipe(plumber())
+    .pipe(put({
+      site,
+      links: getAllLinks(notes)
+    }))
+    .pipe(pug({
+      pretty: true
+    }))
+    .pipe(rename({
+      dirname: '/links/',
+      basename: 'index'
+    }))
+    .pipe(gulp.dest('dist'))
+)
+
 gulp.task('styles', () =>
   gulp.src('styles.css')
     .pipe(plumber())
@@ -142,7 +167,7 @@ gulp.task('clean', next => del(['dist'], next))
 
 gulp.task('layout', gulp.series(
   'collect',
-  gulp.parallel('notes', 'index')
+  gulp.parallel('notes', 'index', 'links')
 ))
 
 gulp.task('build', gulp.series(
