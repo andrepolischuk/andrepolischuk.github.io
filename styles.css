@@ -116,6 +116,10 @@ a:hover {
   color: #1fc8a9;
 }
 
+li {
+  margin-bottom: 0.5rem;
+}
+
 img {
   max-width: 100%;
 }
