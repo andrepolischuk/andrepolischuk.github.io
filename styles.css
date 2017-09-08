@@ -66,6 +66,10 @@ article footer nav {
           justify-content: space-between;
 }
 
+article footer span:last-child {
+  text-align: right;
+}
+
 h1 {
   font-weight: 400;
 }
