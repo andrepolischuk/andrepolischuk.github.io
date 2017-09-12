@@ -22,7 +22,7 @@ Web applications have some vulnerabilities which enable the following attacks:
 * Injection an unsafe code to html from db, for example in forum comments,
   [stored XSS](https://www.owasp.org/index.php/Testing_for_Stored_Cross_site_scripting_(OTG-INPVAL-002)).
 
-  For example, you has template where you passes values from api response:
+  For example, you have template where you passes values from api response:
 
   ```html
   <header>
@@ -31,7 +31,7 @@ Web applications have some vulnerabilities which enable the following attacks:
   </header>
   ```
 
-  But after compiling the template you will has extraneous script in DOM:
+  But after compiling the template you will have extraneous script in DOM:
 
   ```html
   <header>
