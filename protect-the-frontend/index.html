@@ -47,13 +47,13 @@ including security of users using our products.</p>
 <li>
 <p>Injection an unsafe code to html from db, for example in forum comments,
 <a href="https://www.owasp.org/index.php/Testing_for_Stored_Cross_site_scripting_(OTG-INPVAL-002)">stored XSS</a>.</p>
-<p>For example, you has template where you passes values from api response:</p>
+<p>For example, you have template where you passes values from api response:</p>
 <pre><code class="language-html">&lt;header&gt;
   &lt;h1&gt;{{user.name}}&lt;/h1&gt;
   &lt;p&gt;{{user.description}}&lt;/p&gt;
 &lt;/header&gt;
 </code></pre>
-<p>But after compiling the template you will has extraneous script in DOM:</p>
+<p>But after compiling the template you will have extraneous script in DOM:</p>
 <pre><code class="language-html">&lt;header&gt;
   &lt;h1&gt;Unicorn&lt;/h1&gt;
   &lt;p&gt;
