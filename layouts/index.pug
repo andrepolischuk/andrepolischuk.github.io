@@ -14,8 +14,9 @@ block meta
 
 block header
   h1= site.title
-  p= site.description
   p
+    = site.description
+    br
     | Find me on
     |
     a(href='https://github.com/andrepolischuk') GitHub
@@ -26,6 +27,7 @@ block header
     | or follow the
     |
     a(href='/rss.xml') RSS-feed
+    | .
 
 block content
   main

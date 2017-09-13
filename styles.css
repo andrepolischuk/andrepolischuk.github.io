@@ -34,11 +34,6 @@ body > article {
   max-width: 650px;
 }
 
-header h1 + p {
-  font-size: 1.3rem;
-  font-weight: 300;
-}
-
 main {
   margin-top: 4rem;
 }
@@ -70,11 +65,11 @@ article footer span:last-child {
 }
 
 h1 {
-  font-weight: 400;
+  font-weight: 500;
 }
 
 h2 {
-  font-weight: 300;
+  font-weight: 400;
 }
 
 h3 {
