@@ -178,7 +178,7 @@ gulp.task('rss', next => {
   })
 })
 
-gulp.task('copy', () => gulp.src('{CNAME,favicon*,index.js,sw.js}').pipe(gulp.dest('dist')))
+gulp.task('copy', () => gulp.src('{CNAME,favicon*,manifest*,index.js,sw.js}').pipe(gulp.dest('dist')))
 gulp.task('clean', next => del(['dist'], next))
 
 gulp.task('layout', gulp.series(
