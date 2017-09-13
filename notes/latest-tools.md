@@ -14,7 +14,7 @@ For the last six months I replaced some my tools with new ones:
   is a great. Now I often forget append its when edit an old project. I used
   `eslint` with `airbnb` style before, but they are excessively complicated than Standard.
 
-![Standard example](https://i.imgur.com/t22VTS0.png)
+  ![Standard example](https://i.imgur.com/t22VTS0.png)
 
 2. [UpnpServer](https://github.com/oeuillot/upnpserver-cli) — minimal UPnP server.
   It's open sourced. It has command-line interface and can share content to a lot of targets.
@@ -22,7 +22,7 @@ For the last six months I replaced some my tools with new ones:
 3. [Translate Shell](https://github.com/soimort/translate-shell) — easy access
   to Google Translate, Yandex.Translate and Bing Translator from command-line.
 
-![Translate a word](https://i.imgur.com/Q69i5a6.png)
+  ![Translate a word](https://i.imgur.com/Q69i5a6.png)
 
 4. [Master Password](http://masterpasswordapp.com) — unique password generator.
   Passwords are created by reproducible algorithm and not stored to cloud or
