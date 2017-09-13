@@ -7,7 +7,7 @@ const assetsForCache = [
   './offline.html',
   './index.js',
   './styles.css',
-  './favicon.png'
+  './images/favicon48.png'
 ]
 
 self.addEventListener('install', event => {
