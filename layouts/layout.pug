@@ -7,6 +7,8 @@ html(lang='en')
 
     block title
 
+    link(rel='preload', href='/styles.css', as='style')
+    link(rel='preload', href='/index.js', as='script')
     link(href=site.feed_url, title=site.title, rel='alternate', type='application/rss+xml')
     link(rel='stylesheet', href='/styles.css')
     link(rel='icon', ref='/favicon.png', sizes='32x32')
@@ -24,3 +26,5 @@ html(lang='en')
       block header
 
     block content
+
+    script(async='', src='/index.js')
