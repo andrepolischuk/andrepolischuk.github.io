@@ -1,0 +1,17 @@
+{
+  "name": "Andrey Polischuk",
+  "short_name": "Andrey P.",
+  "description": "Frontend engineer, automation fanatic and open-source partisan",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#1fc8a9",
+  "background_color": "#ffffff",
+  "lang": "en-US",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    }
+  ]
+}
