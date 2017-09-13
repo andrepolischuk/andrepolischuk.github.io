@@ -126,6 +126,22 @@ gulp.task('links', () =>
     .pipe(gulp.dest('dist'))
 )
 
+gulp.task('offline', () =>
+  gulp.src('layouts/offline.pug')
+    .pipe(plumber())
+    .pipe(put({
+      site
+    }))
+    .pipe(pug({
+      pretty: true
+    }))
+    .pipe(rename({
+      dirname: '/',
+      basename: 'offline'
+    }))
+    .pipe(gulp.dest('dist'))
+)
+
 gulp.task('styles', () =>
   gulp.src('styles.css')
     .pipe(plumber())
@@ -167,7 +183,7 @@ gulp.task('clean', next => del(['dist'], next))
 
 gulp.task('layout', gulp.series(
   'collect',
-  gulp.parallel('notes', 'index', 'links')
+  gulp.parallel('notes', 'index', 'links', 'offline')
 ))
 
 gulp.task('build', gulp.series(

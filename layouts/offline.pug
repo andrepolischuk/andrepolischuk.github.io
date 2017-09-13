@@ -1,0 +1,17 @@
+extend layout
+
+block title
+  title You are offline
+
+block meta
+  meta(name='description', content=site.description)
+  meta(property='og:title', content=site.title)
+  meta(property='og:description', content=site.description)
+  meta(property='og:url', content=site.site_url)
+  meta(property='og:type', content='website')
+  meta(property='og:image', content='https://github.com/andrepolischuk.png')
+  meta(name='twitter:image', content='https://github.com/andrepolischuk.png')
+
+block header
+  h1 You are offline
+  p Try again later
