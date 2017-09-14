@@ -32,7 +32,7 @@ And many others techniques whose names I have forgotten.
 They all don't work in full for me.
 Generally I spent more time for processing than making things.
 
-After a lot of unsuccessful attempts I was had such requirements:
+After a lot of unsuccessful attempts I had such requirements:
 
 * Things I have to do should be important and significant
 * All of them must be saved
@@ -53,13 +53,26 @@ It's very simple and contains only three points:
 * Avoid distractions and just keep doing
 * Do something by intervals to focus on task you do for a time
 
-I don't separate personal, work and other tasks and goals in the list.
 I avoid using any reminders or scheduled events.
-Do I have some idea?
-Do I want to do something?
-Do I understand that I don't know anything?
-I will add it to the list.
-At the moment I going to do, I open the list, choose task and do it.
+I don't separate personal, work and other tasks and goals in the list.
+There are some examples:
+
+```
+task about clickjacking +
+finalise to-do, schedule and planning
+fix replace \n with space
+code spliting and http/2
+compilers, linker and interpreters
+kernel mode vs. user mode
+templates for vim
+...
+```
+
+I add ideas to the list.
+I add to the list what I want to do.
+I add things that I want to learn.
+
+Now, at the moment I going to do, I open the list, choose task and do it.
 
 ## Summary
 
