@@ -2,8 +2,8 @@
 
 _July 20, 2017_
 
-I'm Andrey Polischuk, frontend engineer, automation fanatic and open-source
-partisan. This site is my first try to write about tech things.
+I'm Andrey Polischuk, a frontend engineer.
+This site is my first try to write about tech things.
 
 Finally I desided to create this site by reading some ideas:
 
