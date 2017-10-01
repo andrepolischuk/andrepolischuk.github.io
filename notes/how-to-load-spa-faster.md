@@ -18,15 +18,15 @@ Use of modern techniques help us to ship smaller bundles to browsers.
 
 ### Tree shaking
 
-It's a feature used for dead code elimination.
+This feature uses for dead code elimination.
 Tree shacking was implimented in many actual bundle tools such as a
 [webpack](https://github.com/webpack/webpack) or
 [rollup](https://github.com/rollup/rollup).
 Since 2 release webpack has [built-in support](https://webpack.js.org/guides/tree-shaking/) for ES2015 modules.
 
-For example we have a entry point and imported module having a few exports.
+We can reduce bundle size out of the box if we have an entry point and imported module having a few exports.
 
-index.js:
+**index.js**:
 
 ```js
 import {willBundled} from './utils'
@@ -34,15 +34,15 @@ import {willBundled} from './utils'
 willBundled()
 ```
 
-utils.js:
+**utils.js**:
 
 ```js
 export function willBundled () {
-  return 1
+  console.log('Hello')
 }
 
 export function willEliminated () {
-  return 0
+  console.log('Dead code')
 }
 ```
 
@@ -52,11 +52,11 @@ So its will not be in final bundle.
 This technique works only for ES2015 modules.
 We want eliminate dead code also for packages whose use commonjs exports.
 First we can try to automate it with tools such a
-[webpack-common-shake](https://github.com/indutny/webpack-common-shake) or
-[rollup-plugin-commonjs](https://github.com/rollup/rollup-plugin-commonjs).
+[`webpack-common-shake`](https://github.com/indutny/webpack-common-shake) or
+[`rollup-plugin-commonjs`](https://github.com/rollup/rollup-plugin-commonjs).
 
-In the second place when using big external libraries, _lodash_ for example, we can initially avoid inclusion to bundle.
-If we import something as follows, whole lodash will be included:
+In the second place when using big external libraries, `lodash` for example, we can initially avoid inclusion to bundle.
+If we import something as follows, whole `lodash` code will be included:
 
 ```js
 import {omit} from 'lodash'
@@ -68,11 +68,104 @@ To reduce library size in bundle, you should import only things you need:
 import omit from 'lodash/omit'
 ```
 
-Tree shacking helps us reduce bundle size in most cases out of the box.
+### Code splitting
 
-### Code spliting
+This feature uses for split our code into many chunks instead of one bundle.
+It allows manage the priority of loading chunks and load their in parallel or lazily.
 
-Split into asyncronous chunks
+We can split a code describing many entry points or dynamic imports.
+It's more manual and flexible approach.
+
+**webpack.config.js**:
+
+```js
+module.exports = {
+  entry: {
+    loader: './src/index',
+    vendor: [
+      'react',
+      'react-dom'
+    ]
+  },
+  output: {
+    filename: '[name].chunk.js',
+    chunkFilename: '[name].chunk.js',
+    path: `${__dirname}/dist`
+  }
+}
+```
+
+**index.js**:
+
+```js
+import React from 'react'
+import {render} from 'react-dom'
+import checkSession from './checkSession'
+
+async function init () {
+  const logined = await checkSession()
+
+  if (!logined) {
+    window.location = '/login'
+    return
+  }
+
+  const {default: App} = await import(/* webpackChunkName: "app" */ './app')
+
+  render(
+    <App />,
+    document.getElementById('root')
+  )
+}
+
+init()
+```
+
+Building this project will turn three small chunks:
+
+```
+dist
+|- app.chunk.js
+|- loader.chunk.js
+|- vendor.chunk.js
+```
+
+Splitting also can be implemented automatically using
+[`CommonChunkPlugin`](https://webpack.js.org/plugins/commons-chunk-plugin/) for webpack.
+
+**webpack.config.js**:
+
+```js
+const webpack = require('webpack')
+
+module.exports = {
+  entry: {
+    loader: './src/index',
+    user: './src/pages/user',
+    dashboard: './src/pages/dashboard'
+  },
+  output: {
+    filename: '[name].chunk.js',
+    path: `${__dirname}/dist`
+  },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'common'
+    })
+  ]
+}
+
+```
+
+After build this project common code parts will be moved to separate chunk:
+
+```
+dist
+|- common.chunk.js
+|- dashboard.chunk.js
+|- loader.chunk.js
+|- user.chunk.js
+```
 
 ### Code deduplication
 
