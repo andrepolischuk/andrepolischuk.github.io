@@ -18,13 +18,13 @@ Use of modern techniques help us to ship smaller bundles to browsers.
 
 ### Tree shaking
 
-This feature uses for dead code elimination.
+This feature is used for dead code elimination.
 Tree shacking was implimented in many actual bundle tools such as a
 [webpack](https://github.com/webpack/webpack) or
 [rollup](https://github.com/rollup/rollup).
 Since 2 release webpack has [built-in support](https://webpack.js.org/guides/tree-shaking/) for ES2015 modules.
 
-We can reduce bundle size out of the box if we have an entry point and imported module having a few exports.
+If we have an entry point and imported module with some unused exports, we can reduce bundle size out of the box.
 
 **index.js**:
 
@@ -70,7 +70,7 @@ import omit from 'lodash/omit'
 
 ### Code splitting
 
-This feature uses for split our code into many chunks instead of one bundle.
+This feature is used for split our code into many chunks instead of one bundle.
 It allows manage the priority of loading chunks and load their in parallel or lazily.
 
 We can split a code describing many entry points or dynamic imports.
@@ -130,8 +130,8 @@ dist
 |- vendor.chunk.js
 ```
 
-Splitting also can be implemented automatically using
-[`CommonChunkPlugin`](https://webpack.js.org/plugins/commons-chunk-plugin/) for webpack.
+Splitting also can be implemented automatically using webpack
+[`CommonChunkPlugin`](https://webpack.js.org/plugins/commons-chunk-plugin/).
 
 **webpack.config.js**:
 
@@ -169,7 +169,85 @@ dist
 
 ### Code deduplication
 
-Avoid code duplication, especially styles
+Code we write sometimes has some [duplicated parts](https://refactoring.guru/smells/duplicate-code) that increase the size of our bundle.
+Elements may use common styles.
+Functions may have similar logic.
+
+If we detect this, we should extract common parts to higher-order function/class:
+
+* [Higher-order function](http://eloquentjavascript.net/05_higher_order.html)
+* [Higher-order component in React](https://reactjs.org/docs/higher-order-components.html)
+* [Shared CSS class with common styles](http://www.websiteoptimization.com/speed/tweak/classes/)
+
+These techniques allow us to avoid code duplication and reuse function/style logic.
+
+```js
+import React, {Component} from 'react'
+
+class Dashboard extends Component {
+  componentDidMount () {
+    document.title = 'Dashboard'
+  }
+
+  render () {
+    return (
+      <SomeComponent />
+    )
+  }
+}
+
+class Profile extends Component {
+  componentDidMount () {
+    document.title = 'Profile'
+  }
+
+  render () {
+    return (
+      <AnotherComponent />
+    )
+  }
+}
+```
+
+Some common logic is in the example.
+Each of components sets document title in its `componentDidMount` life-cycle method.
+Extracting this will turn more reusable code without duplication.
+
+```js
+import React, {Component} from 'react'
+
+function withTitle (title) {
+  return Decorated => class extends Component {
+    componentDidMount () {
+      document.title = title
+    }
+
+    render () {
+      return (
+        <Decorated {...this.props} />
+      )
+    }
+  }
+}
+
+@withTitle('Dashboard')
+class Dashboard extends Component {
+  render () {
+    return (
+      <SomeComponent />
+    )
+  }
+}
+
+@withTitle('Profile')
+class Profile extends Component {
+  render () {
+    return (
+      <AnotherComponent />
+    )
+  }
+}
+```
 
 ### Images without base64
 
