@@ -62,9 +62,11 @@ task about clickjacking +
 finalise to-do, schedule and planning
 fix replace \n with space
 code spliting and http/2
-compilers, linker and interpreters
 kernel mode vs. user mode
+read latta
 templates for vim
+small car trip
+write about automation: scripts, aliases
 ...
 ```
 
