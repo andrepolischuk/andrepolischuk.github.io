@@ -1,4 +1,4 @@
-# How to load SPA faster
+# How to load single-page app faster
 
 <!-- _October 1, 2017_ -->
 
