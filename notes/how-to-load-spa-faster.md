@@ -4,25 +4,24 @@
 
 We work on apps with a lot of JavaScript code, styles, icons.
 We have the endless process of adding new features, pages, elements everyday.
-Gradually we have a problem that size and loading time of the our compiled code increases.
+Gradually we have a problem that size and loading time of the our bundled code increases.
 
 It seems that present frontend development has some challenges for us.
 Many use low-end smartphones to work with our apps.
 Much code with business logic is located on client instead of backend.
-Many of us don't think about the optimal use/ship of resouces.
+Herewith many of us don't think about the optimal use/ship of resouces.
 Our apps have a enormous trees of external dependencies whose authors also don't think about size of their packages.
 
-Use of modern techniques help us to ship smaller bundles to browsers.
-
 ## What can we do?
+
+Use of modern techniques help us to ship smaller bundles to browsers.
 
 ### Tree shaking
 
 This feature is used for dead code elimination.
-Tree shacking was implimented in many actual bundle tools such as a
-[webpack](https://github.com/webpack/webpack) or
-[rollup](https://github.com/rollup/rollup).
-Since 2 release webpack has [built-in support](https://webpack.js.org/guides/tree-shaking/) for ES2015 modules.
+Tree shacking was implimented in many actual bundle tools like
+[webpack](https://webpack.js.org/guides/tree-shaking/) or
+[rollup](https://rollupjs.org/#tree-shaking) for ES2015 modules.
 
 If we have an entry point and imported module with some unused exports, we can reduce bundle size out of the box.
 
@@ -62,7 +61,8 @@ If we import something as follows, whole `lodash` code will be included:
 import {omit} from 'lodash'
 ```
 
-To reduce library size in bundle, you should import only things you need:
+This happens because libraries were preliminarily transpiled to ES5 syntax with `require` imports.
+To reduce the import of such libraries, you should request only things you need:
 
 ```js
 import omit from 'lodash/omit'
@@ -72,6 +72,7 @@ import omit from 'lodash/omit'
 
 This feature is used for split our code into many chunks instead of one bundle.
 It allows manage the priority of loading chunks and load their in parallel or lazily.
+Code splitting is currently [supported by webpack](https://webpack.js.org/guides/code-splitting/), but doesn't yet implemented in rollup.
 
 We can split a code describing many entry points or dynamic imports.
 It's more manual and flexible approach.
@@ -81,11 +82,8 @@ It's more manual and flexible approach.
 ```js
 module.exports = {
   entry: {
-    loader: './src/index',
-    vendor: [
-      'react',
-      'react-dom'
-    ]
+    app: './index',
+    check: './check'
   },
   output: {
     filename: '[name].chunk.js',
@@ -100,10 +98,10 @@ module.exports = {
 ```js
 import React from 'react'
 import {render} from 'react-dom'
-import checkSession from './checkSession'
+import check from './check'
 
 async function init () {
-  const logined = await checkSession()
+  const logined = await check()
 
   if (!logined) {
     window.location = '/login'
@@ -126,7 +124,7 @@ Building this project will turn three small chunks:
 ```
 dist
 |- app.chunk.js
-|- loader.chunk.js
+|- check.chunk.js
 |- vendor.chunk.js
 ```
 
@@ -140,9 +138,9 @@ const webpack = require('webpack')
 
 module.exports = {
   entry: {
-    loader: './src/index',
-    user: './src/pages/user',
-    dashboard: './src/pages/dashboard'
+    app: './index',
+    user: './pages/user',
+    dashboard: './pages/dashboard'
   },
   output: {
     filename: '[name].chunk.js',
@@ -161,13 +159,18 @@ After build this project common code parts will be moved to separate chunk:
 
 ```
 dist
+|- app.chunk.js
 |- common.chunk.js
 |- dashboard.chunk.js
-|- loader.chunk.js
 |- user.chunk.js
 ```
 
-### Code deduplication
+Splitting code can also be produced by the other plugins:
+
+* [extract-text-webpack-plugin](https://github.com/webpack-contrib/extract-text-webpack-plugin)—split CSS by extracting text from bundle into a file
+* [bundle-loader](https://github.com/webpack-contrib/bundle-loader)—split code and lazy load resulting bundles
+
+### Common code extracting
 
 Code we write sometimes has some [duplicated parts](https://refactoring.guru/smells/duplicate-code) that increase the size of our bundle.
 Elements may use common styles.
@@ -249,21 +252,99 @@ class Profile extends Component {
 }
 ```
 
-### Images without base64
-
-Avoid base64 images to better gzip compression
-
 ### Caching
 
-Cache chunks by request with hashes `bundle.js?[chunkhash]`
-Separate own modules and vendor, lock their versions
+After reducing the size of our bundle, we should think directly about loading it with browser.
+If we have single bundle, user browser will be forced to load it again after each code change.
+To avoid this, we can use browser technique called caching.
+Browser caching allows you to speed up loading recources by saving files locally.
 
-### Lazy fetching
+We laid a good basis to cache our code applying the tree shaking, splitting and extracting.
+After splitting, we have few small chunks.
+Each of them can be cached.
+With tools like webpack, we can easy [configure caching](https://webpack.js.org/guides/caching/).
 
-Request only required data at start and lazily load rest
+**webpack.config.js**:
+
+```js
+module.exports = {
+  entry: {
+    app: './index',
+    utils: './utils'
+  },
+  output: {
+    filename: '[name].[chunkhash].js',
+    chunkFilename: '[name].[chunkhash].js',
+    path: `${__dirname}/dist`
+  }
+}
+```
+
+Building this project will get chunks with chunk-specific hashes in filenames:
+
+```
+dist
+|- app.e2a5ac13d7b26742f4d7.js
+|- utils.e646121558170aeedd91.js
+```
+
+Now when we modify code in one module, building this project update only one chunk contains this module with new hash.
+User browser will have to load again only this updated chunk.
+Other ones will be taken from browser cache.
+
+One more feature we can apply to build, a manual extracting vendor modules and lock their versions.
+External libraries are updated us less often than own code.
+So we should minimize the force loading of a chunk containing this libraries.
+
+**webpack.config.js**:
+
+```js
+const webpack = require('webpack')
+
+module.exports = {
+  entry: {
+    app: './index',
+    utils: './utils',
+    vendor: [
+      'react',
+      'react-dom'
+    ]
+  },
+  output: {
+    filename: '[name].[chunkhash].js',
+    chunkFilename: '[name].[chunkhash].js',
+    path: `${__dirname}/dist`
+  },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: Infinity
+    })
+  ]
+}
+```
+
+Building with this config will make the following output:
+
+```
+dist
+|- app.e2a5ac13d7b26742f4d7.js
+|- utils.e646121558170aeedd91.js
+|- vendor.95dc51f578ab5785150a.js
+```
+
+### More things
+
+So, we've learned few basic ways to speed up loading of our resources.
+Here are some other techniques to help you optimize this more:
+
+* [Preload: What Is It Good For?](https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/)
+* [Inlining critical CSS for better web performance](https://gomakethings.com/inlining-critical-css-for-better-web-performance/)
+* [The Benefits of Server Side Rendering Over Client Side Rendering](https://medium.com/walmartlabs/the-benefits-of-server-side-rendering-over-client-side-rendering-5d07ff2cefe8)
 
 ## Summary
 
 That's all.
-If you have a slow app with a big bundle for shipping, try to apply those techniques to your compiling process.
-Think about loading performance at every turn and research what you can do to reduce the loading time more.
+If you have a slow loaded app with a big bundle for shipping, try to apply those techniques to your building process.
+Research what you can do to reduce the loading time more.
+And also think about loading performance at every turn.
