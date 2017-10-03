@@ -333,7 +333,7 @@ dist
 |- vendor.95dc51f578ab5785150a.js
 ```
 
-### More things
+### Wrapping up
 
 That's all.
 We've learned few useful methods to speed up loading of our resources.
