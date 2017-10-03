@@ -1,20 +1,21 @@
 # How to load single-page app faster
 
-<!-- _October 1, 2017_ -->
+_October 3, 2017_
 
-We work on apps with a lot of JavaScript code, styles, icons.
+We work on apps with a lot of JavaScript code, styles.
 We have the endless process of adding new features, pages, elements everyday.
-Gradually we have a problem that size and loading time of the our bundled code increases.
+Gradually we have a problem when size and loading time of the our bundled code increases.
 
-It seems that present frontend development has some challenges for us.
-Many use low-end smartphones to work with our apps.
+It seems like present frontend development has some challenges for us.
+Many users work with our apps using low-end smartphones.
 Much code with business logic is located on client instead of backend.
+
 Herewith many of us don't think about the optimal use/ship of resouces.
-Our apps have a enormous trees of external dependencies whose authors also don't think about size of their packages.
+Our apps have an enormous trees of external dependencies whose authors also don't think about size of their packages.
 
 ## What can we do?
 
-Use of modern techniques help us to ship smaller bundles to browsers.
+Use of the following modern techniques will help us to ship smaller bundles to browsers.
 
 ### Tree shaking
 
@@ -50,7 +51,7 @@ So its will not be in final bundle.
 
 This technique works only for ES2015 modules.
 We want eliminate dead code also for packages whose use commonjs exports.
-First we can try to automate it with tools such a
+First we can try to automate it with plugins such a
 [`webpack-common-shake`](https://github.com/indutny/webpack-common-shake) or
 [`rollup-plugin-commonjs`](https://github.com/rollup/rollup-plugin-commonjs).
 
@@ -61,7 +62,7 @@ If we import something as follows, whole `lodash` code will be included:
 import {omit} from 'lodash'
 ```
 
-This happens because libraries were preliminarily transpiled to ES5 syntax with `require` imports.
+It happens because libraries were preliminarily transpiled to ES5 syntax with `require` imports.
 To reduce the import of such libraries, you should request only things you need:
 
 ```js
@@ -72,17 +73,16 @@ import omit from 'lodash/omit'
 
 This feature is used for split our code into many chunks instead of one bundle.
 It allows manage the priority of loading chunks and load their in parallel or lazily.
-Code splitting is currently [supported by webpack](https://webpack.js.org/guides/code-splitting/), but doesn't yet implemented in rollup.
+Code splitting is currently [supported by webpack](https://webpack.js.org/guides/code-splitting/), but isn't still implemented in rollup.
 
 We can split a code describing many entry points or dynamic imports.
-It's more manual and flexible approach.
 
 **webpack.config.js**:
 
 ```js
 module.exports = {
   entry: {
-    app: './index',
+    loader: './index',
     check: './check'
   },
   output: {
@@ -125,7 +125,7 @@ Building this project will turn three small chunks:
 dist
 |- app.chunk.js
 |- check.chunk.js
-|- vendor.chunk.js
+|- loader.chunk.js
 ```
 
 Splitting also can be implemented automatically using webpack
@@ -155,7 +155,7 @@ module.exports = {
 
 ```
 
-After build this project common code parts will be moved to separate chunk:
+After building this project common code parts will be moved to separate chunk:
 
 ```
 dist
@@ -172,7 +172,7 @@ Splitting code can also be produced by the other plugins:
 
 ### Common code extracting
 
-Code we write sometimes has some [duplicated parts](https://refactoring.guru/smells/duplicate-code) that increase the size of our bundle.
+Code we are writing sometimes has some [duplicated parts](https://refactoring.guru/smells/duplicate-code) that increase the size of our bundle.
 Elements may use common styles.
 Functions may have similar logic.
 
@@ -182,7 +182,7 @@ If we detect this, we should extract common parts to higher-order function/class
 * [Higher-order component in React](https://reactjs.org/docs/higher-order-components.html)
 * [Shared CSS class with common styles](http://www.websiteoptimization.com/speed/tweak/classes/)
 
-These techniques allow us to avoid code duplication and reuse function/style logic.
+These techniques allow us avoid code duplication and reuse function/style logic.
 
 ```js
 import React, {Component} from 'react'
@@ -254,10 +254,10 @@ class Profile extends Component {
 
 ### Caching
 
-After reducing the size of our bundle, we should think directly about loading it with browser.
+After reducing the size of our bundle, we should directly think about loading it with browser.
 If we have single bundle, user browser will be forced to load it again after each code change.
 To avoid this, we can use browser technique called caching.
-Browser caching allows you to speed up loading recources by saving files locally.
+Browser caching allows you speed up loading recources by saving files locally.
 
 We laid a good basis to cache our code applying the tree shaking, splitting and extracting.
 After splitting, we have few small chunks.
@@ -288,11 +288,11 @@ dist
 |- utils.e646121558170aeedd91.js
 ```
 
-Now when we modify code in one module, building this project update only one chunk contains this module with new hash.
+Now when we modify code in one module, building this project update only one chunk containing this module with new hash.
 User browser will have to load again only this updated chunk.
 Other ones will be taken from browser cache.
 
-One more feature we can apply to build, a manual extracting vendor modules and lock their versions.
+One more thing we can apply to build is a manual extracting vendor modules and lock their versions.
 External libraries are updated us less often than own code.
 So we should minimize the force loading of a chunk containing this libraries.
 
@@ -335,16 +335,15 @@ dist
 
 ### More things
 
-So, we've learned few basic ways to speed up loading of our resources.
-Here are some other techniques to help you optimize this more:
+That's all.
+We've learned few useful methods to speed up loading of our resources.
+If you have a slow loaded app with a big bundle for shipping, try to apply all those techniques to your building process.
+
+Research what you can do to reduce the loading time more.
+Here are some other approaches to help you optimize this more:
 
 * [Preload: What Is It Good For?](https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/)
 * [Inlining critical CSS for better web performance](https://gomakethings.com/inlining-critical-css-for-better-web-performance/)
 * [The Benefits of Server Side Rendering Over Client Side Rendering](https://medium.com/walmartlabs/the-benefits-of-server-side-rendering-over-client-side-rendering-5d07ff2cefe8)
 
-## Summary
-
-That's all.
-If you have a slow loaded app with a big bundle for shipping, try to apply those techniques to your building process.
-Research what you can do to reduce the loading time more.
-And also think about loading performance at every turn.
+Think about loading performance at every turn.
