@@ -4,7 +4,7 @@
         <description><![CDATA[Frontend engineer, spa, infrastructure, open source, help to make things better]]></description>
         <link>https://andrepolischuk.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 02 Oct 2017 20:35:58 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 03 Oct 2017 15:28:03 GMT</lastBuildDate>
         <atom:link href="https://andrepolischuk.com/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Andrey Polischuk]]></author>
         <language><![CDATA[en-us]]></language>
@@ -12,6 +12,16 @@
         <webMaster><![CDATA[me@andrepolischuk.com (Andrey Polischuk)]]></webMaster>
         <category><![CDATA[frontend]]></category>
         <category><![CDATA[javascript]]></category>
+        <item>
+            <title><![CDATA[How to load single-page app faster]]></title>
+            <description><![CDATA[We work on apps with a lot of JavaScript code, styles.
+We have the endless process of adding new features, pages, elements everyday.
+Gradually we have a problem when size and loading time of the our bundled code increases.]]></description>
+            <link>https://andrepolischuk.com/how-to-load-single-page-app-faster/</link>
+            <guid isPermaLink="true">https://andrepolischuk.com/how-to-load-single-page-app-faster/</guid>
+            <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
+            <pubDate>Tue, 03 Oct 2017 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[About to-do, schedule and planning]]></title>
             <description><![CDATA[I don’t like a rigid planning.

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#1fc8a9">
+    <title>How to load single-page app faster</title>
+    <link rel="preload" href="/styles.css" as="style">
+    <link rel="preload" href="/index.js" as="script">
+    <link href="https://andrepolischuk.com/rss.xml" title="Andrey Polischuk" rel="alternate" type="application/rss+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" href="/images/favicon48.png" sizes="48x48">
+    <meta name="author" content="Andrey Polischuk">
+    <meta property="og:site_name" content="Andrey Polischuk">
+    <meta property="article:author" content="https://andrepolischuk.com/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@andrepolischuk">
+    <meta name="description" content="We work on apps with a lot of JavaScript code, styles. We have the endless process of adding new features, pages, elements everyday. Gradually we have a problem when size and loading time of the our bundled code increases.">
+    <meta property="og:title" content="How to load single-page app faster">
+    <meta property="og:description" content="We work on apps with a lot of JavaScript code, styles. We have the endless process of adding new features, pages, elements everyday. Gradually we have a problem when size and loading time of the our bundled code increases.">
+    <meta property="og:url" content="https://andrepolischuk.com/how-to-load-single-page-app-faster/">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://github.com/andrepolischuk.png">
+    <meta name="twitter:image" content="https://github.com/andrepolischuk.png">
+  </head>
+  <body>
+    <header><a href="/">Andrey Polischuk</a>
+    </header>
+    <article>
+      <header><a href="https://github.com/andrepolischuk/andrepolischuk.github.io/edit/premaster/notes/how-to-load-single-page-app-faster.md">Edit on github</a>
+        <h1>How to load single-page app faster</h1>
+      </header><em>
+        <time>October 3, 2017</time></em><p>We work on apps with a lot of JavaScript code, styles.
+We have the endless process of adding new features, pages, elements everyday.
+Gradually we have a problem when size and loading time of the our bundled code increases.</p>
+<p>It seems like present frontend development has some challenges for us.
+Many users work with our apps using low-end smartphones.
+Much code with business logic is located on client instead of backend.</p>
+<p>Herewith many of us don’t think about the optimal use/ship of resouces.
+Our apps have an enormous trees of external dependencies whose authors also don’t think about size of their packages.</p>
+<h2>What can we do?</h2>
+<p>Use of the following modern techniques will help us to ship smaller bundles to browsers.</p>
+<h3>Tree shaking</h3>
+<p>This feature is used for dead code elimination.
+Tree shacking was implimented in many actual bundle tools like
+<a href="https://webpack.js.org/guides/tree-shaking/">webpack</a> or
+<a href="https://rollupjs.org/#tree-shaking">rollup</a> for ES2015 modules.</p>
+<p>If we have an entry point and imported module with some unused exports, we can reduce bundle size out of the box.</p>
+<p><strong>index.js</strong>:</p>
+<pre><code class="language-js">import {willBundled} from './utils'
+
+willBundled()
+</code></pre>
+<p><strong>utils.js</strong>:</p>
+<pre><code class="language-js">export function willBundled () {
+  console.log('Hello')
+}
+
+export function willEliminated () {
+  console.log('Dead code')
+}
+</code></pre>
+<p>We see that the second export is declared but not used.
+So its will not be in final bundle.</p>
+<p>This technique works only for ES2015 modules.
+We want eliminate dead code also for packages whose use commonjs exports.
+First we can try to automate it with plugins such a
+<a href="https://github.com/indutny/webpack-common-shake"><code>webpack-common-shake</code></a> or
+<a href="https://github.com/rollup/rollup-plugin-commonjs"><code>rollup-plugin-commonjs</code></a>.</p>
+<p>In the second place when using big external libraries, <code>lodash</code> for example, we can initially avoid inclusion to bundle.
+If we import something as follows, whole <code>lodash</code> code will be included:</p>
+<pre><code class="language-js">import {omit} from 'lodash'
+</code></pre>
+<p>It happens because libraries were preliminarily transpiled to ES5 syntax with <code>require</code> imports.
+To reduce the import of such libraries, you should request only things you need:</p>
+<pre><code class="language-js">import omit from 'lodash/omit'
+</code></pre>
+<h3>Code splitting</h3>
+<p>This feature is used for split our code into many chunks instead of one bundle.
+It allows manage the priority of loading chunks and load their in parallel or lazily.
+Code splitting is currently <a href="https://webpack.js.org/guides/code-splitting/">supported by webpack</a>, but isn’t still implemented in rollup.</p>
+<p>We can split a code describing many entry points or dynamic imports.</p>
+<p><strong>webpack.config.js</strong>:</p>
+<pre><code class="language-js">module.exports = {
+  entry: {
+    loader: './index',
+    check: './check'
+  },
+  output: {
+    filename: '[name].chunk.js',
+    chunkFilename: '[name].chunk.js',
+    path: `${__dirname}/dist`
+  }
+}
+</code></pre>
+<p><strong>index.js</strong>:</p>
+<pre><code class="language-js">import React from 'react'
+import {render} from 'react-dom'
+import check from './check'
+
+async function init () {
+  const logined = await check()
+
+  if (!logined) {
+    window.location = '/login'
+    return
+  }
+
+  const {default: App} = await import(/* webpackChunkName: &quot;app&quot; */ './app')
+
+  render(
+    &lt;App /&gt;,
+    document.getElementById('root')
+  )
+}
+
+init()
+</code></pre>
+<p>Building this project will turn three small chunks:</p>
+<pre><code>dist
+|- app.chunk.js
+|- check.chunk.js
+|- loader.chunk.js
+</code></pre>
+<p>Splitting also can be implemented automatically using webpack
+<a href="https://webpack.js.org/plugins/commons-chunk-plugin/"><code>CommonChunkPlugin</code></a>.</p>
+<p><strong>webpack.config.js</strong>:</p>
+<pre><code class="language-js">const webpack = require('webpack')
+
+module.exports = {
+  entry: {
+    app: './index',
+    user: './pages/user',
+    dashboard: './pages/dashboard'
+  },
+  output: {
+    filename: '[name].chunk.js',
+    path: `${__dirname}/dist`
+  },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'common'
+    })
+  ]
+}
+</code></pre>
+<p>After building this project common code parts will be moved to separate chunk:</p>
+<pre><code>dist
+|- app.chunk.js
+|- common.chunk.js
+|- dashboard.chunk.js
+|- user.chunk.js
+</code></pre>
+<p>Splitting code can also be produced by the other plugins:</p>
+<ul>
+<li><a href="https://github.com/webpack-contrib/extract-text-webpack-plugin">extract-text-webpack-plugin</a>—split CSS by extracting text from bundle into a file</li>
+<li><a href="https://github.com/webpack-contrib/bundle-loader">bundle-loader</a>—split code and lazy load resulting bundles</li>
+</ul>
+<h3>Common code extracting</h3>
+<p>Code we are writing sometimes has some <a href="https://refactoring.guru/smells/duplicate-code">duplicated parts</a> that increase the size of our bundle.
+Elements may use common styles.
+Functions may have similar logic.</p>
+<p>If we detect this, we should extract common parts to higher-order function/class:</p>
+<ul>
+<li><a href="http://eloquentjavascript.net/05_higher_order.html">Higher-order function</a></li>
+<li><a href="https://reactjs.org/docs/higher-order-components.html">Higher-order component in React</a></li>
+<li><a href="http://www.websiteoptimization.com/speed/tweak/classes/">Shared CSS class with common styles</a></li>
+</ul>
+<p>These techniques allow us avoid code duplication and reuse function/style logic.</p>
+<pre><code class="language-js">import React, {Component} from 'react'
+
+class Dashboard extends Component {
+  componentDidMount () {
+    document.title = 'Dashboard'
+  }
+
+  render () {
+    return (
+      &lt;SomeComponent /&gt;
+    )
+  }
+}
+
+class Profile extends Component {
+  componentDidMount () {
+    document.title = 'Profile'
+  }
+
+  render () {
+    return (
+      &lt;AnotherComponent /&gt;
+    )
+  }
+}
+</code></pre>
+<p>Some common logic is in the example.
+Each of components sets document title in its <code>componentDidMount</code> life-cycle method.
+Extracting this will turn more reusable code without duplication.</p>
+<pre><code class="language-js">import React, {Component} from 'react'
+
+function withTitle (title) {
+  return Decorated =&gt; class extends Component {
+    componentDidMount () {
+      document.title = title
+    }
+
+    render () {
+      return (
+        &lt;Decorated {...this.props} /&gt;
+      )
+    }
+  }
+}
+
+@withTitle('Dashboard')
+class Dashboard extends Component {
+  render () {
+    return (
+      &lt;SomeComponent /&gt;
+    )
+  }
+}
+
+@withTitle('Profile')
+class Profile extends Component {
+  render () {
+    return (
+      &lt;AnotherComponent /&gt;
+    )
+  }
+}
+</code></pre>
+<h3>Caching</h3>
+<p>After reducing the size of our bundle, we should directly think about loading it with browser.
+If we have single bundle, user browser will be forced to load it again after each code change.
+To avoid this, we can use browser technique called caching.
+Browser caching allows you speed up loading recources by saving files locally.</p>
+<p>We laid a good basis to cache our code applying the tree shaking, splitting and extracting.
+After splitting, we have few small chunks.
+Each of them can be cached.
+With tools like webpack, we can easy <a href="https://webpack.js.org/guides/caching/">configure caching</a>.</p>
+<p><strong>webpack.config.js</strong>:</p>
+<pre><code class="language-js">module.exports = {
+  entry: {
+    app: './index',
+    utils: './utils'
+  },
+  output: {
+    filename: '[name].[chunkhash].js',
+    chunkFilename: '[name].[chunkhash].js',
+    path: `${__dirname}/dist`
+  }
+}
+</code></pre>
+<p>Building this project will get chunks with chunk-specific hashes in filenames:</p>
+<pre><code>dist
+|- app.e2a5ac13d7b26742f4d7.js
+|- utils.e646121558170aeedd91.js
+</code></pre>
+<p>Now when we modify code in one module, building this project update only one chunk containing this module with new hash.
+User browser will have to load again only this updated chunk.
+Other ones will be taken from browser cache.</p>
+<p>One more thing we can apply to build is a manual extracting vendor modules and lock their versions.
+External libraries are updated us less often than own code.
+So we should minimize the force loading of a chunk containing this libraries.</p>
+<p><strong>webpack.config.js</strong>:</p>
+<pre><code class="language-js">const webpack = require('webpack')
+
+module.exports = {
+  entry: {
+    app: './index',
+    utils: './utils',
+    vendor: [
+      'react',
+      'react-dom'
+    ]
+  },
+  output: {
+    filename: '[name].[chunkhash].js',
+    chunkFilename: '[name].[chunkhash].js',
+    path: `${__dirname}/dist`
+  },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: Infinity
+    })
+  ]
+}
+</code></pre>
+<p>Building with this config will make the following output:</p>
+<pre><code>dist
+|- app.e2a5ac13d7b26742f4d7.js
+|- utils.e646121558170aeedd91.js
+|- vendor.95dc51f578ab5785150a.js
+</code></pre>
+<h3>More things</h3>
+<p>That’s all.
+We’ve learned few useful methods to speed up loading of our resources.
+If you have a slow loaded app with a big bundle for shipping, try to apply all those techniques to your building process.</p>
+<p>Research what you can do to reduce the loading time more.
+Here are some other approaches to help you optimize this more:</p>
+<ul>
+<li><a href="https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/">Preload: What Is It Good For?</a></li>
+<li><a href="https://gomakethings.com/inlining-critical-css-for-better-web-performance/">Inlining critical CSS for better web performance</a></li>
+<li><a href="https://medium.com/walmartlabs/the-benefits-of-server-side-rendering-over-client-side-rendering-5d07ff2cefe8">The Benefits of Server Side Rendering Over Client Side Rendering</a></li>
+</ul>
+<p>Think about loading performance at every turn.</p>
+
+      <footer>
+        <nav><span><a href="/about-to-do-shedule-and-planning/">←&nbsp;About to-do, schedule and planning</a></span><span><a href="/">All notes&nbsp;↑</a></span></nav>
+      </footer>
+    </article>
+    <script async="" src="/index.js"></script>
+  </body>
+</html>
