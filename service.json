@@ -1,0 +1,12 @@
+[
+  {
+    "basename": "404",
+    "title": "Page not found",
+    "description": "Go to <a href='/'>notes list</a>"
+  },
+  {
+    "basename": "offline",
+    "title": "You are offline",
+    "description": "Try again later"
+  }
+]

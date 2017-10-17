@@ -1,7 +1,7 @@
 extend layout
 
 block title
-  title You are offline
+  title= page.title
 
 block meta
   meta(name='description', content=site.description)
@@ -13,5 +13,5 @@ block meta
   meta(name='twitter:image', content='https://github.com/andrepolischuk.png')
 
 block header
-  h1 You are offline
-  p Try again later
+  h1= page.title
+  p!= page.description

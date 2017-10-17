@@ -21,6 +21,7 @@ import customProperties from 'postcss-custom-properties'
 import {writeFile} from 'fs'
 import {basename, extname} from 'path'
 import {site} from './package'
+import service from './service'
 
 const getAllLinks = notes => notes
   .reduce((acc, note) => acc.concat(note.links), [])
@@ -126,21 +127,22 @@ gulp.task('links', () =>
     .pipe(gulp.dest('dist'))
 )
 
-gulp.task('offline', () =>
-  gulp.src('layouts/offline.pug')
+gulp.task('service', next => {
+  each(service, (page, i) => gulp.src('layouts/service.pug')
     .pipe(plumber())
     .pipe(put({
-      site
+      site,
+      page
     }))
     .pipe(pug({
       pretty: true
     }))
     .pipe(rename({
       dirname: '/',
-      basename: 'offline'
+      basename: page.basename
     }))
-    .pipe(gulp.dest('dist'))
-)
+    .pipe(gulp.dest('dist')), next)
+})
 
 gulp.task('styles', () =>
   gulp.src('styles.css')
@@ -183,7 +185,7 @@ gulp.task('clean', next => del(['dist'], next))
 
 gulp.task('layout', gulp.series(
   'collect',
-  gulp.parallel('notes', 'index', 'links', 'offline')
+  gulp.parallel('notes', 'index', 'links', 'service')
 ))
 
 gulp.task('build', gulp.series(
