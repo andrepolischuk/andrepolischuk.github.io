@@ -54,8 +54,10 @@ footer {
 }
 
 footer p {
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 450px;
+  font-style: italic;
   text-align: center;
 }
 
