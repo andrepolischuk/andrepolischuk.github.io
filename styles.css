@@ -35,6 +35,10 @@ body > article {
   max-width: 650px;
 }
 
+header h1 + p {
+  font-size: 1.1rem;
+}
+
 main {
   margin-top: 4rem;
 }
@@ -44,29 +48,25 @@ section {
   margin-top: 3rem;
 }
 
-article header a {
-  float: right;
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-}
-
 footer {
   margin-top: 3rem;
   font-size: 0.9rem;
 }
 
 footer p {
+  margin-left: 10%;
+  margin-right: 10%;
   text-align: center;
 }
 
-article footer nav {
+footer nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin-top: 3em;
 }
 
-article footer span:last-child {
+footer span:last-child {
   text-align: right;
 }
 

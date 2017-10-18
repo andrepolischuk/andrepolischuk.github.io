@@ -22,7 +22,6 @@ block header
 block content
   article
     header
-      a(href='https://github.com/andrepolischuk/andrepolischuk.github.io/edit/premaster/notes/' + note.filename) Edit on github
       h1= note.title.text
 
     em
@@ -31,11 +30,12 @@ block content
 
     footer
       p
-        | Do you have any comments or questions about this note?
-        br
-        | Send them to me on
+        | Do you have any comments or questions about this note? Write me on
         |
         a(href='https://twitter.com/andrepolischuk') Twitter
+        | . You also can edit note
+        |
+        a(href='https://github.com/andrepolischuk/andrepolischuk.github.io/edit/premaster/notes/' + note.filename) on GitHub
         | .
 
       nav
@@ -43,9 +43,9 @@ block content
           if (prevNote)
             a(href='/' + prevNote.url)!= '←&nbsp;' + prevNote.title.text
           else
-            a(href='/')!= '↑&nbsp;All notes'
+            a(href='/')!= '↑&nbsp;All&nbsp;notes'
         span
           if (nextNote)
             a(href='/' + nextNote.url)!= nextNote.title.text + '&nbsp;→'
           else
-            a(href='/')!= 'All notes&nbsp;↑'
+            a(href='/')!= 'All&nbsp;notes&nbsp;↑'
