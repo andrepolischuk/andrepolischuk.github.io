@@ -4,7 +4,7 @@
         <description><![CDATA[Frontend engineer, spa, infrastructure, open source, help to make things better]]></description>
         <link>https://andrepolischuk.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 18 Oct 2017 23:24:50 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 19 Oct 2017 10:42:21 GMT</lastBuildDate>
         <atom:link href="https://andrepolischuk.com/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Andrey Polischuk]]></author>
         <language><![CDATA[en-us]]></language>
@@ -12,6 +12,16 @@
         <webMaster><![CDATA[me@andrepolischuk.com (Andrey Polischuk)]]></webMaster>
         <category><![CDATA[frontend]]></category>
         <category><![CDATA[javascript]]></category>
+        <item>
+            <title><![CDATA[Questions to ask before writing code]]></title>
+            <description><![CDATA[Do you everyday solve problems by writing code at your work?
+New features, bugs.
+Good, this questions for you.]]></description>
+            <link>https://andrepolischuk.com/questions-to-ask-before-writing-code/</link>
+            <guid isPermaLink="true">https://andrepolischuk.com/questions-to-ask-before-writing-code/</guid>
+            <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
+            <pubDate>Thu, 19 Oct 2017 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[How to load single-page app faster]]></title>
             <description><![CDATA[We work on apps with a lot of JavaScript code, styles.
