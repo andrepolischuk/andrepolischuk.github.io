@@ -1,0 +1,11 @@
+{
+  "rules": {
+    "common-misspellings": true,
+    "date-weekday-mismatch": true,
+    "no-dead-link": true,
+    "no-start-duplicated-conjunction": true,
+    "spellchecker": true,
+    "stop-words": true,
+    "terminology": true,
+  }
+}
