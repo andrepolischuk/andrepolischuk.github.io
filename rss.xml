@@ -4,7 +4,7 @@
         <description><![CDATA[Frontend engineer, spa, infrastructure, open source, help to make things better]]></description>
         <link>https://andrepolischuk.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 25 Dec 2017 15:59:37 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 08 Jan 2018 00:19:46 GMT</lastBuildDate>
         <atom:link href="https://andrepolischuk.com/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Andrey Polischuk]]></author>
         <language><![CDATA[en-us]]></language>
@@ -12,6 +12,14 @@
         <webMaster><![CDATA[me@andrepolischuk.com (Andrey Polischuk)]]></webMaster>
         <category><![CDATA[frontend]]></category>
         <category><![CDATA[javascript]]></category>
+        <item>
+            <title><![CDATA[2018’s to-do]]></title>
+            <description><![CDATA[I think defining goals I want achieve it’s a good start to this year.]]></description>
+            <link>https://andrepolischuk.com/2018-s-to-do/</link>
+            <guid isPermaLink="true">https://andrepolischuk.com/2018-s-to-do/</guid>
+            <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
+            <pubDate>Mon, 08 Jan 2018 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Questions to ask before writing code]]></title>
             <description><![CDATA[Do you everyday solve problems by writing code at your work?
