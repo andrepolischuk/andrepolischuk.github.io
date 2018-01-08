@@ -6,9 +6,9 @@ I think defining goals I want achieve it’s a good start to this year.
 
 I didn’t set big goals for the past year. I used simple to-do lists with current tasks. I didn’t achieve great results. At the beginning of the year I wanted create my own blog, and I did it.
 
-I like how [@denisdovhan](https://twitter.com/denysdovhan) sets public goals and summarizes every year.
+I like how [Denys Dovhan](https://twitter.com/denysdovhan) sets public goals and summarizes every year.
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">A year later:<br>• ✅ Find a girlfriend (happy be with <a href="https://twitter.com/marusia_18_?ref_src=twsrc%5Etfw">@marusia_18_</a>)<br>• ❌ Get driver&#39;s license<br>• ✅ Organize a conference and meet-ups<br>• ✅ More talks at conferences<br>• ✅ More traveling <a href="https://t.co/1nnFWvAKxu">https://t.co/1nnFWvAKxu</a></p>&mdash; Denys Dovhan (@denysdovhan) <a href="https://twitter.com/denysdovhan/status/948324208240726016?ref_src=twsrc%5Etfw">January 2, 2018</a></blockquote>
+<blockquote class="twitter-tweet tw-align-center" data-lang="en"><p lang="en" dir="ltr">A year later:<br>• ✅ Find a girlfriend (happy be with <a href="https://twitter.com/marusia_18_?ref_src=twsrc%5Etfw">@marusia_18_</a>)<br>• ❌ Get driver&#39;s license<br>• ✅ Organize a conference and meet-ups<br>• ✅ More talks at conferences<br>• ✅ More traveling <a href="https://t.co/1nnFWvAKxu">https://t.co/1nnFWvAKxu</a></p>&mdash; Denys Dovhan (@denysdovhan) <a href="https://twitter.com/denysdovhan/status/948324208240726016?ref_src=twsrc%5Etfw">January 2, 2018</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 I think it’s a good practice and I want to try it this time. It seems to me that such a public contract with myself will force me work hard on what I planned.
