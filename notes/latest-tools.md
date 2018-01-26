@@ -2,6 +2,8 @@
 
 _August 8, 2017_
 
+Useful apps and tools that I found recently. JavaScript Standard Style, Firefox Focus, and some other.
+
 Sometimes I try to use new tools for experiment. And new are often better
 for me than old ones. Early I wrote about I started use Vim and still use it.
 

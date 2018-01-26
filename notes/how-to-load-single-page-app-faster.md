@@ -2,6 +2,8 @@
 
 _October 3, 2017_
 
+Yet another research about ways to slightly reduce size and loading time of the frontend applications.
+
 We work on apps with a lot of JavaScript code, styles.
 We have the endless process of adding new features, pages, elements everyday.
 Gradually we have a problem when size and loading time of the our bundled code increases.

@@ -2,6 +2,8 @@
 
 _August 15, 2017_
 
+In this article I describe rules for keeping personal data for yourself.
+
 We send messages by centralized messengers. We post thoughts by centralized
 blogs or socials. We sync personal photos by centralized clouds.
 

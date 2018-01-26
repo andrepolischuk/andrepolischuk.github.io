@@ -2,6 +2,8 @@
 
 _August 31, 2017_
 
+Here I review the basics of security for web applications.
+
 Modern web application uses a lot of resources: own scripts, styles, requests,
 url queries, external analytics, fonts and other stuff receiving from cdns.
 And each of them may be malicious under certain conditions.

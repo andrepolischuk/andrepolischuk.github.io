@@ -2,6 +2,8 @@
 
 _September 14, 2017_
 
+Tips for simple following what you want to do. Without calendars, gtd, and other stuff.
+
 I don't like a rigid planning.
 Caledars, reminders, scheduled events are not for me.
 But at the same time I want barely control things I want to do.

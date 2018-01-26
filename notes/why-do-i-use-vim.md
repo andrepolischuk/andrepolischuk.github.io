@@ -3,6 +3,8 @@
 _August 1, 2017_
 
 ![This article in vim](https://i.imgur.com/3X4YTeg.png)  
+My reasons why I preferred vim to other code editors such an atom and sublime.
+
 Vim is amazing. I use it to write code, text notes, check lists. I use it to
 write this article. I use Vim everytime and everywhere.
 

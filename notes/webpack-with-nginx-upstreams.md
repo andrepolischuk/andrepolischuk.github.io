@@ -2,6 +2,8 @@
 
 _July 25, 2017_
 
+A simple guide to setup the dev environment using webpack with a nginx server.
+
 Currently I work on project containing a lot of applications. Each of them has
 its own structure and development process. And all of these applications
 have some requirements for dev enviroment.

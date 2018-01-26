@@ -2,6 +2,8 @@
 
 _August 25, 2017_
 
+Let’s explain yourself in code without a bunch of comments. And that’s why.
+
 Ideally code should be neat, clean and odorless. But in real world we everyday
 work with a mass of ugly and smelly commented code.
 

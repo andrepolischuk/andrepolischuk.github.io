@@ -2,6 +2,8 @@
 
 _October 19, 2017_
 
+A few questions that you can ask yourself every time to avoid writing unnecessary code.
+
 Do you everyday solve problems by writing code at your work?
 New features, bugs.
 Good, this questions for you.
