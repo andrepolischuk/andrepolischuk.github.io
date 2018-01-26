@@ -4,7 +4,7 @@
         <description><![CDATA[Frontend engineer, spa, infrastructure, open source, help to make things better]]></description>
         <link>https://andrepolischuk.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 08 Jan 2018 12:27:17 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 26 Jan 2018 10:27:49 GMT</lastBuildDate>
         <atom:link href="https://andrepolischuk.com/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Andrey Polischuk]]></author>
         <language><![CDATA[en-us]]></language>
@@ -22,9 +22,7 @@
         </item>
         <item>
             <title><![CDATA[Questions to ask before writing code]]></title>
-            <description><![CDATA[Do you everyday solve problems by writing code at your work?
-New features, bugs.
-Good, this questions for you.]]></description>
+            <description><![CDATA[A few questions that you can ask yourself every time to avoid writing unnecessary code.]]></description>
             <link>https://andrepolischuk.com/questions-to-ask-before-writing-code/</link>
             <guid isPermaLink="true">https://andrepolischuk.com/questions-to-ask-before-writing-code/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
@@ -32,9 +30,7 @@ Good, this questions for you.]]></description>
         </item>
         <item>
             <title><![CDATA[How to load single-page app faster]]></title>
-            <description><![CDATA[We work on apps with a lot of JavaScript code, styles.
-We have the endless process of adding new features, pages, elements everyday.
-Gradually we have a problem when size and loading time of the our bundled code increases.]]></description>
+            <description><![CDATA[Yet another research about ways to slightly reduce size and loading time of the frontend applications.]]></description>
             <link>https://andrepolischuk.com/how-to-load-single-page-app-faster/</link>
             <guid isPermaLink="true">https://andrepolischuk.com/how-to-load-single-page-app-faster/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
@@ -42,9 +38,7 @@ Gradually we have a problem when size and loading time of the our bundled code i
         </item>
         <item>
             <title><![CDATA[About to-do, schedule and planning]]></title>
-            <description><![CDATA[I don’t like a rigid planning.
-Caledars, reminders, scheduled events are not for me.
-But at the same time I want barely control things I want to do.]]></description>
+            <description><![CDATA[Tips for simple following what you want to do. Without calendars, gtd, and other stuff.]]></description>
             <link>https://andrepolischuk.com/about-to-do-shedule-and-planning/</link>
             <guid isPermaLink="true">https://andrepolischuk.com/about-to-do-shedule-and-planning/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
@@ -52,9 +46,7 @@ But at the same time I want barely control things I want to do.]]></description>
         </item>
         <item>
             <title><![CDATA[Protect the frontend]]></title>
-            <description><![CDATA[Modern web application uses a lot of resources: own scripts, styles, requests,
-url queries, external analytics, fonts and other stuff receiving from cdns.
-And each of them may be malicious under certain conditions.]]></description>
+            <description><![CDATA[Here I review the basics of security for web applications.]]></description>
             <link>https://andrepolischuk.com/protect-the-frontend/</link>
             <guid isPermaLink="true">https://andrepolischuk.com/protect-the-frontend/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
@@ -62,8 +54,7 @@ And each of them may be malicious under certain conditions.]]></description>
         </item>
         <item>
             <title><![CDATA[Code without comments]]></title>
-            <description><![CDATA[Ideally code should be neat, clean and odorless. But in real world we everyday
-work with a mass of ugly and smelly commented code.]]></description>
+            <description><![CDATA[Let’s explain yourself in code without a bunch of comments. And that’s why.]]></description>
             <link>https://andrepolischuk.com/code-without-comments/</link>
             <guid isPermaLink="true">https://andrepolischuk.com/code-without-comments/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
@@ -71,8 +62,7 @@ work with a mass of ugly and smelly commented code.]]></description>
         </item>
         <item>
             <title><![CDATA[Personal should be a personal]]></title>
-            <description><![CDATA[We send messages by centralized messengers. We post thoughts by centralized
-blogs or socials. We sync personal photos by centralized clouds.]]></description>
+            <description><![CDATA[In this article I describe rules for keeping personal data for yourself.]]></description>
             <link>https://andrepolischuk.com/personal-should-be-a-personal/</link>
             <guid isPermaLink="true">https://andrepolischuk.com/personal-should-be-a-personal/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
@@ -80,8 +70,7 @@ blogs or socials. We sync personal photos by centralized clouds.]]></description
         </item>
         <item>
             <title><![CDATA[Latest tools]]></title>
-            <description><![CDATA[Sometimes I try to use new tools for experiment. And new are often better
-for me than old ones. Early I wrote about I started use Vim and still use it.]]></description>
+            <description><![CDATA[Useful apps and tools that I found recently. JavaScript Standard Style, Firefox Focus, and some other.]]></description>
             <link>https://andrepolischuk.com/latest-tools/</link>
             <guid isPermaLink="true">https://andrepolischuk.com/latest-tools/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
@@ -90,8 +79,7 @@ for me than old ones. Early I wrote about I started use Vim and still use it.]]>
         <item>
             <title><![CDATA[Why do I use Vim?]]></title>
             <description><![CDATA[This article in vim
-Vim is amazing. I use it to write code, text notes, check lists. I use it to
-write this article. I use Vim everytime and everywhere.]]></description>
+My reasons why I preferred vim to other code editors such an atom and sublime.]]></description>
             <link>https://andrepolischuk.com/why-do-i-use-vim/</link>
             <guid isPermaLink="true">https://andrepolischuk.com/why-do-i-use-vim/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
@@ -99,9 +87,7 @@ write this article. I use Vim everytime and everywhere.]]></description>
         </item>
         <item>
             <title><![CDATA[Webpack with nginx upstreams]]></title>
-            <description><![CDATA[Currently I work on project containing a lot of applications. Each of them has
-its own structure and development process. And all of these applications
-have some requirements for dev enviroment.]]></description>
+            <description><![CDATA[A simple guide to setup the dev environment using webpack with a nginx server.]]></description>
             <link>https://andrepolischuk.com/webpack-with-nginx-upstreams/</link>
             <guid isPermaLink="true">https://andrepolischuk.com/webpack-with-nginx-upstreams/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
