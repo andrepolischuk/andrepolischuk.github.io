@@ -4,9 +4,9 @@ block title
   title= note.title.text
 
 block meta
-  meta(name='description', content=note.desc.text.replace(/\n/g, ' '))
-  meta(property='og:title', content=note.title.text.replace(/\n/g, ' '))
-  meta(property='og:description', content=note.desc.text.replace(/\n/g, ' '))
+  meta(name='description', content=note.desc.text)
+  meta(property='og:title', content=note.title.text)
+  meta(property='og:description', content=note.desc.text)
   meta(property='og:url', content=site.site_url + note.url)
   meta(property='og:type', content='article')
   if (note.image)

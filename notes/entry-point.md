@@ -2,8 +2,7 @@
 
 _July 20, 2017_
 
-I'm Andrey Polischuk, a frontend engineer.
-This site is my first try to write about tech things.
+I'm Andrey Polischuk, a frontend engineer. This site is my first try to write about tech things.
 
 Finally I desided to create this site by reading some ideas:
 
@@ -26,8 +25,6 @@ This site was created as simple as possible:
 * Fully static
 * With automatic deployment
 
-Follow my writings or subscribe to [RSS-feed](https://andrepolischuk.com/rss.xml).
-You can write me or follow on [GitHub](https://github.com/andrepolischuk)
-and [Twitter](https://twitter.com/andrepolischuk).
+Follow my writings or subscribe to [RSS-feed](https://andrepolischuk.com/rss.xml). You can write me or follow on [GitHub](https://github.com/andrepolischuk) and [Twitter](https://twitter.com/andrepolischuk).
 
 And you can find [site sources](https://github.com/andrepolischuk/andrepolischuk.github.io) on GitHub.
