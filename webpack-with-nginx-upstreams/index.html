@@ -32,33 +32,15 @@
         <h1>Webpack with nginx upstreams</h1>
       </header><em>
         <time>July 25, 2017</time></em><p>A simple guide to setup the dev environment using webpack with a nginx server.</p>
-<p>Currently I work on project containing a lot of applications. Each of them has
-its own structure and development process. And all of these applications
-have some requirements for dev enviroment.</p>
+<p>Currently I work on project containing a lot of applications. Each of them has its own structure and development process. And all of these applications have some requirements for dev enviroment.</p>
 <ol>
-<li>
-<p>Strict origin is required for application backend and authorization cookies.</p>
-</li>
-<li>
-<p>Sometimes the development of frontend and backend is parallel. And I need
-possibility of switching between development, test or production backends.</p>
-</li>
-<li>
-<p>I have a lot of related applications and scripts. Each of them does not work
-correctly without other. Some applications may have a hot module replacement
-in development or may be served from production.</p>
-</li>
-<li>
-<p>Some of applications are used in <code>iframe</code>. In this case strict origin is
-required to test application in dev mode with parent page from production.</p>
-</li>
-<li>
-<p>I need to use dev mode for few applications sometimes. This is not achived
-by proxy application parts with built-in webpack dev server proxy.</p>
-</li>
+<li>Strict origin is required for application backend and authorization cookies.</li>
+<li>Sometimes the development of frontend and backend is parallel. And I need possibility of switching between development, test or production backends.</li>
+<li>I have a lot of related applications and scripts. Each of them does not work correctly without other. Some applications may have a hot module replacement in development or may be served from production.</li>
+<li>Some of applications are used in <code>iframe</code>. In this case strict origin is required to test application in dev mode with parent page from production.</li>
+<li>I need to use dev mode for few applications sometimes. This is not achived by proxy application parts with built-in webpack dev server proxy.</li>
 </ol>
-<p>Therefore to start enviroment I will need to create <strong>webpack dev server</strong> for
-each of my applications and <strong>nginx server</strong> as a proxy.</p>
+<p>Therefore to start enviroment I will need to create <strong>webpack dev server</strong> for each of my applications and <strong>nginx server</strong> as a proxy.</p>
 <h2>webpack dev server</h2>
 <p>Create two applications with own <a href="https://webpack.js.org/configuration/dev-server/">webpack dev server</a> on different ports:</p>
 <ul>
@@ -113,9 +95,7 @@ if (process.env.NODE_ENV !== 'production') {
 module.exports = config
 </code></pre>
 <h2>nginx server</h2>
-<p>Create nginx server on <code>awesome.app:80</code> to <a href="http://nginx.org/en/docs/http/ngx_http_proxy_module.html">proxy</a>
-webpack dev server through <a href="http://nginx.org/en/docs/http/ngx_http_upstream_module.html">upstreams</a>
-if it’s reachable or proxy production.</p>
+<p>Create nginx server on <code>awesome.app:80</code> to <a href="http://nginx.org/en/docs/http/ngx_http_proxy_module.html">proxy</a> webpack dev server through <a href="http://nginx.org/en/docs/http/ngx_http_upstream_module.html">upstreams</a> if it’s reachable or proxy production.</p>
 <p><a href="https://github.com/andrepolischuk/webpack-nginx-example/blob/master/nginx.awesome.conf">nginx.awesome.conf</a>:</p>
 <pre><code>upstream login {
   server awesome.app:80 backup;
@@ -156,8 +136,7 @@ server {
 <pre><code>0.0.0.0 awesome.app
 </code></pre>
 <h2>Summary</h2>
-<p>Congrats! You have a simple dev enviroment for your projects. Now you just need
-to start nginx and webpack dev server for application you want make some magic.</p>
+<p>Congrats! You have a simple dev enviroment for your projects. Now you just need to start nginx and webpack dev server for application you want make some magic.</p>
 <p>You can find all sources in <a href="https://github.com/andrepolischuk/webpack-nginx-example">example</a> repo and play with it.</p>
 
       <footer>
