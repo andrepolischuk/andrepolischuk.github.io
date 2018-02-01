@@ -20,7 +20,7 @@ Let's test and publish some package to npm in CI. To configure it just add [`.gi
 In a `.gitlab-ci.yml` file you define set of [jobs](https://docs.gitlab.com/ee/ci/yaml/README.html#jobs) you want run in repository.
 
 ```yaml
----
+image: node:8
 
 test:
   script:
@@ -28,10 +28,12 @@ test:
     - npm test
 ```
 
+In this example, runner uses Docker image with node from [Docker Hub](https://hub.docker.com/r/library/node/tags/).
+
 Also you can specify [stages](https://docs.gitlab.com/ee/ci/yaml/README.html#stages) to manage the ordering of jobs’ execution. Jobs defined at the same stages run in parallel, jobs defined at the next stage run after successful completion of the previous stage.
 
 ```yaml
----
+image: node:8
 
 stages:
   - test
@@ -76,7 +78,9 @@ publish:
   script: npm publish
 ```
 
-Now test job runs on each refs, and publish job only runs when tag is pushed. You can set refs to exectute a job using regular expressions or keywords, such a `branches`, `tags`, `api`, `schedules`, and something else. Read more about [job policy in Gitlab's docs](https://docs.gitlab.com/ee/ci/yaml/README.html#only-and-except-simplified).
+Now test job runs on each refs, and publish job only runs when tag is pushed. You can set refs to exectute a job using regular expressions or keywords, such a `branches`, `tags`, `api`, `schedules`, and something else. 
+
+Read more about [job policy in Gitlab's docs](https://docs.gitlab.com/ee/ci/yaml/README.html#only-and-except-simplified).
 
 ## Secret tokens
 
@@ -92,7 +96,7 @@ You can easy automate publishing or deployment workflow with [CI variables](http
 1. Configure `.gitlab-ci.yml` to setting authToken:
 
   ```yaml
-  ---
+  image: node:8
 
   stages:
     - test
@@ -140,10 +144,10 @@ Also you can use variables to store SSH keys that using for deployment to stage 
 
 1. Copy the public key to servers you're going to deploy from CI.
 1. Copy the private key and add it as `SSH_PRIVATE_KEY` secret variable to project.
-1. Add the private key to `ssh-agent` to load.
+1. Add the private key to get access to servers in CI:
 
   ```yaml
-  ---
+  image: node:8
 
   stages:
     - test
@@ -170,7 +174,9 @@ Also you can use variables to store SSH keys that using for deployment to stage 
       - rsync -rpl ./dist/ stage.awesome.app:/dists/$CI_COMMIT_TAG/
   ```
 
-In this case when you run `npm version` command, runner tests the new version of application and then automatically deploys it to stage server.
+1. Also add `postversion` hook to application `package.json` as in the previous example.
+
+In this case, when you run `npm version` command, runner tests the new version of application and then automatically deploys it to stage server.
 
 Read more about [using SSH keys](https://docs.gitlab.com/ee/ci/ssh_keys/README.html) with Gitlab CI.
 
@@ -197,12 +203,41 @@ Following this configuration, deploy job needs to be started by a user [from pip
 
 ## Caching
 
-If you build or compile package before publishing, you'll need install dependencies before running every job. Let's speed up testing and publishing. You can specify `cache` directive with list of files which should be cached between jobs. By default Gitlab caches all files tracked by git.
+If you build or compile package before publishing, you'll need install dependencies before running every job. Let's speed up testing and publishing. You can specify `cache` directive with list of files which should be cached between jobs. If there are a lot of jobs, you reduce extraneous downloading the dependencies for each job. By default Gitlab doesn't cache files untracked by git.
 
 Add `node_modules` directory to caching list:
 
 ```yaml
----
+image: node:8
+
+stages:
+  - test
+  - publish
+
+cache:
+  paths:
+    - node_modules/
+
+test:
+  stage: test
+  script:
+    - npm install
+    - npm run lint
+    - npm test
+
+publish:
+  stage: publish
+  only:
+    - tags
+  script:
+    - echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > ~/.npmrc
+    - npm publish
+```
+
+Next step, enable per-branch caching by using `cache:key` directive. It allows cache dependencies solely between jobs with the same ref name. And all jobs run with the same dependencies’ tree.
+
+```yaml
+image: node:8
 
 stages:
   - test
@@ -234,13 +269,17 @@ publish:
     - npm publish
 ```
 
-In this example `key` directive allows to cache dependencies solely between jobs with the same ref name. Test job installs dependencies and pushes them to cache. Publish job pulls dependencies, compiles and publishes results. Read more about [caching in Gitlab's docs](https://docs.gitlab.com/ee/ci/yaml/README.html#cache).
+In this example, test job installs dependencies and pushes them to cache. Publish job pulls dependencies, compiles and publishes results. 
+
+Read more about [caching in Gitlab's docs](https://docs.gitlab.com/ee/ci/yaml/README.html#cache).
 
 ## Pages for API docs
 
 Another interesting task you can do in CI is a publishing docs for package to [Gitlab pages](https://docs.gitlab.com/ee/user/project/pages/). Add job called `pages` to `.gitlab-ci.yml` file with [`artifacts` directive](https://docs.gitlab.com/ee/ci/yaml/README.html#artifacts) to tell runner that this job creates artifacts.
 
 ```yaml
+image: node:8
+
 stages:
   - test
   - publish
@@ -276,3 +315,4 @@ Read the CI docs to gain a deeper understanding how it works:
 * [Introduction to pipelines and jobs](https://docs.gitlab.com/ee/ci/pipelines.html)
 * [GitLab CI/CD Variables](https://docs.gitlab.com/ee/ci/variables/README.html)
 * [Configuring GitLab Runners](https://docs.gitlab.com/ee/ci/runners/README.html)
+* [Using Docker images](https://docs.gitlab.com/ce/ci/docker/using_docker_images.html)
