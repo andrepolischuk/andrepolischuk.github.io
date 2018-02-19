@@ -45,7 +45,7 @@ main {
 
 article,
 section {
-  margin-top: 3rem;
+  margin-top: 2.5rem;
 }
 
 footer {
@@ -72,14 +72,19 @@ footer span:last-child {
   text-align: right;
 }
 
-h1,
-h3,
-strong {
-  font-weight: 500;
+h1 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1.1;
 }
 
 h2 {
   font-weight: 400;
+}
+
+h3,
+strong {
+  font-weight: 500;
 }
 
 pre,
