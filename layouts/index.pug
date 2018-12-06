@@ -33,15 +33,6 @@ block content
   main
     each note in notes
       section
-        h2
-          a(href='/' + note.url)= note.title.text
+        a(href='/' + note.url)= note.title.text
         em
           time= note.date.text
-        p!= note.desc.html
-
-    footer
-      p
-        | Do you have any comments or questions about my site? Send them to me on
-        |
-        a(href='https://twitter.com/andrepolischuk') Twitter
-        | .
