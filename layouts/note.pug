@@ -23,8 +23,9 @@ block content
   article
     header
       h1= note.title.text
-      em
-        time= note.date.text
+      p
+        em
+          time= note.date.text
 
     != note.content.html
 

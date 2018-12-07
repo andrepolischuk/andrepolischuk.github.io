@@ -142,6 +142,7 @@ blockquote {
 
 em {
   font-size: 0.9rem;
+  white-space: nowrap;
 }
 
 a {
@@ -149,7 +150,8 @@ a {
   transition: color 200ms;
 }
 
-a:hover {
+a:hover,
+a:focus {
   color: var(--accent);
 }
 
