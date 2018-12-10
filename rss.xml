@@ -4,7 +4,7 @@
         <description><![CDATA[Frontend engineer, React, CSS in JS, infrastructure, help to make things better]]></description>
         <link>https://andrepolischuk.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 07 Dec 2018 06:18:26 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 10 Dec 2018 14:16:36 GMT</lastBuildDate>
         <atom:link href="https://andrepolischuk.com/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Andrey Polischuk]]></author>
         <language><![CDATA[en-us]]></language>
@@ -12,6 +12,14 @@
         <webMaster><![CDATA[me@andrepolischuk.com (Andrey Polischuk)]]></webMaster>
         <category><![CDATA[frontend]]></category>
         <category><![CDATA[javascript]]></category>
+        <item>
+            <title><![CDATA[Commenting a code]]></title>
+            <description><![CDATA[Last year i wrote the note about waste comments in code. But now it seems to me that this explanation is not fully right. I was supporting a lot of apps, widgets with externalized API and shareable modules this year. And I found two specific case where comments can be useful.]]></description>
+            <link>https://andrepolischuk.com/commenting-a-code/</link>
+            <guid isPermaLink="true">https://andrepolischuk.com/commenting-a-code/</guid>
+            <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
+            <pubDate>Mon, 10 Dec 2018 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[How to start using Gitlab CI]]></title>
             <description><![CDATA[Quick start of testing, building and deploying packages or applications with the built-in CI.]]></description>

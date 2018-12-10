@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#1fc8a9">
+    <title>Commenting a code</title>
+    <link rel="preload" href="/styles.css" as="style">
+    <link rel="preload" href="/index.js" as="script">
+    <link href="https://andrepolischuk.com/rss.xml" title="Andrey Polischuk" rel="alternate" type="application/rss+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" href="/images/favicon48.png" sizes="48x48">
+    <meta name="author" content="Andrey Polischuk">
+    <meta property="og:site_name" content="Andrey Polischuk">
+    <meta property="article:author" content="https://andrepolischuk.com/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@andrepolischuk">
+    <meta name="description" content="Last year i wrote the note about waste comments in code. But now it seems to me that this explanation is not fully right. I was supporting a lot of apps, widgets with externalized API and shareable modules this year. And I found two specific case where comments can be useful.">
+    <meta property="og:title" content="Commenting a code">
+    <meta property="og:description" content="Last year i wrote the note about waste comments in code. But now it seems to me that this explanation is not fully right. I was supporting a lot of apps, widgets with externalized API and shareable modules this year. And I found two specific case where comments can be useful.">
+    <meta property="og:url" content="https://andrepolischuk.com/commenting-a-code/">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://github.com/andrepolischuk.png">
+    <meta name="twitter:image" content="https://github.com/andrepolischuk.png">
+  </head>
+  <body>
+    <header><a href="/">Andrey Polischuk</a>
+    </header>
+    <article>
+      <header>
+        <h1>Commenting a code</h1>
+        <p><em>
+            <time>December 10, 2018</time></em></p>
+      </header><p>Last year i wrote <a href="/code-without-comments/">the note</a> about waste comments in code. But now it seems to me that this explanation is not fully right. I was supporting a lot of apps, widgets with externalized API and shareable modules this year. And I found two specific case where comments can be useful.</p>
+<p>First, comments can help explain why did you write a code in this way.</p>
+<p>Second, comments can help generate documentation of any module API for engineers who use it.</p>
+<h2>Explanation</h2>
+<p>You write the error fix over a module with bug. Or you wait some feature in it. Clarify what do you fix. Attach link to issue on tracker to clarify.</p>
+<p>You create a module that somebody can not understand without knowledge of relations with other parts of system. Give more info how they interact here.</p>
+<p>You increase performance and write unreadable code with binary operations. Write why do you use it. Add link to algorithm do you apply in this case.</p>
+<pre><code class="language-js">const ns = '2f1acc6c3a606b082e5eef5e54414ffb'
+if (global[ns] == null) global[ns] = 0
+
+// Bundle may contain multiple JSS versions at the same time. In order to identify
+// the current version with just one short number and use it for classes generation
+// we use a counter. Also it is more accurate, because user can manually reevaluate
+// the module.
+export default global[ns]++
+</code></pre>
+<p>Anyway, write a comment to talk something for users who will work with your code.</p>
+<h2>Documentation</h2>
+<p>API description in code is not user-friendly approach. But it’s a good start to setup auto-generated docs for systems.</p>
+<pre><code class="language-js">/**
+ * Initialize a new `Command`.
+ *
+ * @param {String} name
+ * @api public
+ */
+
+function Command(name) {
+  this.commands = [];
+  this.options = [];
+  this._execs = {};
+  this._allowUnknownOption = false;
+  this._args = [];
+  this._name = name || '';
+}
+</code></pre>
+<p>You can write about all functions or methods of API manually in readme. Or you can describe each methods in its code. Choose <code>jsdoc</code> format for your comments and start.</p>
+<p>Then add precommit hook to transform comments from code to any human-readable format of docs. Thanks to community, there are great tools to generate docs: <a href="https://github.com/jsdoc2md/jsdoc-to-markdown">jsdoc-to-markdown</a>, <a href="https://github.com/documentationjs/documentation">documentation.js</a>, <a href="https://github.com/styleguidist/react-styleguidist">react styleguidist</a>.</p>
+<p>That’s all. Write comments. With their help you’ll explain ambiguous approaches or automate documenting. But you should purge the rest comments from your code.</p>
+
+      <footer>
+        <nav><span><a href="/how-to-start-using-gitlab-ci/">←&nbsp;How to start using Gitlab CI</a></span><span><a href="/">All&nbsp;notes&nbsp;↑</a></span></nav>
+      </footer>
+    </article>
+    <script async="" src="/index.js"></script>
+  </body>
+</html>
