@@ -27,7 +27,7 @@ if (global[ns] == null) global[ns] = 0
 export default global[ns]++
 ```
 
-Anyway, write a comment to talk something for users who will work with your code.
+Anyway, write a comment to tell something for users who will work with your code.
 
 ## Documentation
 
