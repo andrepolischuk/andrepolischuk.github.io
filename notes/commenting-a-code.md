@@ -2,7 +2,7 @@
 
 _December 10, 2018_
 
-Last year i wrote [the note](/code-without-comments/) about waste comments in code. But now it seems to me that this explanation is not fully right. I was supporting a lot of apps, widgets with externalized API and shareable modules this year. And I found two specific case where comments can be useful.
+Last year I wrote [the note](/code-without-comments/) about waste comments in code. But now it seems to me that this explanation is not fully right. I was supporting a lot of apps, widgets with externalized API and shareable modules this year. And I found two specific case where comments can be useful.
 
 First, comments can help explain why did you write a code in this way.
 
@@ -54,5 +54,7 @@ function Command(name) {
 You can write about all functions or methods of API manually in readme. Or you can describe each methods in its code. Choose `jsdoc` format for your comments and start.
 
 Then add precommit hook to transform comments from code to any human-readable format of docs. Thanks to community, there are great tools to generate docs: [jsdoc-to-markdown](https://github.com/jsdoc2md/jsdoc-to-markdown), [documentation.js](https://github.com/documentationjs/documentation), [react styleguidist](https://github.com/styleguidist/react-styleguidist).
+
+## ***
 
 That’s all. Write comments. With their help you’ll explain ambiguous approaches or automate documenting. But you should purge the rest comments from your code.
