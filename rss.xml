@@ -4,7 +4,7 @@
         <description><![CDATA[Frontend engineer, React, CSS in JS, infrastructure, help to make things better]]></description>
         <link>https://andrepolischuk.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 10 Dec 2018 16:13:49 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 11 Dec 2018 16:08:12 GMT</lastBuildDate>
         <atom:link href="https://andrepolischuk.com/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Andrey Polischuk]]></author>
         <language><![CDATA[en-us]]></language>
@@ -14,7 +14,7 @@
         <category><![CDATA[javascript]]></category>
         <item>
             <title><![CDATA[Commenting a code]]></title>
-            <description><![CDATA[Last year i wrote the note about waste comments in code. But now it seems to me that this explanation is not fully right. I was supporting a lot of apps, widgets with externalized API and shareable modules this year. And I found two specific case where comments can be useful.]]></description>
+            <description><![CDATA[Last year I wrote the note about waste comments in code. But now it seems to me that this explanation is not fully right. I was supporting a lot of apps, widgets with externalized API and shareable modules this year. And I found two specific case where comments can be useful.]]></description>
             <link>https://andrepolischuk.com/commenting-a-code/</link>
             <guid isPermaLink="true">https://andrepolischuk.com/commenting-a-code/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
