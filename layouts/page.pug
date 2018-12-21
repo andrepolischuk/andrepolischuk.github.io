@@ -1,0 +1,45 @@
+extend layout
+
+block title
+  title= page.title.text
+
+block meta
+  meta(name='description', content=page.desc.text)
+  meta(property='og:title', content=page.title.text)
+  meta(property='og:description', content=page.desc.text)
+  meta(property='og:url', content=site.site_url + page.url)
+  meta(property='og:type', content='article')
+  if (page.image)
+    meta(property='og:image', content=page.image.src)
+    meta(name='twitter:image', content=page.image.src)
+  else
+    meta(property='og:image', content='https://github.com/andrepolischuk.png')
+    meta(name='twitter:image', content='https://github.com/andrepolischuk.png')
+
+block header
+  a(href='/')= site.title
+
+block content
+  article
+    header
+      h1= page.title.text
+      if (page.date)
+        p
+          em
+            time= page.date.text
+
+    != page.content.html
+
+    if (prevPage || nextPage)
+      footer
+        nav
+          span
+            if (prevPage)
+              a(href='/' + prevPage.url)!= '←&nbsp;' + prevPage.title.text
+            else
+              a(href='/')!= '↑&nbsp;All&nbsp;stories'
+          span
+            if (nextPage)
+              a(href='/' + nextPage.url)!= nextPage.title.text + '&nbsp;→'
+            else
+              a(href='/')!= 'All&nbsp;stories&nbsp;↑'

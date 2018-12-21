@@ -22,12 +22,15 @@ import {basename, extname} from 'path'
 import {site} from './package'
 import service from './service'
 
-let notes = []
+let sitePages = []
+let storyPages = []
 
 gulp.task('collect', () => {
-  notes = []
+  let pages = []
+  sitePages = []
+  storyPages = []
 
-  return gulp.src(['notes/*.md', '!notes/_*'])
+  return gulp.src(['pages/*.md', '!pages/_*'])
     .pipe((() => through.obj(
       (file, enc, next) => {
         const source = file.contents.toString()
@@ -44,7 +47,7 @@ gulp.task('collect', () => {
           .processSync(source)
           .toString()
 
-        notes.push(Object.assign(
+        pages.push(Object.assign(
           {
             filename: file.relative,
             url: `${basename(file.relative, extname(file.relative))}/`
@@ -55,7 +58,12 @@ gulp.task('collect', () => {
         next(null, false)
       },
       next => {
-        notes = notes
+        sitePages = pages
+          .filter(x => !x.date)
+          .filter(x => !!x.title)
+          .filter(x => !!x.desc)
+
+        storyPages = pages
           .filter(x => !!x.date)
           .filter(x => !!x.title)
           .filter(x => !!x.desc)
@@ -66,20 +74,37 @@ gulp.task('collect', () => {
     ))())
 })
 
-gulp.task('notes', next => {
-  each(notes, (note, i) => gulp.src('layouts/note.pug')
+gulp.task('site pages', next => {
+  each(sitePages, (page, i) => gulp.src('layouts/page.pug')
     .pipe(plumber())
     .pipe(put({
       site,
-      note,
-      prevNote: notes[i + 1],
-      nextNote: notes[i - 1]
+      page
     }))
     .pipe(pug({
       pretty: true
     }))
     .pipe(rename({
-      dirname: note.url,
+      dirname: page.url,
+      basename: 'index'
+    }))
+    .pipe(gulp.dest('dist')), next)
+})
+
+gulp.task('story pages', next => {
+  each(storyPages, (page, i) => gulp.src('layouts/page.pug')
+    .pipe(plumber())
+    .pipe(put({
+      site,
+      page,
+      prevPage: storyPages[i + 1],
+      nextPage: storyPages[i - 1]
+    }))
+    .pipe(pug({
+      pretty: true
+    }))
+    .pipe(rename({
+      dirname: page.url,
       basename: 'index'
     }))
     .pipe(gulp.dest('dist')), next)
@@ -90,7 +115,7 @@ gulp.task('index', () =>
     .pipe(plumber())
     .pipe(put({
       site,
-      notes
+      pages: storyPages
     }))
     .pipe(pug({
       pretty: true
@@ -132,13 +157,13 @@ gulp.task('styles', () =>
 gulp.task('rss', next => {
   let feed = new RSS(site)
 
-  notes.forEach(note => {
+  storyPages.forEach(page => {
     feed.item({
-      title: note.title.text,
-      description: note.desc.text,
-      url: site.site_url + note.url,
+      title: page.title.text,
+      description: page.desc.text,
+      url: site.site_url + page.url,
       author: site.author,
-      date: note.date.text
+      date: page.date.text
     })
   })
 
@@ -160,7 +185,7 @@ gulp.task('clean', next => del(['dist'], next))
 
 gulp.task('layout', gulp.series(
   'collect',
-  gulp.parallel('notes', 'index', 'service')
+  gulp.parallel('site pages', 'story pages', 'index', 'service')
 ))
 
 gulp.task('build', gulp.series(

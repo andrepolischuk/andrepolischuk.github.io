@@ -2,7 +2,7 @@
   {
     "basename": "404",
     "title": "Page not found",
-    "description": "Go to <a href='/'>notes list</a>"
+    "description": "Go to <a href='/'>main page</a>"
   },
   {
     "basename": "offline",

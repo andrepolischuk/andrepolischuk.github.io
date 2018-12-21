@@ -1,5 +1,7 @@
 # Stack history
 
+What are in my stack?
+
 ## 2018
 
 - reasonml
@@ -42,12 +44,13 @@
 - eslint
 - react
 - redux
-- less
 - postcss
 - webpack
 - travis
 - zsh
 - oh-my-zsh
+- less
+- google closure library
 
 ## 2014
 
@@ -81,12 +84,3 @@
 
 - pascal
 - delphi
-
-
-
-
-
-
-
-
-

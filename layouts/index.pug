@@ -29,8 +29,8 @@ block header
 
 block content
   main
-    each note in notes
+    each page in pages
       section
-        a(href='/' + note.url)= note.title.text
+        a(href='/' + page.url)= page.title.text
         em
-          time= note.date.text
+          time= page.date.text
