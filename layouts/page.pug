@@ -33,13 +33,14 @@ block content
     if (prevPage || nextPage)
       footer
         nav
-          span
-            if (prevPage)
-              a(href='/' + prevPage.url)!= '←&nbsp;' + prevPage.title.text
-            else
-              a(href='/')!= '↑&nbsp;All&nbsp;stories'
-          span
-            if (nextPage)
-              a(href='/' + nextPage.url)!= nextPage.title.text + '&nbsp;→'
-            else
-              a(href='/')!= 'All&nbsp;stories&nbsp;↑'
+          ul
+            li
+              if (prevPage)
+                a(href='/' + prevPage.url)!= '←&nbsp;' + prevPage.title.text
+              else
+                a(href='/')!= '↑&nbsp;All&nbsp;stories'
+            li
+              if (nextPage)
+                a(href='/' + nextPage.url)!= nextPage.title.text + '&nbsp;→'
+              else
+                a(href='/')!= 'All&nbsp;stories&nbsp;↑'

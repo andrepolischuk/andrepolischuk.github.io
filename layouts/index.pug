@@ -14,23 +14,24 @@ block meta
 
 block header
   h1= site.title
-
-  p
-    | Find me on
-    |
-    a(href='https://github.com/andrepolischuk') GitHub
-    | ,
-    |
-    a(href='https://twitter.com/andrepolischuk') Twitter
-    |
-    | or follow the
-    |
-    a(href='/rss.xml') RSS-feed
+  p Personal blog
 
 block content
   main
     each page in pages
       section
-        a(href='/' + page.url)= page.title.text
+        h4
+          a(href='/' + page.url)= page.title.text
         em
           time= page.date.text
+
+    footer
+      ul
+        li
+          a(href='https://github.com/andrepolischuk') GitHub
+        li
+          a(href='https://twitter.com/andrepolischuk') Twitter
+        li
+          a(href='/gpg.asc') GPG
+        li
+          a(href='/rss.xml') RSS-feed

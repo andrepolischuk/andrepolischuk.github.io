@@ -1,8 +1,10 @@
 :root {
   --background: white;
   --main: #28292b;
-  --accent: #FF2A93;
-  --additional: rgba(0, 0, 0, 0.05);
+  --accent: #FF7E8D;
+  --link: #004076;
+  --dim: #CBCDD7;
+  --light: rgba(0, 0, 0, 0.05);
 }
 
 html {
@@ -36,6 +38,11 @@ body > article {
   max-width: 650px;
 }
 
+header a,
+footer a {
+  color: var(--dim);
+}
+
 main {
   margin-top: 3rem;
 }
@@ -43,6 +50,11 @@ main {
 article,
 section {
   margin-top: 1rem;
+}
+
+section h4 {
+  display: inline;
+  margin: 0;
 }
 
 section a {
@@ -62,23 +74,40 @@ footer p {
   font-style: italic;
 }
 
-footer nav {
+footer ul {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  margin-top: 3em;
+  justify-content: flex-start;
+  list-style: none;
+  margin: 3em 0 0;
+  padding: 0;
 }
 
-footer span:last-child {
+footer nav ul {
+  justify-content: space-between;
+}
+
+footer li {
+  margin: 0;
+}
+
+footer li + li {
+  margin-left: 0.9rem;
+}
+
+footer li:last-child {
   text-align: right;
 }
 
 h1 {
+  display: inline;
   margin-top: 0;
   margin-bottom: 1rem;
+  color: var(--accent);
   font-size: 2.5rem;
-  font-weight: 400;
+  font-weight: 700;
   line-height: 1.1;
+  box-shadow: inset 0px -2.5rem 0px var(--background);
 }
 
 article h1 {
@@ -112,7 +141,7 @@ h3 + p {
 
 pre,
 code {
-  background-color: var(--additional);
+  background-color: var(--light);
   font-family: Menlo, Monaco, Courier New, Courier, monospace;
 }
 
@@ -135,7 +164,7 @@ pre code {
 }
 
 blockquote {
-  border-left: 0.2rem solid var(--additional);
+  border-left: 0.2rem solid var(--light);
   margin-left: 0;
   padding-left: 1rem;
 }
@@ -146,7 +175,7 @@ em {
 }
 
 a {
-  color: var(--main);
+  color: var(--link);
   transition: color 200ms;
 }
 
