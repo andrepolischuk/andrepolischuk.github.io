@@ -100,14 +100,12 @@ footer li:last-child {
 }
 
 h1 {
-  display: inline;
   margin-top: 0;
   margin-bottom: 1rem;
   color: var(--accent);
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 1.1;
-  box-shadow: inset 0px -2.5rem 0px var(--background);
 }
 
 article h1 {
