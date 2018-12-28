@@ -81,7 +81,7 @@ Create nginx server on `awesome.app:80` to [proxy](http://nginx.org/en/docs/http
 
 [nginx.awesome.conf](https://github.com/andrepolischuk/webpack-nginx-example/blob/master/nginx.awesome.conf):
 
-```
+```nginx
 upstream login {
   server awesome.app:80 backup;
   server awesome.app:3001;
@@ -120,7 +120,7 @@ server {
 
 Append domain into the `hosts` file:
 
-```
+```raw
 0.0.0.0 awesome.app
 ```
 

@@ -1,10 +1,10 @@
 :root {
   --background: white;
   --main: #28292b;
-  --accent: #FF7E8D;
+  --accent: #ff7e8d;
   --link: #004076;
-  --dim: #CBCDD7;
-  --light: rgba(0, 0, 0, 0.05);
+  --dim: #cbcdd7;
+  --light: #fafafa;
 }
 
 html {
@@ -139,12 +139,8 @@ h3 + p {
 
 pre,
 code {
-  background-color: var(--light);
   font-family: Menlo, Monaco, Courier New, Courier, monospace;
-}
-
-pre > code {
-  background-color: transparent;
+  background-color: var(--light);
 }
 
 pre {
@@ -154,11 +150,11 @@ pre {
 
 code {
   padding: 0.1rem 0.2rem;
-  font-size: 0.9rem;
 }
 
 pre code {
   padding: 0;
+  background-color: transparent;
 }
 
 blockquote {

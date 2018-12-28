@@ -88,7 +88,7 @@ You can easy automate publishing or deployment workflow with [CI variables](http
 
 1. Generate the npm auth token locally by logging onto npm with `npm login` command. This will save auth token to npm configuration file `~/.npmrc`:
 
-  ```
+  ```yaml
   //registry.npmjs.org/:_authToken=NPM_AUTH_TOKEN
   ```
 

@@ -34,7 +34,7 @@ It's very simple and contains only three points:
 
 I avoid using any reminders or scheduled events. I don't separate personal, work and other tasks and goals in the list. There are some examples:
 
-```
+```raw
 task about clickjacking +
 finalise to-do, schedule and planning
 fix replace \n with space

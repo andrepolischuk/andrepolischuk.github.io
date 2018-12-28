@@ -106,7 +106,7 @@ init()
 
 Building this project will turn three small chunks:
 
-```
+```raw
 dist
 |- app.chunk.js
 |- check.chunk.js
@@ -141,7 +141,7 @@ module.exports = {
 
 After building this project common code parts will be moved to separate chunk:
 
-```
+```raw
 dist
 |- app.chunk.js
 |- common.chunk.js
@@ -256,7 +256,7 @@ module.exports = {
 
 Building this project will get chunks with chunk-specific hashes in filenames:
 
-```
+```raw
 dist
 |- app.e2a5ac13d7b26742f4d7.js
 |- utils.e646121558170aeedd91.js
@@ -296,7 +296,7 @@ module.exports = {
 
 Building with this config will make the following output:
 
-```
+```raw
 dist
 |- app.e2a5ac13d7b26742f4d7.js
 |- utils.e646121558170aeedd91.js

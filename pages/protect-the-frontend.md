@@ -42,7 +42,7 @@ Web applications have some vulnerabilities which enable the following attacks:
 
   For example, you received email with link to site that you use:
 
-  ```
+  ```raw
   Hi,
 
   Go to the link and win
@@ -101,7 +101,7 @@ There are several techniques to protect apps against attacks:
 * Forbid embed application into iframe by send [`X-FRAME-OPTIONS`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options)
   header in response.
 
-  ```
+  ```raw
   X-Frame-Options: DENY
   X-Frame-Options: SAMEORIGIN
   X-Frame-Options: ALLOW-FROM https://awesome.app/
@@ -109,7 +109,7 @@ There are several techniques to protect apps against attacks:
 
 * Use the [Content Security Policy](https://content-security-policy.com). With it we can define some rules for browser to control loading and behavior of scripts, images, requests and other sources by send `Content-Security-Policy` header.
 
-  ```
+  ```raw
   # default policy allows only self sources over HTTPS
   default-src 'self' https:
 
