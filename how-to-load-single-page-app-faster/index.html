@@ -16,6 +16,11 @@
     <meta property="article:author" content="https://andrepolischuk.com/">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@andrepolischuk">
+    <link rel="preload" href="//unpkg.com/prismjs@1.15.0/themes/prism.css" as="style">
+    <link rel="preload" href="//unpkg.com/prismjs-material-theme@1.0.0/css/lighter.min.css" as="style">
+    <link rel="preload" href="//unpkg.com/prismjs@1.15.0/prism.js" as="script">
+    <link rel="stylesheet" href="//unpkg.com/prismjs@1.15.0/themes/prism.css">
+    <link rel="stylesheet" href="//unpkg.com/prismjs-material-theme@1.0.0/css/lighter.min.css">
     <meta name="description" content="Yet another research about ways to slightly reduce size and loading time of the frontend applications.">
     <meta property="og:title" content="How to load single-page app faster">
     <meta property="og:description" content="Yet another research about ways to slightly reduce size and loading time of the frontend applications.">
@@ -103,7 +108,7 @@ async function init () {
 init()
 </code></pre>
 <p>Building this project will turn three small chunks:</p>
-<pre><code>dist
+<pre><code class="language-raw">dist
 |- app.chunk.js
 |- check.chunk.js
 |- loader.chunk.js
@@ -130,7 +135,7 @@ module.exports = {
 }
 </code></pre>
 <p>After building this project common code parts will be moved to separate chunk:</p>
-<pre><code>dist
+<pre><code class="language-raw">dist
 |- app.chunk.js
 |- common.chunk.js
 |- dashboard.chunk.js
@@ -228,7 +233,7 @@ class Profile extends Component {
 }
 </code></pre>
 <p>Building this project will get chunks with chunk-specific hashes in filenames:</p>
-<pre><code>dist
+<pre><code class="language-raw">dist
 |- app.e2a5ac13d7b26742f4d7.js
 |- utils.e646121558170aeedd91.js
 </code></pre>
@@ -260,7 +265,7 @@ module.exports = {
 }
 </code></pre>
 <p>Building with this config will make the following output:</p>
-<pre><code>dist
+<pre><code class="language-raw">dist
 |- app.e2a5ac13d7b26742f4d7.js
 |- utils.e646121558170aeedd91.js
 |- vendor.95dc51f578ab5785150a.js
@@ -285,6 +290,7 @@ module.exports = {
           </ul>
         </nav>
       </footer>
+      <script async="" src="//unpkg.com/prismjs@1.15.0/prism.js"></script>
     </article>
     <script async="" src="/index.js"></script>
   </body>

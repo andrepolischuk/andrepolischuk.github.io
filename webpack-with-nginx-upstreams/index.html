@@ -16,6 +16,11 @@
     <meta property="article:author" content="https://andrepolischuk.com/">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@andrepolischuk">
+    <link rel="preload" href="//unpkg.com/prismjs@1.15.0/themes/prism.css" as="style">
+    <link rel="preload" href="//unpkg.com/prismjs-material-theme@1.0.0/css/lighter.min.css" as="style">
+    <link rel="preload" href="//unpkg.com/prismjs@1.15.0/prism.js" as="script">
+    <link rel="stylesheet" href="//unpkg.com/prismjs@1.15.0/themes/prism.css">
+    <link rel="stylesheet" href="//unpkg.com/prismjs-material-theme@1.0.0/css/lighter.min.css">
     <meta name="description" content="A simple guide to setup the dev environment using webpack with a nginx server.">
     <meta property="og:title" content="Webpack with nginx upstreams">
     <meta property="og:description" content="A simple guide to setup the dev environment using webpack with a nginx server.">
@@ -98,7 +103,7 @@ module.exports = config
 <h2>nginx server</h2>
 <p>Create nginx server on <code>awesome.app:80</code> to <a href="http://nginx.org/en/docs/http/ngx_http_proxy_module.html">proxy</a> webpack dev server through <a href="http://nginx.org/en/docs/http/ngx_http_upstream_module.html">upstreams</a> if it’s reachable or proxy production.</p>
 <p><a href="https://github.com/andrepolischuk/webpack-nginx-example/blob/master/nginx.awesome.conf">nginx.awesome.conf</a>:</p>
-<pre><code>upstream login {
+<pre><code class="language-nginx">upstream login {
   server awesome.app:80 backup;
   server awesome.app:3001;
 }
@@ -134,7 +139,7 @@ server {
 }
 </code></pre>
 <p>Append domain into the <code>hosts</code> file:</p>
-<pre><code>0.0.0.0 awesome.app
+<pre><code class="language-raw">0.0.0.0 awesome.app
 </code></pre>
 <h2>Summary</h2>
 <p>Congrats! You have a simple dev enviroment for your projects. Now you just need to start nginx and webpack dev server for application you want make some magic.</p>
@@ -150,6 +155,7 @@ server {
           </ul>
         </nav>
       </footer>
+      <script async="" src="//unpkg.com/prismjs@1.15.0/prism.js"></script>
     </article>
     <script async="" src="/index.js"></script>
   </body>

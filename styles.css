@@ -32,7 +32,7 @@ body > article {
 
 header a,
 footer a {
-  color: #CBCDD7;
+  color: #cbcdd7;
 }
 
 main {
@@ -103,7 +103,7 @@ footer li:last-child {
 h1 {
   margin-top: 0;
   margin-bottom: 1rem;
-  color: #FF7E8D;
+  color: #ff7e8d;
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 1.1;
@@ -140,12 +140,8 @@ h3 + p {
 
 pre,
 code {
-  background-color: rgba(0, 0, 0, 0.05);
   font-family: Menlo, Monaco, Courier New, Courier, monospace;
-}
-
-pre > code {
-  background-color: transparent;
+  background-color: #fafafa;
 }
 
 pre {
@@ -155,15 +151,15 @@ pre {
 
 code {
   padding: 0.1rem 0.2rem;
-  font-size: 0.9rem;
 }
 
 pre code {
   padding: 0;
+  background-color: transparent;
 }
 
 blockquote {
-  border-left: 0.2rem solid rgba(0, 0, 0, 0.05);
+  border-left: 0.2rem solid #fafafa;
   margin-left: 0;
   padding-left: 1rem;
 }
@@ -181,7 +177,7 @@ a {
 
 a:hover,
 a:focus {
-  color: #FF7E8D;
+  color: #ff7e8d;
 }
 
 li {

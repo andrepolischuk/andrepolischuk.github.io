@@ -16,6 +16,11 @@
     <meta property="article:author" content="https://andrepolischuk.com/">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@andrepolischuk">
+    <link rel="preload" href="//unpkg.com/prismjs@1.15.0/themes/prism.css" as="style">
+    <link rel="preload" href="//unpkg.com/prismjs-material-theme@1.0.0/css/lighter.min.css" as="style">
+    <link rel="preload" href="//unpkg.com/prismjs@1.15.0/prism.js" as="script">
+    <link rel="stylesheet" href="//unpkg.com/prismjs@1.15.0/themes/prism.css">
+    <link rel="stylesheet" href="//unpkg.com/prismjs-material-theme@1.0.0/css/lighter.min.css">
     <meta name="description" content="Here I review the basics of security for web applications.">
     <meta property="og:title" content="Protect the frontend">
     <meta property="og:description" content="Here I review the basics of security for web applications.">
@@ -60,7 +65,7 @@
 <li>
 <p>Injection to url params, redirect url substitution, <a href="https://www.owasp.org/index.php/Testing_for_Reflected_Cross_site_scripting_(OTG-INPVAL-001)">reflected XSS</a>.</p>
 <p>For example, you received email with link to site that you use:</p>
-<pre><code>Hi,
+<pre><code class="language-raw">Hi,
 
 Go to the link and win
 https://awesome.app/login?redirect_uri=javascript:alert(&quot;your password has been stolen&quot;)
@@ -120,14 +125,14 @@ alert(&quot;your password has been stolen&quot;)
 <li>
 <p>Forbid embed application into iframe by send <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options"><code>X-FRAME-OPTIONS</code></a>
 header in response.</p>
-<pre><code>X-Frame-Options: DENY
+<pre><code class="language-raw">X-Frame-Options: DENY
 X-Frame-Options: SAMEORIGIN
 X-Frame-Options: ALLOW-FROM https://awesome.app/
 </code></pre>
 </li>
 <li>
 <p>Use the <a href="https://content-security-policy.com">Content Security Policy</a>. With it we can define some rules for browser to control loading and behavior of scripts, images, requests and other sources by send <code>Content-Security-Policy</code> header.</p>
-<pre><code># default policy allows only self sources over HTTPS
+<pre><code class="language-raw"># default policy allows only self sources over HTTPS
 default-src 'self' https:
 
 # allows self sources of JavaScript and one external domain
@@ -163,6 +168,7 @@ child-src 'none'
           </ul>
         </nav>
       </footer>
+      <script async="" src="//unpkg.com/prismjs@1.15.0/prism.js"></script>
     </article>
     <script async="" src="/index.js"></script>
   </body>
