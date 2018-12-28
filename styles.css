@@ -3,8 +3,6 @@
   --main: #28292b;
   --accent: #ff7e8d;
   --link: #004076;
-  --dim: #cbcdd7;
-  --light: #fafafa;
 }
 
 html {
@@ -36,11 +34,6 @@ body > article {
   margin-right: auto;
   width: 90%;
   max-width: 650px;
-}
-
-header a,
-footer a {
-  color: var(--dim);
 }
 
 main {
@@ -139,33 +132,41 @@ h3 + p {
 
 pre,
 code {
+  color: color(var(--main) alpha(0.7));
   font-family: Menlo, Monaco, Courier New, Courier, monospace;
-  background-color: var(--light);
+  font-size: 0.9rem;
+  font-feature-settings: normal;
 }
 
 pre {
-  padding: 0.9rem;
+  margin: 1.5rem 0;
   overflow-x: auto;
 }
 
-code {
-  padding: 0.1rem 0.2rem;
-}
-
 pre code {
-  padding: 0;
-  background-color: transparent;
+  display: inline-block;
+  margin: 0 1rem;
 }
 
 blockquote {
-  border-left: 0.2rem solid var(--light);
-  margin-left: 0;
-  padding-left: 1rem;
+  margin: 1.5rem 1rem;
+  color: color(var(--main) alpha(0.7));
+  font-size: 0.9rem;
+  font-style: italic;
 }
 
-em {
-  font-size: 0.9rem;
+blockquote p {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+time {
+  color: color(var(--main) alpha(0.5));
   white-space: nowrap;
+}
+
+section time {
+  font-size: 0.9rem;
 }
 
 a {

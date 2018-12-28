@@ -4,12 +4,6 @@ block title
   title= page.title.text
 
 block meta
-  link(rel='preload', href='//unpkg.com/prismjs@1.15.0/themes/prism.css', as='style')
-  link(rel='preload', href='//unpkg.com/prismjs-material-theme@1.0.0/css/lighter.min.css', as='style')
-  link(rel='preload', href='//unpkg.com/prismjs@1.15.0/prism.js', as='script')
-  link(rel='stylesheet', href='//unpkg.com/prismjs@1.15.0/themes/prism.css')
-  link(rel='stylesheet', href='//unpkg.com/prismjs-material-theme@1.0.0/css/lighter.min.css')
-
   meta(name='description', content=page.desc.text)
   meta(property='og:title', content=page.title.text)
   meta(property='og:description', content=page.desc.text)
@@ -31,8 +25,7 @@ block content
       h1= page.title.text
       if (page.date)
         p
-          em
-            time= page.date.text
+          time= page.date.text
 
     != page.content.html
 
@@ -50,5 +43,3 @@ block content
                 a(href='/' + nextPage.url)!= nextPage.title.text + '&nbsp;→'
               else
                 a(href='/')!= 'All&nbsp;stories&nbsp;↑'
-
-    script(async='', src='//unpkg.com/prismjs@1.15.0/prism.js')

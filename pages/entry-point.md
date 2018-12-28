@@ -4,11 +4,13 @@ _July 20, 2017_
 
 I'm Andrey Polischuk, a frontend engineer. This site is my first try to write about tech things.
 
-Finally I desided to create this site by reading some ideas:
+Finally I desided to create this site by reading the idea:
 
 > You should have ability to write it, readers — to read it. Content is a king.
 >
 > — [Vladimir Starkov](https://iamstarkov.com/mvb/)
+
+and one more:
 
 > Document everything. Your memory is not infallible; future you will thank you.
 >
