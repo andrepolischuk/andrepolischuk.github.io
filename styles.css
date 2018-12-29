@@ -147,11 +147,6 @@ pre {
   overflow-x: auto;
 }
 
-pre code {
-  display: inline-block;
-  margin: 0 1rem;
-}
-
 blockquote {
   margin: 1.5rem 1rem;
   color: rgba(40, 41, 43, 0.7);
