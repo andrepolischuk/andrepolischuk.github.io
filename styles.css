@@ -146,7 +146,6 @@ pre {
 blockquote {
   margin: 1.5rem 1rem;
   color: color(var(--main) alpha(0.7));
-  font-size: 0.9rem;
   font-style: italic;
 }
 
