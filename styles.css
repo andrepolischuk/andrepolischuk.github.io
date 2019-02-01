@@ -143,12 +143,12 @@ code {
 }
 
 pre {
-  margin: 1.5rem 0;
+  margin: 2rem 0;
   overflow-x: auto;
 }
 
 blockquote {
-  margin: 1.5rem 1rem;
+  margin: 2rem 1rem;
   color: rgba(40, 41, 43, 0.7);
   font-style: italic;
 }
