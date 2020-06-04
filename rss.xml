@@ -4,7 +4,7 @@
         <description><![CDATA[Man-in-the-front, software engineer]]></description>
         <link>https://andrepolischuk.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 01 Feb 2019 14:44:31 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 04 Jun 2020 21:40:08 GMT</lastBuildDate>
         <atom:link href="https://andrepolischuk.com/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Andrey Polischuk]]></author>
         <language><![CDATA[en-us]]></language>
@@ -29,14 +29,6 @@
             <pubDate>Thu, 01 Feb 2018 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[2018’s to-do]]></title>
-            <description><![CDATA[I think defining goals I want achieve it’s a good start to this year.]]></description>
-            <link>https://andrepolischuk.com/2018-s-to-do/</link>
-            <guid isPermaLink="true">https://andrepolischuk.com/2018-s-to-do/</guid>
-            <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
-            <pubDate>Mon, 08 Jan 2018 00:00:00 GMT</pubDate>
-        </item>
-        <item>
             <title><![CDATA[Questions to ask before writing code]]></title>
             <description><![CDATA[A few questions that you can ask yourself every time to avoid writing unnecessary code.]]></description>
             <link>https://andrepolischuk.com/questions-to-ask-before-writing-code/</link>
@@ -51,14 +43,6 @@
             <guid isPermaLink="true">https://andrepolischuk.com/how-to-load-single-page-app-faster/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
             <pubDate>Tue, 03 Oct 2017 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[About to-do, schedule and planning]]></title>
-            <description><![CDATA[Tips for simple following what you want to do. Without calendars, gtd, and other stuff.]]></description>
-            <link>https://andrepolischuk.com/about-to-do-shedule-and-planning/</link>
-            <guid isPermaLink="true">https://andrepolischuk.com/about-to-do-shedule-and-planning/</guid>
-            <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
-            <pubDate>Thu, 14 Sep 2017 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Protect the frontend]]></title>
