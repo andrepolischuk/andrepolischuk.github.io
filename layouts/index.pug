@@ -12,23 +12,25 @@ block meta
   meta(property='og:image', content='https://github.com/andrepolischuk.png')
   meta(name='twitter:image', content='https://github.com/andrepolischuk.png')
 
-block header
-  h1= site.title
-  p Personal blog
-
 block content
   main
-    each page in pages
-      section
-        h4
-          a(href='/' + page.url)= page.title.text
-        time= page.date.text
+    header
+      h1= site.title
+      p Personal blog
+
+    ul
+      each page in pages
+        li
+          h4
+            a(href='/' + page.url)= page.title.text
+          time= page.date.text
 
     footer
-      ul
-        li
-          a(href='https://github.com/andrepolischuk') GitHub
-        li
-          a(href='/gpg.asc') GPG
-        li
-          a(href='/rss.xml') RSS-feed
+      nav
+        ul
+          li
+            a(href='https://github.com/andrepolischuk') GitHub
+          li
+            a(href='/gpg.asc') GPG
+          li
+            a(href='/rss.xml') RSS-feed

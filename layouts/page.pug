@@ -16,9 +16,6 @@ block meta
     meta(property='og:image', content='https://github.com/andrepolischuk.png')
     meta(name='twitter:image', content='https://github.com/andrepolischuk.png')
 
-block header
-  a(href='/')= site.title
-
 block content
   article
     header
@@ -29,17 +26,8 @@ block content
 
     != page.content.html
 
-    if (prevPage || nextPage)
-      footer
-        nav
-          ul
-            li
-              if (prevPage)
-                a(href='/' + prevPage.url)!= '←&nbsp;' + prevPage.title.text
-              else
-                a(href='/')!= '↑&nbsp;All&nbsp;stories'
-            li
-              if (nextPage)
-                a(href='/' + nextPage.url)!= nextPage.title.text + '&nbsp;→'
-              else
-                a(href='/')!= 'All&nbsp;stories&nbsp;↑'
+    footer
+      nav
+        ul
+          li
+            a(href='/')!= '↑&nbsp;All&nbsp;stories'

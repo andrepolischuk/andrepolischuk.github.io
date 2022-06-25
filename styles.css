@@ -2,7 +2,6 @@
   --background: white;
   --main: #28292b;
   --accent: #ff7e8d;
-  --link: #004076;
 }
 
 html {
@@ -27,35 +26,108 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+h2,
+h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+h2,
+h3,
+h4,
+strong {
+  font-weight: 400;
+}
+
+p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+h2 + p,
+h3 + p {
+  margin-top: 0.5rem;
+}
+
+pre,
+code {
+  font-family: SP Mono, Menlo, Monaco, Courier New, Courier, monospace;
+  font-size: 0.9rem;
+  font-feature-settings: normal;
+}
+
+pre {
+  margin: 2rem 0;
+  overflow-x: auto;
+}
+
+blockquote {
+  margin: 2rem 1rem;
+  font-style: italic;
+}
+
+blockquote p {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+time {
+  white-space: nowrap;
+  font-style: italic;
+}
+
+a {
+  color: var(--main);
+  transition: color 200ms;
+}
+
+a:hover,
+a:focus {
+  color: var(--accent);
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+img {
+  max-width: 100%;
+}
+
 body > header,
 body > main,
 body > article {
   margin-left: auto;
   margin-right: auto;
   width: 90%;
-  max-width: 650px;
+  max-width: 900px;
 }
 
-main {
-  margin-top: 3rem;
+main, article {
+  margin-top: 0.5rem;
 }
 
-article,
-section {
-  margin-top: 1rem;
+article header,
+main header {
+  margin-bottom: 3rem;
 }
 
-section h4 {
+main li h4 {
   display: inline;
   margin: 0;
+  margin-right: 0.3rem;
 }
 
-section a {
-  margin-right: 0.2rem;
-}
-
-article header {
-  margin-bottom: 3rem;
+main li time {
+  font-size: 0.9rem;
 }
 
 footer {
@@ -76,10 +148,6 @@ footer ul {
   padding: 0;
 }
 
-footer nav ul {
-  justify-content: space-between;
-}
-
 footer li {
   margin: 0;
 }
@@ -90,93 +158,4 @@ footer li + li {
 
 footer li:last-child {
   text-align: right;
-}
-
-h1 {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  color: var(--accent);
-  font-size: 2.5rem;
-  font-weight: 700;
-  line-height: 1.1;
-}
-
-article h1 {
-  margin-top: 1rem;
-}
-
-h2,
-h3 {
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-h2 {
-  font-weight: 400;
-}
-
-h3,
-strong {
-  font-weight: 500;
-}
-
-p {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-h2 + p,
-h3 + p {
-  margin-top: 0.5rem;
-}
-
-pre,
-code {
-  color: color(var(--main) alpha(0.7));
-  font-family: Menlo, Monaco, Courier New, Courier, monospace;
-  font-size: 0.9rem;
-  font-feature-settings: normal;
-}
-
-pre {
-  margin: 2rem 0;
-  overflow-x: auto;
-}
-
-blockquote {
-  margin: 2rem 1rem;
-  color: color(var(--main) alpha(0.7));
-  font-style: italic;
-}
-
-blockquote p {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-time {
-  color: color(var(--main) alpha(0.5));
-  white-space: nowrap;
-}
-
-section time {
-  font-size: 0.9rem;
-}
-
-a {
-  color: var(--link);
-  transition: color 200ms;
-}
-
-a:hover,
-a:focus {
-  color: var(--accent);
-}
-
-li {
-  margin-bottom: 0.5rem;
-}
-
-img {
-  max-width: 100%;
 }

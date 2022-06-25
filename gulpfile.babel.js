@@ -14,10 +14,6 @@ import base from 'typographic-base'
 import each from 'each-done'
 import Koa from 'koa'
 import statics from 'koa-static'
-import postcss from 'gulp-postcss'
-import autoprefixer from 'autoprefixer'
-import colorFunction from 'postcss-color-function'
-import customProperties from 'postcss-custom-properties'
 import {writeFile} from 'fs'
 import {basename, extname} from 'path'
 import {site} from './package'
@@ -97,9 +93,7 @@ gulp.task('story pages', next => {
     .pipe(plumber())
     .pipe(put({
       site,
-      page,
-      prevPage: storyPages[i + 1],
-      nextPage: storyPages[i - 1]
+      page
     }))
     .pipe(pug({
       pretty: true
@@ -145,17 +139,6 @@ gulp.task('service', next => {
     .pipe(gulp.dest('dist')), next)
 })
 
-gulp.task('styles', () =>
-  gulp.src('styles.css')
-    .pipe(plumber())
-    .pipe(postcss([
-      customProperties(),
-      colorFunction(),
-      autoprefixer()
-    ]))
-    .pipe(gulp.dest('dist'))
-)
-
 gulp.task('rss', next => {
   let feed = new RSS(site)
 
@@ -182,7 +165,7 @@ gulp.task('rss', next => {
   })
 })
 
-gulp.task('copy', () => gulp.src('{CNAME,gpg*,images/*,manifest*,index.js,sw.js}').pipe(gulp.dest('dist')))
+gulp.task('copy', () => gulp.src('{CNAME,gpg*,styles.css,index.js,sw.js}').pipe(gulp.dest('dist')))
 gulp.task('clean', next => del(['dist'], next))
 
 gulp.task('layout', gulp.series(
@@ -194,7 +177,7 @@ gulp.task('build', gulp.series(
   'clean',
   'layout',
   'rss',
-  gulp.parallel('styles', 'copy')
+  'copy'
 ))
 
 gulp.task('deploy', gulp.series('build', () =>
@@ -206,7 +189,6 @@ gulp.task('deploy', gulp.series('build', () =>
 ))
 
 gulp.task('watch', () => {
-  gulp.watch('styles.css', gulp.series('styles'))
   gulp.watch('**/*.{pug,md,json}', gulp.series('layout', 'rss'))
 })
 
