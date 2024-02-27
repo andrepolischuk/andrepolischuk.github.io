@@ -67,7 +67,7 @@ h3 + p {
 pre,
 code {
   font-family: SF Mono, Menlo, Monaco, Courier New, Courier, monospace;
-  font-size: 0.9rem;
+  font-size: 0.9em;
   font-feature-settings: normal;
 }
 
@@ -134,12 +134,12 @@ main li h4 {
 }
 
 main li time {
-  font-size: 0.9rem;
+  font-size: 0.9em;
 }
 
 footer {
   margin-top: 3rem;
-  font-size: 0.9rem;
+  font-size: 0.9em;
 }
 
 footer p {

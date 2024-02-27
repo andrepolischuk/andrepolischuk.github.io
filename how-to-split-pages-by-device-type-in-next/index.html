@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>How to split pages by device type in Next.js</title>
+    <link rel="preload" href="/styles.css" as="style">
+    <link rel="preload" href="/index.js" as="script">
+    <link href="https://andrepolischuk.com/rss.xml" title="Andrey Polischuk" rel="alternate" type="application/rss+xml">
+    <link rel="stylesheet" href="/styles.css">
+    <meta name="author" content="Andrey Polischuk">
+    <meta property="og:site_name" content="Andrey Polischuk">
+    <meta property="article:author" content="https://andrepolischuk.com/">
+    <meta name="twitter:card" content="summary">
+    <meta name="description" content="We work with complex applications that use different content layouts for mobile and desktop devices. Some desktop components also differ from mobile ones and vice versa, so it would be great to avoid including components for one device type in the bundle for another.">
+    <meta property="og:title" content="How to split pages by device type in Next.js">
+    <meta property="og:description" content="We work with complex applications that use different content layouts for mobile and desktop devices. Some desktop components also differ from mobile ones and vice versa, so it would be great to avoid including components for one device type in the bundle for another.">
+    <meta property="og:url" content="https://andrepolischuk.com/how-to-split-pages-by-device-type-in-next/">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://github.com/andrepolischuk.png">
+    <meta name="twitter:image" content="https://github.com/andrepolischuk.png">
+  </head>
+  <body>
+    <article>
+      <header>
+        <h1>How to split pages by device type in Next.js</h1>
+        <p>
+          <time>February 27, 2024</time>
+        </p>
+      </header><p>We work with complex applications that use different content layouts for mobile and desktop devices. Some desktop components also differ from mobile ones and vice versa, so it would be great to avoid including components for one device type in the bundle for another.</p>
+<p>How can we separate pages for mobile devices, desktop, etc., but still open them with the same URLs?</p>
+<p>In a Next.js application, you can achieve this using <a href="https://nextjs.org/docs/app/building-your-application/routing/middleware">middleware</a>, request headers, and <a href="https://nextjs.org/docs/app/api-reference/next-config-js/rewrites">rewrites</a>. The principle of operation is that the user’s request enters the middleware, where determined from which device they came from, and after exiting the middleware, the application returns the necessary page.</p>
+<p>First, create the structure of the page files within the <a href="https://nextjs.org/docs/app/building-your-application/routing">app directory</a>. Store pages for each device type in a folder with the corresponding name.</p>
+<pre><code class="language-raw">├─ app/
+│  │
+│  ├─ desktop/
+│  │  ├─ profile/
+│  │  │  └─ page.tsx
+│  │  └─ page.tsx
+│  │
+│  ├─ mobile/
+│  │  ├─ profile/
+│  │  │  └─ page.tsx
+│  │  └─ page.tsx
+│  │
+│  └─ layout.tsx
+│
+├─ middleware.ts
+├─ next.config.js
+</code></pre>
+<p>A user who comes to the main page of the application from a mobile device should get <code>app/mobile/page.tsx</code>, and the other one who comes from a laptop should get <code>app/desktop/page.tsx</code>.</p>
+<h2>Option #1 – Rewrite in middleware</h2>
+<p>Determine the device type and rewrite request in the middleware, as Next.js execute the middleware on every request before call the page.</p>
+<pre><code class="language-ts">import {NextResponse} from 'next/server'
+import type {NextRequest} from 'next/server'
+import {getDeviceType} from 'utils/device'
+
+export const config = {
+  matcher: [
+    '/((?!api|_next/static|_next/image|favicon.ico).*)',
+  ]
+}
+
+export function middleware(request: NextRequest): NextResponse {
+  const deviceType = getDeviceType(request)
+  const {pathname} = new URL(request.url)
+
+  return NextResponse.rewrite(new URL(`/${deviceType}${pathname}`, request.url))
+}
+</code></pre>
+<p>The example above is quite simple and limited by the specified matcher to ignore API and static file requests in the middleware. If you plan to use the middleware for all requests, you will need to wrap rewrites in some amount of conditions, which will complicate the logic.</p>
+<h2>Options #2 – Rewrite in <code>next.config.js</code></h2>
+<p>Another way is to define rewrites in Next.js configuration file. Detect the device type in the middleware, then add the type to the request headers.</p>
+<pre><code class="language-ts">import {NextResponse} from 'next/server'
+import type {NextRequest} from 'next/server'
+import {getDeviceType} from 'utils/device'
+
+export function middleware(request: NextRequest): NextResponse {
+  const deviceType = getDeviceType(request)
+  const headers = new Headers(request.headers)
+
+  headers.set('device-type', deviceType)
+
+  return NextResponse.next({
+    request: {
+      headers
+    }
+  })
+}
+</code></pre>
+<p>Next, configure rewrites based on the device type header. If a request with the correct header reaches the rewrites, the router will deliver the page from the type folder, not from the root of the app directory.</p>
+<pre><code class="language-ts">module.exports = {
+  async rewrites() {
+    return [
+      ...['desktop', 'mobile'].map((deviceType) =&gt; ({
+        source: '/:path*',
+        destination: `/${deviceType}/:path*`,
+        has: [
+          {
+            type: 'header',
+            key: 'device-type',
+            value: deviceType
+          }
+        ]
+      }))
+    ]
+  }
+}
+</code></pre>
+<p>In the same way, you can separate pages in a Next.js application by any other parameter.</p>
+
+      <footer>
+        <nav>
+          <ul>
+            <li><a href="/">↑&nbsp;All&nbsp;stories</a></li>
+          </ul>
+        </nav>
+      </footer>
+    </article>
+    <script async="" src="/index.js"></script>
+  </body>
+</html>

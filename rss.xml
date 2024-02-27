@@ -4,7 +4,7 @@
         <description><![CDATA[Personal blog]]></description>
         <link>https://andrepolischuk.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 26 Feb 2024 14:42:25 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 27 Feb 2024 12:50:34 GMT</lastBuildDate>
         <atom:link href="https://andrepolischuk.com/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Andrey Polischuk]]></author>
         <language><![CDATA[en-us]]></language>
@@ -12,6 +12,14 @@
         <webMaster><![CDATA[me@andrepolischuk.com (Andrey Polischuk)]]></webMaster>
         <category><![CDATA[frontend]]></category>
         <category><![CDATA[javascript]]></category>
+        <item>
+            <title><![CDATA[How to split pages by device type in Next.js]]></title>
+            <description><![CDATA[We work with complex applications that use different content layouts for mobile and desktop devices. Some desktop components also differ from mobile ones and vice versa, so it would be great to avoid including components for one device type in the bundle for another.]]></description>
+            <link>https://andrepolischuk.com/how-to-split-pages-by-device-type-in-next/</link>
+            <guid isPermaLink="true">https://andrepolischuk.com/how-to-split-pages-by-device-type-in-next/</guid>
+            <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
+            <pubDate>Mon, 26 Feb 2024 21:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Commenting a code]]></title>
             <description><![CDATA[Last year I wrote the note about waste comments in code. But now it seems to me that this explanation is not fully right. I was supporting a lot of apps, widgets with externalized API and shareable modules this year. And I found two specific case where comments can be useful.]]></description>
