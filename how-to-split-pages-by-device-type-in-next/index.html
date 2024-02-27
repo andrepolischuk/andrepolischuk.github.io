@@ -12,9 +12,9 @@
     <meta property="og:site_name" content="Andrey Polischuk">
     <meta property="article:author" content="https://andrepolischuk.com/">
     <meta name="twitter:card" content="summary">
-    <meta name="description" content="We work with complex applications that use different content layouts for mobile and desktop devices. Some desktop components also differ from mobile ones and vice versa, so it would be great to avoid including components for one device type in the bundle for another.">
+    <meta name="description" content="We work with complex applications that use different content layouts for mobile and desktop devices. Some desktop components also differ from mobile ones and vice versa, so it would be great to avoid including components for one device type in the bundle for another. How can we separate pages for mobile devices, desktop, etc., but still open them with the same URLs?">
     <meta property="og:title" content="How to split pages by device type in Next.js">
-    <meta property="og:description" content="We work with complex applications that use different content layouts for mobile and desktop devices. Some desktop components also differ from mobile ones and vice versa, so it would be great to avoid including components for one device type in the bundle for another.">
+    <meta property="og:description" content="We work with complex applications that use different content layouts for mobile and desktop devices. Some desktop components also differ from mobile ones and vice versa, so it would be great to avoid including components for one device type in the bundle for another. How can we separate pages for mobile devices, desktop, etc., but still open them with the same URLs?">
     <meta property="og:url" content="https://andrepolischuk.com/how-to-split-pages-by-device-type-in-next/">
     <meta property="og:type" content="article">
     <meta property="og:image" content="https://github.com/andrepolischuk.png">
@@ -27,8 +27,7 @@
         <p>
           <time>February 27, 2024</time>
         </p>
-      </header><p>We work with complex applications that use different content layouts for mobile and desktop devices. Some desktop components also differ from mobile ones and vice versa, so it would be great to avoid including components for one device type in the bundle for another.</p>
-<p>How can we separate pages for mobile devices, desktop, etc., but still open them with the same URLs?</p>
+      </header><p>We work with complex applications that use different content layouts for mobile and desktop devices. Some desktop components also differ from mobile ones and vice versa, so it would be great to avoid including components for one device type in the bundle for another. How can we separate pages for mobile devices, desktop, etc., but still open them with the same URLs?</p>
 <p>In a Next.js application, you can achieve this using <a href="https://nextjs.org/docs/app/building-your-application/routing/middleware">middleware</a>, request headers, and <a href="https://nextjs.org/docs/app/api-reference/next-config-js/rewrites">rewrites</a>. The principle of operation is that the user’s request enters the middleware, where determined from which device they came from, and after exiting the middleware, the application returns the necessary page.</p>
 <p>First, create the structure of the page files within the <a href="https://nextjs.org/docs/app/building-your-application/routing">app directory</a>. Store pages for each device type in a folder with the corresponding name.</p>
 <pre><code class="language-raw">├─ app/

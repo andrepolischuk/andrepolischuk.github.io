@@ -4,7 +4,7 @@
         <description><![CDATA[Personal blog]]></description>
         <link>https://andrepolischuk.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 27 Feb 2024 12:50:34 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 27 Feb 2024 12:52:51 GMT</lastBuildDate>
         <atom:link href="https://andrepolischuk.com/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Andrey Polischuk]]></author>
         <language><![CDATA[en-us]]></language>
@@ -14,7 +14,7 @@
         <category><![CDATA[javascript]]></category>
         <item>
             <title><![CDATA[How to split pages by device type in Next.js]]></title>
-            <description><![CDATA[We work with complex applications that use different content layouts for mobile and desktop devices. Some desktop components also differ from mobile ones and vice versa, so it would be great to avoid including components for one device type in the bundle for another.]]></description>
+            <description><![CDATA[We work with complex applications that use different content layouts for mobile and desktop devices. Some desktop components also differ from mobile ones and vice versa, so it would be great to avoid including components for one device type in the bundle for another. How can we separate pages for mobile devices, desktop, etc., but still open them with the same URLs?]]></description>
             <link>https://andrepolischuk.com/how-to-split-pages-by-device-type-in-next/</link>
             <guid isPermaLink="true">https://andrepolischuk.com/how-to-split-pages-by-device-type-in-next/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
