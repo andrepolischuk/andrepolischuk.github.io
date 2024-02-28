@@ -4,7 +4,7 @@
         <description><![CDATA[Personal blog]]></description>
         <link>https://andrepolischuk.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 27 Feb 2024 12:52:51 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 28 Feb 2024 08:28:47 GMT</lastBuildDate>
         <atom:link href="https://andrepolischuk.com/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Andrey Polischuk]]></author>
         <language><![CDATA[en-us]]></language>
@@ -12,6 +12,14 @@
         <webMaster><![CDATA[me@andrepolischuk.com (Andrey Polischuk)]]></webMaster>
         <category><![CDATA[frontend]]></category>
         <category><![CDATA[javascript]]></category>
+        <item>
+            <title><![CDATA[Tools for frontend monitoring with Prometheus]]></title>
+            <description><![CDATA[Developers widely use Prometheus as a system for operational monitoring and alerting for their projects. Here is a list of tools for monitoring frontend services with Prometheus.]]></description>
+            <link>https://andrepolischuk.com/tools-for-frontend-monitoring-with-prometheus/</link>
+            <guid isPermaLink="true">https://andrepolischuk.com/tools-for-frontend-monitoring-with-prometheus/</guid>
+            <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
+            <pubDate>Tue, 27 Feb 2024 21:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[How to split pages by device type in Next.js]]></title>
             <description><![CDATA[We work with complex applications that use different content layouts for mobile and desktop devices. Some desktop components also differ from mobile ones and vice versa, so it would be great to avoid including components for one device type in the bundle for another. How can we separate pages for mobile devices, desktop, etc., but still open them with the same URLs?]]></description>

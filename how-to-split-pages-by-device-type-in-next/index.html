@@ -48,7 +48,7 @@
 ├─ next.config.js
 </code></pre>
 <p>A user who comes to the main page of the application from a mobile device should get <code>app/mobile/page.tsx</code>, and the other one who comes from a laptop should get <code>app/desktop/page.tsx</code>.</p>
-<h2>Option #1 – Rewrite in middleware</h2>
+<h2>Option #1: Rewrite in middleware</h2>
 <p>Determine the device type and rewrite request in the middleware, as Next.js execute the middleware on every request before call the page.</p>
 <pre><code class="language-ts">import {NextResponse} from 'next/server'
 import type {NextRequest} from 'next/server'
@@ -68,7 +68,7 @@ export function middleware(request: NextRequest): NextResponse {
 }
 </code></pre>
 <p>The example above is quite simple and limited by the specified matcher to ignore API and static file requests in the middleware. If you plan to use the middleware for all requests, you will need to wrap rewrites in some amount of conditions, which will complicate the logic.</p>
-<h2>Options #2 – Rewrite in <code>next.config.js</code></h2>
+<h2>Options #2: Rewrite in <code>next.config.js</code></h2>
 <p>Another way is to define rewrites in Next.js configuration file. Detect the device type in the middleware, then add the type to the request headers.</p>
 <pre><code class="language-ts">import {NextResponse} from 'next/server'
 import type {NextRequest} from 'next/server'
