@@ -21,8 +21,7 @@ block content
     ul
       each page in pages
         li
-          h4
-            a(href='/' + page.url)= page.title.text
+          a(href='/' + page.url)= page.title.text
           time= page.date.text
 
     footer
@@ -30,6 +29,8 @@ block content
         ul
           li
             a(href='https://github.com/andrepolischuk') GitHub
+          li
+            a(href='mailto:hi@andrepolischuk.com') Email
           li
             a(href='/gpg.asc') GPG
           li

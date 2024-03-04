@@ -127,8 +127,7 @@ main header {
   margin-bottom: 3rem;
 }
 
-main li h4 {
-  display: inline;
+main li a {
   margin: 0;
   margin-right: 0.3rem;
 }
