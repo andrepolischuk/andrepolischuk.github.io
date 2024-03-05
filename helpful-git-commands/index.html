@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Helpful git commands</title>
+    <link rel="preload" href="/styles.css" as="style">
+    <link rel="preload" href="/index.js" as="script">
+    <link href="https://andrepolischuk.com/rss.xml" title="Andrey Polischuk" rel="alternate" type="application/rss+xml">
+    <link rel="stylesheet" href="/styles.css">
+    <meta name="author" content="Andrey Polischuk">
+    <meta property="og:site_name" content="Andrey Polischuk">
+    <meta property="article:author" content="https://andrepolischuk.com/">
+    <meta name="twitter:card" content="summary">
+    <meta name="description" content="A list of git commands to improve your source code management skills.">
+    <meta property="og:title" content="Helpful git commands">
+    <meta property="og:description" content="A list of git commands to improve your source code management skills.">
+    <meta property="og:url" content="https://andrepolischuk.com/helpful-git-commands/">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://github.com/andrepolischuk.png">
+    <meta name="twitter:image" content="https://github.com/andrepolischuk.png">
+  </head>
+  <body>
+    <article>
+      <header>
+        <h1>Helpful git commands</h1>
+        <p>
+          <time>March 5, 2024</time>
+        </p>
+      </header><p>A list of git commands to improve your source code management skills.</p>
+<h2>Interactive commit</h2>
+<pre><code>git commit --patch --verbose
+</code></pre>
+<p>Allows you to interactively select hunks of patch between the index and the work tree and commit them. It provides a detailed output of the commit process.</p>
+<p>Prompt to select hunks to commit</p>
+<pre><code>@@ -84,7 +95,7 @@ export const Routes: React.FC&lt;RoutesProps&gt; = ({
+
+   return (
+     &lt;Suspense fallback={Fallback ? &lt;Fallback /&gt; : undefined}&gt;
+-      &lt;Layout {...rest}&gt;
++      &lt;Layout {...rest} error={error}&gt;
+         &lt;BaseRoutes location={routerLocation}&gt;
+           {routeData?.redirect &amp;&amp; &lt;Navigate to={routeData.redirect} /&gt;}
+           {routes.map(({path, Component, Fallback, ...routeProps}) =&gt; (
+(3/3) Stage this hunk [y,n,q,a,d,K,g,/,e,?]?
+</code></pre>
+<p>Detailed output showing the changes being committed.</p>
+<pre><code>fix: pass error to layout
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch master
+# Your branch is behind 'origin/master' by 4 commits, and can be fast-forwarded.
+#   (use &quot;git pull&quot; to update your local branch)
+#
+# Changes to be committed:
+#	modified:   src/components/routes.tsx
+#
+# Changes not staged for commit:
+#	modified:   .size-limit.json
+#	modified:   src/components/routes.tsx
+#
+# ------------------------ &gt;8 ------------------------
+# Do not modify or remove the line above.
+# Everything below it will be ignored.
+diff --git a/src/components/routes.tsx b/src/components/routes.tsx
+index 2fea2b3..6b2d803 100644
+--- a/src/components/routes.tsx
++++ b/src/components/routes.tsx
+@@ -84,7 +84,7 @@ export const Routes: React.FC&lt;RoutesProps&gt; = ({
+ 
+   return (
+     &lt;Suspense fallback={Fallback ? &lt;Fallback /&gt; : undefined}&gt;
+-      &lt;Layout {...rest}&gt;
++      &lt;Layout {...rest} error={error}&gt;
+         &lt;BaseRoutes location={routerLocation}&gt;
+           {routeData?.redirect &amp;&amp; &lt;Navigate to={routeData.redirect} /&gt;}
+           {routes.map(({path, Component, Fallback, ...routeProps}) =&gt; (
+</code></pre>
+<p>Options explained</p>
+<ul>
+<li><code>--patch</code> – Interactively choose hunks of patch between the index and the work tree and commit them.</li>
+<li><code>--verbose</code> – Show unified diff of the changes being committed.</li>
+</ul>
+<h2>Branch info</h2>
+<pre><code>git branch --verbose
+</code></pre>
+<p>Lists all local branches along with the last commit on each branch.</p>
+<pre><code>  background-location ec6e18e feat: support background location for modals
+  eslint-config       34de471 chore: update eslint config and fix errors
+* master              bc8b8ab Merge pull request #19 from asyncink/error-to-layout
+  refactor-loading    ebcebfb fix: simplify loading, fix isLoading lag
+</code></pre>
+<h2>Pretty log</h2>
+<pre><code>git log --graph --oneline --all --decorate --date-order
+</code></pre>
+<p>Displays the commit history in a graphical format, with each commit on a single line, showing all branches, decorated with references, and sorted by date.</p>
+<pre><code>* 4f51b56 (origin/gh-pages) Deploying to gh-pages from @ rambler-digital-solutions/react-toolkit@bc8b8abfb1db317b4c27a7634abb6ecce8d28384 🚀
+| *   bc8b8ab (HEAD -&gt; master, tag: v2.8.0, origin/master) Merge pull request #19 from asyncink/error-to-layout
+| |\  
+| | * 601e01b fix: remove nullish coalescing
+| | * b7ca3b9 chore: increase size limit
+| | * b288524 feat: pass error to layout
+| |/  
+* | 22e52ae Deploying to gh-pages from @ rambler-digital-solutions/react-toolkit@d25e4ef4f143c5a0d2b2debae742aab6b524bcda 🚀
+| *   d25e4ef (tag: v2.7.5) Merge pull request #18 from rambler-digital-solutions/refactor-loading
+| |\  
+| | * ebcebfb (origin/refactor-loading, refactor-loading) fix: simplify loading, fix isLoading lag
+| |/  
+* | 187b824 Deploying to gh-pages from @ rambler-digital-solutions/react-toolkit@c6a8a60bc7dfa23bacdc043ea3558f4e61f344c2 🚀
+| * c6a8a60 chore: update eslint config
+| *   c345f30 Merge pull request #17 from rambler-digital-solutions/eslint-config [skip ci]
+| |\  
+| | * 34de471 (origin/eslint-config, eslint-config) chore: update eslint config and fix errors
+| |/  
+* | 3338070 Deploying to gh-pages from @ rambler-digital-solutions/react-toolkit@d1cb7c6a29e86fb949dd2b9c29a8fc1b7a08928c 🚀
+| * d1cb7c6 chore: increase size limits
+</code></pre>
+<p>Options explained</p>
+<ul>
+<li><code>--graph</code> – Draw a text-based graphical representation of the commit history.</li>
+<li><code>--oneline</code> – Display each commit on a single line.</li>
+<li><code>--all</code> – Show all branches.</li>
+<li><code>--decorate</code> – Show names of branches or tags of the commits that are shown.</li>
+<li><code>--date-order</code> – Sort commits by date.</li>
+</ul>
+<h2>File history</h2>
+<pre><code>git log --follow --patch &lt;path&gt;
+</code></pre>
+<p>Shows the commit history of a specific file, including the changes made in each commit.</p>
+<pre><code>commit 10ed8b6304b8384cfafb3fb839e295cf2a1ccf51
+Author: Andrey Polischuk
+Date:   Wed Dec 13 10:49:38 2023 +0300
+
+    fix: preload server route before hydration
+
+diff --git a/src/components/routes.tsx b/src/components/routes.tsx
+index 6e79fcf..e4a0d45 100644
+--- a/src/components/routes.tsx
++++ b/src/components/routes.tsx
+@@ -89,7 +89,7 @@ export const Routes: React.FC&lt;RoutesProps&gt; = ({
+           key={path}
+           path={path}
+           element={
+-            &lt;Suspense fallback={Fallback ? &lt;Fallback /&gt; : null}&gt;
++            &lt;Suspense fallback={Fallback ? &lt;Fallback /&gt; : undefined}&gt;
+               {isWaitingMode &amp;&amp; routeData.isLoading &amp;&amp; Fallback ? (
+                 &lt;Fallback /&gt;
+               ) : (
+</code></pre>
+<p>Options explained</p>
+<ul>
+<li><code>--follow</code> – Continue listing the history of the file beyond renames.</li>
+<li><code>--patch</code> – Show the diff of each commit.</li>
+</ul>
+<h2>Short status</h2>
+<pre><code>git status --short --branch
+</code></pre>
+<p>Displays the status of the working directory and the current branch in a short format.</p>
+<pre><code>## master...origin/master [behind 4]
+ M .size-limit.json
+ M src/components/routes.tsx
+</code></pre>
+<p>Options explained</p>
+<ul>
+<li><code>--short</code> – Show the output in a short-format style.</li>
+<li><code>--branch</code> – Show the name of the current branch.</li>
+</ul>
+<h2>Sorted tags</h2>
+<pre><code>git tag --sort version:refname
+</code></pre>
+<p>Lists all tags in the repository, sorted by version number.</p>
+<pre><code>v2.0.0
+v2.1.0
+v2.2.0
+v2.3.0
+v2.4.0
+v2.5.0
+v2.5.1
+v2.6.0
+v2.7.0
+v2.7.1
+v2.7.2
+v2.7.3
+v2.8.0
+</code></pre>
+<h2>Undo</h2>
+<pre><code>git reset HEAD~1 --mixed
+</code></pre>
+<p>Resets the current HEAD to the previous commit. Changes in the working directory and index are preserved.</p>
+<pre><code>Unstaged changes after reset:
+M       .size-limit.json
+M       src/components/routes.tsx
+</code></pre>
+<p>Options explained</p>
+<ul>
+<li><code>HEAD~1</code> – The commit before the current HEAD.</li>
+<li><code>--mixed</code> – Reset the index but not the working directory.</li>
+</ul>
+<h2>Grep across history</h2>
+<pre><code>git rev-list --all | xargs git grep -F &lt;search&gt;
+</code></pre>
+<p>Searches for a specific term across all commits in the repository.</p>
+<pre><code>0c954d8e019c4b152e082e1fcf70f47392100c0e:README.md:### Pages meta data
+0c954d8e019c4b152e082e1fcf70f47392100c0e:README.md:For adding custom styles, scripts, meta tags and
+for more flexible customization of the entire document
+0c954d8e019c4b152e082e1fcf70f47392100c0e:README.md:      &lt;meta httpEquiv=&quot;X-UA-Compatible&quot; content=&quot;
+IE=edge&quot; /&gt;
+0c954d8e019c4b152e082e1fcf70f47392100c0e:README.md:      &lt;meta charSet=&quot;utf-8&quot; /&gt;
+0c954d8e019c4b152e082e1fcf70f47392100c0e:README.md:      &lt;meta name=&quot;viewport&quot; content=&quot;width=device
+-width, initial-scale=1&quot; /&gt;
+0c954d8e019c4b152e082e1fcf70f47392100c0e:src/client/index.ts:export {Meta} from '../components/meta'
+0c954d8e019c4b152e082e1fcf70f47392100c0e:src/components/context.tsx:  meta?: MetaData
+0c954d8e019c4b152e082e1fcf70f47392100c0e:src/components/context.tsx:  onChangeMetaData: (meta: MetaD
+ata) =&gt; void
+0c954d8e019c4b152e082e1fcf70f47392100c0e:src/components/context.tsx:  const [meta, setMeta] = useSta
+te&lt;MetaData&gt;(value.meta ?? {})
+0c954d8e019c4b152e082e1fcf70f47392100c0e:src/components/context.tsx:      meta,
+0c954d8e019c4b152e082e1fcf70f47392100c0e:src/components/context.tsx:    [value, meta]
+0c954d8e019c4b152e082e1fcf70f47392100c0e:src/components/document.tsx:import {Meta} from './meta'
+0c954d8e019c4b152e082e1fcf70f47392100c0e:src/components/document.tsx:      &lt;meta httpEquiv=&quot;X-UA-Com
+patible&quot; content=&quot;IE=edge&quot; /&gt;
+0c954d8e019c4b152e082e1fcf70f47392100c0e:src/components/document.tsx:      &lt;meta charSet=&quot;utf-8&quot; /&gt;
+0c954d8e019c4b152e082e1fcf70f47392100c0e:src/components/document.tsx:      &lt;meta name=&quot;viewport&quot; con
+tent=&quot;width=device-width, initial-scale=1&quot; /&gt;
+</code></pre>
+<h2>Cleanup branches</h2>
+<pre><code>git branch --merged | sed &quot;s/* main//g&quot; | xargs -I % bash -c &quot;git branch -d %; git push origin :%&quot;
+</code></pre>
+<p>Deletes all local branches that have been merged into the main branch and removes them from the remote repository.</p>
+<ul>
+<li><code>--merged</code> – List branches that have been merged into the current branch.</li>
+<li><code>sed &quot;s/* main//g&quot;</code> – Remove main branch from the list.</li>
+<li><code>xargs -I</code> – Interactively merged branches.</li>
+</ul>
+<h2>Mass pull</h2>
+<pre><code>find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} pull origin main \;
+</code></pre>
+<p>Pulls changes from the main branch into all subdirectories that are Git repositories.</p>
+<ul>
+<li><code>-type d</code> – Search for directories.</li>
+<li><code>-depth 1</code> – Only search the current directory.</li>
+<li><code>-exec {} \;</code> – Run a command for every find.</li>
+</ul>
+
+      <footer>
+        <nav>
+          <ul>
+            <li><a href="/">↑&nbsp;All&nbsp;stories</a></li>
+          </ul>
+        </nav>
+      </footer>
+    </article>
+    <script async="" src="/index.js"></script>
+  </body>
+</html>

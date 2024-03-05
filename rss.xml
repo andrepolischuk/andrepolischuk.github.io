@@ -4,7 +4,7 @@
         <description><![CDATA[Personal blog]]></description>
         <link>https://andrepolischuk.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 04 Mar 2024 14:24:17 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 05 Mar 2024 07:42:33 GMT</lastBuildDate>
         <atom:link href="https://andrepolischuk.com/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Andrey Polischuk]]></author>
         <language><![CDATA[en-us]]></language>
@@ -12,6 +12,14 @@
         <webMaster><![CDATA[me@andrepolischuk.com (Andrey Polischuk)]]></webMaster>
         <category><![CDATA[frontend]]></category>
         <category><![CDATA[javascript]]></category>
+        <item>
+            <title><![CDATA[Helpful git commands]]></title>
+            <description><![CDATA[A list of git commands to improve your source code management skills.]]></description>
+            <link>https://andrepolischuk.com/helpful-git-commands/</link>
+            <guid isPermaLink="true">https://andrepolischuk.com/helpful-git-commands/</guid>
+            <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
+            <pubDate>Mon, 04 Mar 2024 21:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Tools for frontend monitoring with Prometheus]]></title>
             <description><![CDATA[Developers widely use Prometheus as a system for operational monitoring and alerting for their projects. Here is a list of tools for monitoring frontend services with Prometheus.]]></description>
