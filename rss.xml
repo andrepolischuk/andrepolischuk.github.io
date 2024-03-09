@@ -4,7 +4,7 @@
         <description><![CDATA[Personal blog]]></description>
         <link>https://andrepolischuk.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 05 Mar 2024 07:42:33 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 09 Mar 2024 00:34:44 GMT</lastBuildDate>
         <atom:link href="https://andrepolischuk.com/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Andrey Polischuk]]></author>
         <language><![CDATA[en-us]]></language>
@@ -12,6 +12,14 @@
         <webMaster><![CDATA[me@andrepolischuk.com (Andrey Polischuk)]]></webMaster>
         <category><![CDATA[frontend]]></category>
         <category><![CDATA[javascript]]></category>
+        <item>
+            <title><![CDATA[100 valuable blogs for developers]]></title>
+            <description><![CDATA[Сomprehensive collection of tech blogs and news feeds to explore the technological and digital landscape.]]></description>
+            <link>https://andrepolischuk.com/100-valuable-blogs-for-developers/</link>
+            <guid isPermaLink="true">https://andrepolischuk.com/100-valuable-blogs-for-developers/</guid>
+            <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
+            <pubDate>Fri, 08 Mar 2024 21:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Helpful git commands]]></title>
             <description><![CDATA[A list of git commands to improve your source code management skills.]]></description>
