@@ -4,7 +4,7 @@
         <description><![CDATA[Personal blog]]></description>
         <link>https://andrepolischuk.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 09 Mar 2024 00:34:44 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 09 Mar 2024 08:09:51 GMT</lastBuildDate>
         <atom:link href="https://andrepolischuk.com/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Andrey Polischuk]]></author>
         <language><![CDATA[en-us]]></language>
@@ -14,7 +14,7 @@
         <category><![CDATA[javascript]]></category>
         <item>
             <title><![CDATA[100 valuable blogs for developers]]></title>
-            <description><![CDATA[Сomprehensive collection of tech blogs and news feeds to explore the technological and digital landscape.]]></description>
+            <description><![CDATA[Comprehensive collection of tech blogs and news feeds to explore the technological and development landscape.]]></description>
             <link>https://andrepolischuk.com/100-valuable-blogs-for-developers/</link>
             <guid isPermaLink="true">https://andrepolischuk.com/100-valuable-blogs-for-developers/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
