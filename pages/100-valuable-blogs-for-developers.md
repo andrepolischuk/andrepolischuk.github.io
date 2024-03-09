@@ -2,7 +2,7 @@
 
 _March 9, 2024_
 
-Сomprehensive collection of tech blogs and news feeds to explore the technological and digital landscape.
+Comprehensive collection of tech blogs to explore the technological and development landscape.
 
 ## Languages and standards
 
@@ -69,7 +69,7 @@ _March 9, 2024_
 * [Frontend Almanac Blog](https://blog.frontend-almanac.com/) – A collection of articles and resources dedicated to frontend development, covering topics from CSS to JavaScript, accessibility, and performance.
 * [freeCodeCamp News](https://www.freecodecamp.org/news/) – A platform dedicated to helping people learn to code for free, featuring a variety of articles, guides, and tutorials on programming and web development.
 * [SitePoint](https://www.sitepoint.com/) – A community platform offering tech courses and books, real-time community support, and an intuitive reading experience. Features trending titles, articles on various web development topics, and a comprehensive guide to choosing the best React website builder.
-* [Engineer’s Codex](https://read.engineerscodex.com/) – Explaining tools and technologies used and created by big tech companies.
+* [Engineer’s Codex](https://read.engineerscodex.com/) – Tools and technologies used and created by big tech companies.
 * [MDN Web Docs Blog](https://developer.mozilla.org/en-US/blog/) – A platform for web development news, tutorials, and insights, including updates on web technologies, and community initiatives.
 * [Smashing Magazine](https://www.smashingmagazine.com/) – Articles, and books on web development, design, and marketing, including accessibility, best practices, career advice, and tools for front-end and UX design.
 * [Unicode Blog](https://blog.unicode.org) – News, announcements, release info, and calendar updates from the Unicode Consortium.
