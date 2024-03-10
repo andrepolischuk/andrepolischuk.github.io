@@ -4,12 +4,12 @@
         <description><![CDATA[Personal blog]]></description>
         <link>https://andrepolischuk.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 09 Mar 2024 08:11:11 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 10 Mar 2024 22:27:31 GMT</lastBuildDate>
         <atom:link href="https://andrepolischuk.com/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Andrey Polischuk]]></author>
         <language><![CDATA[en-us]]></language>
-        <managingEditor><![CDATA[me@andrepolischuk.com (Andrey Polischuk)]]></managingEditor>
-        <webMaster><![CDATA[me@andrepolischuk.com (Andrey Polischuk)]]></webMaster>
+        <managingEditor><![CDATA[hi@andrepolischuk.com (Andrey Polischuk)]]></managingEditor>
+        <webMaster><![CDATA[hi@andrepolischuk.com (Andrey Polischuk)]]></webMaster>
         <category><![CDATA[frontend]]></category>
         <category><![CDATA[javascript]]></category>
         <item>
