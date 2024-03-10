@@ -10,9 +10,9 @@ Comprehensive collection of tech blogs to explore the technological and developm
 * [Microsoft TypeScript Blog](https://devblogs.microsoft.com/typescript/) – Updates and insights from the TypeScript team at Microsoft.
 * [WHATWG Blog](https://blog.whatwg.org/) – News and updates from the Web Hypertext Application Technology Working Group.
 * [ReScript Blog](https://rescript-lang.org/blog/) – Updates, releases, and feature announcements for the ReScript programming language.
+* [Dart Blog](https://medium.com/dartlang) – Announcements and development updates for the Dart programming language.
 * [Rust Blog](https://blog.rust-lang.org/) – Official blog for the Rust programming language, including release notes and development updates.
 * [Python Blog](https://blog.python.org/) – Core development news and information for the Python programming language, including new features and updates.
-* [Go Blog](https://go.dev/blog/) – The official blog of the Go project, featuring updates on Go releases, enhancements, performance improvements, and insights into Go development practices.
 * [Kotlin Blog](https://blog.jetbrains.com/kotlin/) – Updates and news from the Kotlin team at JetBrains, including tutorials and community highlights.
 * [Scala Blog](https://www.scala-lang.org/blog/) – News, updates, and community highlights from the Scala programming language community.
 
@@ -62,6 +62,7 @@ Comprehensive collection of tech blogs to explore the technological and developm
 * [Docker Blog](https://www.docker.com/blog/) – A platform for sharing Docker's latest news, updates, and insights related to containerization, Docker products, and industry trends.
 * [AMP Blog](https://blog.amp.dev/) – Updates on AMP, guides, tutorials, components, examples, courses, templates, and tools.
 * [Scala.js News](https://www.scala-js.org/news/) – Announcements of Scala.js releases, including updates on new features, bug fixes, and enhancements.
+* [Flutter Blog](https://medium.com/flutter) – Latest updates, release notes, and announcements of Flutter, a framework for crafting high-quality native interfaces on iOS, Android, web, and desktop.
 
 ## Community
 
@@ -69,7 +70,7 @@ Comprehensive collection of tech blogs to explore the technological and developm
 * [Frontend Almanac Blog](https://blog.frontend-almanac.com/) – A collection of articles and resources dedicated to frontend development, covering topics from CSS to JavaScript, accessibility, and performance.
 * [freeCodeCamp News](https://www.freecodecamp.org/news/) – A platform dedicated to helping people learn to code for free, featuring a variety of articles, guides, and tutorials on programming and web development.
 * [SitePoint](https://www.sitepoint.com/) – A community platform offering tech courses and books, real-time community support, and an intuitive reading experience. Features trending titles, articles on various web development topics, and a comprehensive guide to choosing the best React website builder.
-* [Engineer’s Codex](https://read.engineerscodex.com/) – Tools and technologies used and created by big tech companies.
+* [Engineer’s Codex](https://read.engineerscodex.com/) – Practical insights and interesting stories from real-world software engineering.
 * [MDN Web Docs Blog](https://developer.mozilla.org/en-US/blog/) – A platform for web development news, tutorials, and insights, including updates on web technologies, and community initiatives.
 * [Smashing Magazine](https://www.smashingmagazine.com/) – Articles, and books on web development, design, and marketing, including accessibility, best practices, career advice, and tools for front-end and UX design.
 * [Unicode Blog](https://blog.unicode.org) – News, announcements, release info, and calendar updates from the Unicode Consortium.

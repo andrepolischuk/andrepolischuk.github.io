@@ -22,16 +22,20 @@
   "homepage": "https://github.com/andrepolischuk/andrepolischuk.github.io#readme",
   "site": {
     "title": "Andrey Polischuk",
-    "description": "Personal blog",
+    "description": "Personal blog about frontend engineering, software design, and development practices.",
     "author": "Andrey Polischuk",
     "feed_url": "https://andrepolischuk.com/rss.xml",
     "site_url": "https://andrepolischuk.com/",
-    "managingEditor": "me@andrepolischuk.com (Andrey Polischuk)",
-    "webMaster": "me@andrepolischuk.com (Andrey Polischuk)",
+    "managingEditor": "hi@andrepolischuk.com (Andrey Polischuk)",
+    "webMaster": "hi@andrepolischuk.com (Andrey Polischuk)",
     "language": "en-us",
     "categories": [
       "frontend",
-      "javascript"
+      "engineering",
+      "design",
+      "javascript",
+      "typescript",
+      "web"
     ]
   },
   "dependencies": {
