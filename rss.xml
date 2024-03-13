@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title><![CDATA[Andrey Polischuk]]></title>
-        <description><![CDATA[Personal blog]]></description>
+        <description><![CDATA[Personal blog about frontend engineering, software design, and development practices.]]></description>
         <link>https://andrepolischuk.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 11 Mar 2024 23:55:57 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 13 Mar 2024 10:23:44 GMT</lastBuildDate>
         <atom:link href="https://andrepolischuk.com/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Andrey Polischuk]]></author>
         <language><![CDATA[en-us]]></language>
         <managingEditor><![CDATA[hi@andrepolischuk.com (Andrey Polischuk)]]></managingEditor>
         <webMaster><![CDATA[hi@andrepolischuk.com (Andrey Polischuk)]]></webMaster>
         <category><![CDATA[frontend]]></category>
+        <category><![CDATA[engineering]]></category>
+        <category><![CDATA[design]]></category>
         <category><![CDATA[javascript]]></category>
+        <category><![CDATA[typescript]]></category>
+        <category><![CDATA[web]]></category>
         <item>
             <title><![CDATA[100 valuable blogs for developers]]></title>
             <description><![CDATA[Comprehensive collection of tech blogs to explore the technological and development landscape.]]></description>
