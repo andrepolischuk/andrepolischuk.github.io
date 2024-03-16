@@ -17,6 +17,8 @@ jobs:
           node-version: '18.x'
       - name: Deploy with gh-pages
         run: |
+          git config --global user.email "support+actions@github.com"
+          git config --global user.name "github-actions-bot"
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
           npm install
           npm run deploy
