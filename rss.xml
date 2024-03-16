@@ -4,7 +4,7 @@
         <description><![CDATA[Personal blog about frontend engineering, software design, and development practices.]]></description>
         <link>https://andrepolischuk.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 13 Mar 2024 10:23:44 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 16 Mar 2024 23:52:20 GMT</lastBuildDate>
         <atom:link href="https://andrepolischuk.com/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Andrey Polischuk]]></author>
         <language><![CDATA[en-us]]></language>
@@ -22,7 +22,7 @@
             <link>https://andrepolischuk.com/100-valuable-blogs-for-developers/</link>
             <guid isPermaLink="true">https://andrepolischuk.com/100-valuable-blogs-for-developers/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
-            <pubDate>Fri, 08 Mar 2024 21:00:00 GMT</pubDate>
+            <pubDate>Sat, 09 Mar 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Helpful git commands]]></title>
@@ -30,7 +30,7 @@
             <link>https://andrepolischuk.com/helpful-git-commands/</link>
             <guid isPermaLink="true">https://andrepolischuk.com/helpful-git-commands/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
-            <pubDate>Mon, 04 Mar 2024 21:00:00 GMT</pubDate>
+            <pubDate>Tue, 05 Mar 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Tools for frontend monitoring with Prometheus]]></title>
@@ -38,7 +38,7 @@
             <link>https://andrepolischuk.com/tools-for-frontend-monitoring-with-prometheus/</link>
             <guid isPermaLink="true">https://andrepolischuk.com/tools-for-frontend-monitoring-with-prometheus/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
-            <pubDate>Tue, 27 Feb 2024 21:00:00 GMT</pubDate>
+            <pubDate>Wed, 28 Feb 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[How to split pages by device type in Next.js]]></title>
@@ -46,7 +46,7 @@
             <link>https://andrepolischuk.com/how-to-split-pages-by-device-type-in-next/</link>
             <guid isPermaLink="true">https://andrepolischuk.com/how-to-split-pages-by-device-type-in-next/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
-            <pubDate>Mon, 26 Feb 2024 21:00:00 GMT</pubDate>
+            <pubDate>Tue, 27 Feb 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Commenting a code]]></title>
@@ -54,7 +54,7 @@
             <link>https://andrepolischuk.com/commenting-a-code/</link>
             <guid isPermaLink="true">https://andrepolischuk.com/commenting-a-code/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
-            <pubDate>Sun, 09 Dec 2018 21:00:00 GMT</pubDate>
+            <pubDate>Mon, 10 Dec 2018 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[How to start using Gitlab CI]]></title>
@@ -62,7 +62,7 @@
             <link>https://andrepolischuk.com/how-to-start-using-gitlab-ci/</link>
             <guid isPermaLink="true">https://andrepolischuk.com/how-to-start-using-gitlab-ci/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
-            <pubDate>Wed, 31 Jan 2018 21:00:00 GMT</pubDate>
+            <pubDate>Thu, 01 Feb 2018 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Questions to ask before writing code]]></title>
@@ -70,7 +70,7 @@
             <link>https://andrepolischuk.com/questions-to-ask-before-writing-code/</link>
             <guid isPermaLink="true">https://andrepolischuk.com/questions-to-ask-before-writing-code/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
-            <pubDate>Wed, 18 Oct 2017 21:00:00 GMT</pubDate>
+            <pubDate>Thu, 19 Oct 2017 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[How to load single-page app faster]]></title>
@@ -78,7 +78,7 @@
             <link>https://andrepolischuk.com/how-to-load-single-page-app-faster/</link>
             <guid isPermaLink="true">https://andrepolischuk.com/how-to-load-single-page-app-faster/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
-            <pubDate>Mon, 02 Oct 2017 21:00:00 GMT</pubDate>
+            <pubDate>Tue, 03 Oct 2017 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Protect the frontend]]></title>
@@ -86,7 +86,7 @@
             <link>https://andrepolischuk.com/protect-the-frontend/</link>
             <guid isPermaLink="true">https://andrepolischuk.com/protect-the-frontend/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
-            <pubDate>Wed, 30 Aug 2017 21:00:00 GMT</pubDate>
+            <pubDate>Thu, 31 Aug 2017 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Code without comments]]></title>
@@ -94,7 +94,7 @@
             <link>https://andrepolischuk.com/code-without-comments/</link>
             <guid isPermaLink="true">https://andrepolischuk.com/code-without-comments/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
-            <pubDate>Thu, 24 Aug 2017 21:00:00 GMT</pubDate>
+            <pubDate>Fri, 25 Aug 2017 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Personal should be a personal]]></title>
@@ -102,7 +102,7 @@
             <link>https://andrepolischuk.com/personal-should-be-a-personal/</link>
             <guid isPermaLink="true">https://andrepolischuk.com/personal-should-be-a-personal/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
-            <pubDate>Mon, 14 Aug 2017 21:00:00 GMT</pubDate>
+            <pubDate>Tue, 15 Aug 2017 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Latest tools]]></title>
@@ -110,7 +110,7 @@
             <link>https://andrepolischuk.com/latest-tools/</link>
             <guid isPermaLink="true">https://andrepolischuk.com/latest-tools/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
-            <pubDate>Mon, 07 Aug 2017 21:00:00 GMT</pubDate>
+            <pubDate>Tue, 08 Aug 2017 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Why do I use Vim?]]></title>
@@ -119,7 +119,7 @@ My reasons why I preferred vim to other code editors such an atom and sublime.]]
             <link>https://andrepolischuk.com/why-do-i-use-vim/</link>
             <guid isPermaLink="true">https://andrepolischuk.com/why-do-i-use-vim/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
-            <pubDate>Mon, 31 Jul 2017 21:00:00 GMT</pubDate>
+            <pubDate>Tue, 01 Aug 2017 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Webpack with nginx upstreams]]></title>
@@ -127,7 +127,7 @@ My reasons why I preferred vim to other code editors such an atom and sublime.]]
             <link>https://andrepolischuk.com/webpack-with-nginx-upstreams/</link>
             <guid isPermaLink="true">https://andrepolischuk.com/webpack-with-nginx-upstreams/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
-            <pubDate>Mon, 24 Jul 2017 21:00:00 GMT</pubDate>
+            <pubDate>Tue, 25 Jul 2017 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Entry point]]></title>
@@ -135,7 +135,7 @@ My reasons why I preferred vim to other code editors such an atom and sublime.]]
             <link>https://andrepolischuk.com/entry-point/</link>
             <guid isPermaLink="true">https://andrepolischuk.com/entry-point/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
-            <pubDate>Wed, 19 Jul 2017 21:00:00 GMT</pubDate>
+            <pubDate>Thu, 20 Jul 2017 00:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>
