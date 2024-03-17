@@ -4,7 +4,7 @@
         <description><![CDATA[Personal blog about frontend engineering, software design, and development practices.]]></description>
         <link>https://andrepolischuk.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 16 Mar 2024 23:52:20 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 17 Mar 2024 00:01:28 GMT</lastBuildDate>
         <atom:link href="https://andrepolischuk.com/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Andrey Polischuk]]></author>
         <language><![CDATA[en-us]]></language>
