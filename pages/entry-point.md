@@ -27,6 +27,6 @@ This site was created as simple as possible:
 * Fully static
 * With automatic deployment
 
-Follow my writings or subscribe to [RSS-feed](https://andrepolischuk.com/rss.xml). You can write me or follow on [GitHub](https://github.com/andrepolischuk) and [Twitter](https://twitter.com/andrepolischuk).
+Follow my writings or subscribe to [RSS-feed](https://andrepolischuk.com/rss.xml). You can write me or follow on [GitHub](https://github.com/andrepolischuk).
 
 And you can find [site sources](https://github.com/andrepolischuk/andrepolischuk.github.io) on GitHub.
