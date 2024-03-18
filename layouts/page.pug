@@ -1,11 +1,11 @@
 extend layout
 
 block title
-  title= page.title.text
+  title= page.title.text + ' – ' + site.author
 
 block meta
   meta(name='description', content=page.desc.text)
-  meta(property='og:title', content=page.title.text)
+  meta(property='og:title', content=page.title.text + ' – ' + site.author)
   meta(property='og:description', content=page.desc.text)
   meta(property='og:url', content=site.site_url + page.url)
   meta(property='og:type', content='article')

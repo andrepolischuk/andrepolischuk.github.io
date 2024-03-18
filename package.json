@@ -1,7 +1,7 @@
 {
   "name": "andrepolischuk.com",
   "version": "0.0.0",
-  "description": "Andrey Polischuk",
+  "description": "Blog by Andrey Polischuk",
   "main": "gulpfile.babel.js",
   "scripts": {
     "start": "NODE_ENV=development gulp",
@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/andrepolischuk/andrepolischuk.github.io#readme",
   "site": {
-    "title": "Andrey Polischuk",
+    "title": "Blog by Andrey Polischuk",
     "description": "Personal blog about frontend engineering, software design, and development practices.",
     "author": "Andrey Polischuk",
     "feed_url": "https://andrepolischuk.com/rss.xml",
