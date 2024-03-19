@@ -13,6 +13,7 @@
     <meta property="article:author" content="https://andrepolischuk.com/">
     <meta name="twitter:card" content="summary">
     <meta name="description" content="We work with complex applications that use different content layouts for mobile and desktop devices. Some desktop components also differ from mobile ones and vice versa, so it would be great to avoid including components for one device type in the bundle for another. How can we separate pages for mobile devices, desktop, etc., but still open them with the same URLs?">
+    <meta property="article:published_time" content="1708992000">
     <meta property="og:title" content="How to split pages by device type in Next.js – Andrey Polischuk">
     <meta property="og:description" content="We work with complex applications that use different content layouts for mobile and desktop devices. Some desktop components also differ from mobile ones and vice versa, so it would be great to avoid including components for one device type in the bundle for another. How can we separate pages for mobile devices, desktop, etc., but still open them with the same URLs?">
     <meta property="og:url" content="https://andrepolischuk.com/how-to-split-pages-by-device-type-in-next/">
@@ -25,7 +26,7 @@
       <header>
         <h1>How to split pages by device type in Next.js</h1>
         <p>
-          <time datetime="2024-02-27T00:00:00.000Z">February 27, 2024</time>
+          <time>February 27, 2024</time>
         </p>
       </header><p>We work with complex applications that use different content layouts for mobile and desktop devices. Some desktop components also differ from mobile ones and vice versa, so it would be great to avoid including components for one device type in the bundle for another. How can we separate pages for mobile devices, desktop, etc., but still open them with the same URLs?</p>
 <p>In a Next.js application, you can achieve this using <a href="https://nextjs.org/docs/app/building-your-application/routing/middleware">middleware</a>, request headers, and <a href="https://nextjs.org/docs/app/api-reference/next-config-js/rewrites">rewrites</a>. The principle of operation is that the user’s request enters the middleware, where determined from which device they came from, and after exiting the middleware, the application returns the necessary page.</p>
