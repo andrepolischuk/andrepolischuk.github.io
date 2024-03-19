@@ -5,6 +5,8 @@ block title
 
 block meta
   meta(name='description', content=page.desc.text)
+  if (page.date)
+    meta(property='article:published_time', content=page.date.unix)
   meta(property='og:title', content=page.title.text + ' – ' + site.author)
   meta(property='og:description', content=page.desc.text)
   meta(property='og:url', content=site.site_url + page.url)
@@ -22,7 +24,7 @@ block content
       h1= page.title.text
       if (page.date)
         p
-          time(datetime=page.date.moment)= page.date.text
+          time= page.date.text
 
     != page.content.html
 
