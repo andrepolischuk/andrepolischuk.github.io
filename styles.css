@@ -105,6 +105,10 @@ li {
   margin-bottom: 0.5rem;
 }
 
+li ul {
+  margin-top: 0.5rem;
+}
+
 img {
   max-width: 100%;
 }
