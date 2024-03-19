@@ -22,7 +22,7 @@ block content
       h1= page.title.text
       if (page.date)
         p
-          time= page.date.text
+          time(datetime=page.date.moment)= page.date.text
 
     != page.content.html
 
