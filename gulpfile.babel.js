@@ -52,6 +52,15 @@ gulp.task('collect', () => {
           extract(article, 'MMMM D, YYYY', 'en')
         ))
 
+        pages.forEach(page => {
+          page.content.html = page.content.html.replaceAll(
+            /(<h\d>)(.+)(<\/h\d>)(\n|$)/g,
+            (_, prefix, title, suffix) => {
+              const anchor = title.toLowerCase().replaceAll(/[^A-Za-zА-ЯЁа-яё0-9]+/g, '-')
+              return `${prefix}<a href="#${anchor}" aria-hidden="true">#</a>${title}${suffix}`
+          })
+        })
+
         next(null, false)
       },
       next => {
