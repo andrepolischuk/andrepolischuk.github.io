@@ -32,10 +32,8 @@
 <p>Modern web application uses a lot of resources: own scripts, styles, requests, url queries, external analytics, fonts and other stuff receiving from cdns. And each of them may be malicious under certain conditions.</p>
 <p>Application runs in an unpredictable browser environment with possibly malware extensions. And all documents, scripts, requests transmit over potentially unsecured networks.</p>
 <p>Every day we improve ui, accessibility, perfomance. But what about security? As frontend engineers we should always think about all aspects of development including security of users using our products.</p>
-<h2>Possible attacks</h2>
-<p>Web applications have some vulnerabilities which enable the following attacks:</p>
-<h3><a href="https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)">XSS</a> <small>(Cross-site Scripting)</small></h3>
-<ul>
+<h2><a href="#possible-attacks" aria-hidden="true">#</a>Possible attacks</h2><p>Web applications have some vulnerabilities which enable the following attacks:</p>
+<h3><a href="#-a-href-https-www-owasp-org-index-php-cross-site-scripting-xss-xss-a-small-cross-site-scripting-small-" aria-hidden="true">#</a><a href="https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)">XSS</a> <small>(Cross-site Scripting)</small></h3><ul>
 <li>
 <p>Injection an unsafe code to html from db, for example in forum comments, <a href="https://www.owasp.org/index.php/Testing_for_Stored_Cross_site_scripting_(OTG-INPVAL-002)">stored XSS</a>.</p>
 <p>For example, you have template where you passes values from api response:</p>
@@ -88,14 +86,12 @@ alert(&quot;your password has been stolen&quot;)
 </li>
 </ul>
 <p>Each of them can result in opening and executing a malicious resource in application. Users may lose them data or access to account. Or may be taken away to external site.</p>
-<h3><a href="https://www.owasp.org/index.php/Clickjacking">Clickjacking</a></h3>
-<ul>
+<h3><a href="#-a-href-https-www-owasp-org-index-php-clickjacking-clickjacking-a-" aria-hidden="true">#</a><a href="https://www.owasp.org/index.php/Clickjacking">Clickjacking</a></h3><ul>
 <li>Application is opened in iframe on a malicious site under the hidden form</li>
 <li>All resources of application are proxied by external host</li>
 </ul>
 <p>In these ways users may lose credentials when type their in hidden inputs placed over real application or when try to authorize on proxied page.</p>
-<h2>Defense</h2>
-<p>So we explored possible categories of attacks. And now we should find ways to protect users from losing their sensitive data such as credentials or session ids.</p>
+<h2><a href="#defense" aria-hidden="true">#</a>Defense</h2><p>So we explored possible categories of attacks. And now we should find ways to protect users from losing their sensitive data such as credentials or session ids.</p>
 <p>There are several techniques to protect apps against attacks:</p>
 <ul>
 <li>
@@ -146,8 +142,7 @@ child-src 'none'
 </code></pre>
 </li>
 </ul>
-<h2>Summary</h2>
-<p>That’s all. I hope my little review of attacks and defend methods helps you to protect applications you creating. Also you can get more information by following the links referred in the article.</p>
+<h2><a href="#summary" aria-hidden="true">#</a>Summary</h2><p>That’s all. I hope my little review of attacks and defend methods helps you to protect applications you creating. Also you can get more information by following the links referred in the article.</p>
 
       <footer>
         <nav>

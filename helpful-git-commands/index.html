@@ -29,8 +29,7 @@
           <time>March 5, 2024</time>
         </p>
       </header><p>A list of git commands to improve your source code management skills.</p>
-<h2>Interactive commit</h2>
-<pre><code>git commit --patch --verbose
+<h2><a href="#interactive-commit" aria-hidden="true">#</a>Interactive commit</h2><pre><code>git commit --patch --verbose
 </code></pre>
 <p>Allows you to interactively select hunks of patch between the index and the work tree and commit them. It provides a detailed output of the commit process.</p>
 <p>Prompt to select hunks to commit</p>
@@ -84,8 +83,7 @@ index 2fea2b3..6b2d803 100644
 <li><code>--patch</code> – Interactively choose hunks of patch between the index and the work tree and commit them.</li>
 <li><code>--verbose</code> – Show unified diff of the changes being committed.</li>
 </ul>
-<h2>Branch info</h2>
-<pre><code>git branch --verbose
+<h2><a href="#branch-info" aria-hidden="true">#</a>Branch info</h2><pre><code>git branch --verbose
 </code></pre>
 <p>Lists all local branches along with the last commit on each branch.</p>
 <pre><code>  background-location ec6e18e feat: support background location for modals
@@ -93,8 +91,7 @@ index 2fea2b3..6b2d803 100644
 * master              bc8b8ab Merge pull request #19 from asyncink/error-to-layout
   refactor-loading    ebcebfb fix: simplify loading, fix isLoading lag
 </code></pre>
-<h2>Pretty log</h2>
-<pre><code>git log --graph --oneline --all --decorate --date-order
+<h2><a href="#pretty-log" aria-hidden="true">#</a>Pretty log</h2><pre><code>git log --graph --oneline --all --decorate --date-order
 </code></pre>
 <p>Displays the commit history in a graphical format, with each commit on a single line, showing all branches, decorated with references, and sorted by date.</p>
 <pre><code>* 4f51b56 (origin/gh-pages) Deploying to gh-pages from @ rambler-digital-solutions/react-toolkit@bc8b8abfb1db317b4c27a7634abb6ecce8d28384 🚀
@@ -126,8 +123,7 @@ index 2fea2b3..6b2d803 100644
 <li><code>--decorate</code> – Show names of branches or tags of the commits that are shown.</li>
 <li><code>--date-order</code> – Sort commits by date.</li>
 </ul>
-<h2>File history</h2>
-<pre><code>git log --follow --patch &lt;path&gt;
+<h2><a href="#file-history" aria-hidden="true">#</a>File history</h2><pre><code>git log --follow --patch &lt;path&gt;
 </code></pre>
 <p>Shows the commit history of a specific file, including the changes made in each commit.</p>
 <pre><code>commit 10ed8b6304b8384cfafb3fb839e295cf2a1ccf51
@@ -155,8 +151,7 @@ index 6e79fcf..e4a0d45 100644
 <li><code>--follow</code> – Continue listing the history of the file beyond renames.</li>
 <li><code>--patch</code> – Show the diff of each commit.</li>
 </ul>
-<h2>Short status</h2>
-<pre><code>git status --short --branch
+<h2><a href="#short-status" aria-hidden="true">#</a>Short status</h2><pre><code>git status --short --branch
 </code></pre>
 <p>Displays the status of the working directory and the current branch in a short format.</p>
 <pre><code>## master...origin/master [behind 4]
@@ -168,8 +163,7 @@ index 6e79fcf..e4a0d45 100644
 <li><code>--short</code> – Show the output in a short-format style.</li>
 <li><code>--branch</code> – Show the name of the current branch.</li>
 </ul>
-<h2>Sorted tags</h2>
-<pre><code>git tag --sort version:refname
+<h2><a href="#sorted-tags" aria-hidden="true">#</a>Sorted tags</h2><pre><code>git tag --sort version:refname
 </code></pre>
 <p>Lists all tags in the repository, sorted by version number.</p>
 <pre><code>v2.0.0
@@ -186,8 +180,7 @@ v2.7.2
 v2.7.3
 v2.8.0
 </code></pre>
-<h2>Undo</h2>
-<pre><code>git reset HEAD~1 --mixed
+<h2><a href="#undo" aria-hidden="true">#</a>Undo</h2><pre><code>git reset HEAD~1 --mixed
 </code></pre>
 <p>Resets the current HEAD to the previous commit. Changes in the working directory and index are preserved.</p>
 <pre><code>Unstaged changes after reset:
@@ -199,8 +192,7 @@ M       src/components/routes.tsx
 <li><code>HEAD~1</code> – The commit before the current HEAD.</li>
 <li><code>--mixed</code> – Reset the index but not the working directory.</li>
 </ul>
-<h2>Grep across history</h2>
-<pre><code>git rev-list --all | xargs git grep -F &lt;search&gt;
+<h2><a href="#grep-across-history" aria-hidden="true">#</a>Grep across history</h2><pre><code>git rev-list --all | xargs git grep -F &lt;search&gt;
 </code></pre>
 <p>Searches for a specific term across all commits in the repository.</p>
 <pre><code>0c954d8e019c4b152e082e1fcf70f47392100c0e:README.md:### Pages meta data
@@ -226,8 +218,7 @@ patible&quot; content=&quot;IE=edge&quot; /&gt;
 0c954d8e019c4b152e082e1fcf70f47392100c0e:src/components/document.tsx:      &lt;meta name=&quot;viewport&quot; con
 tent=&quot;width=device-width, initial-scale=1&quot; /&gt;
 </code></pre>
-<h2>Cleanup branches</h2>
-<pre><code>git branch --merged | sed &quot;s/* main//g&quot; | xargs -I % bash -c &quot;git branch -d %; git push origin :%&quot;
+<h2><a href="#cleanup-branches" aria-hidden="true">#</a>Cleanup branches</h2><pre><code>git branch --merged | sed &quot;s/* main//g&quot; | xargs -I % bash -c &quot;git branch -d %; git push origin :%&quot;
 </code></pre>
 <p>Deletes all local branches that have been merged into the main branch and removes them from the remote repository.</p>
 <ul>
@@ -235,8 +226,7 @@ tent=&quot;width=device-width, initial-scale=1&quot; /&gt;
 <li><code>sed &quot;s/* main//g&quot;</code> – Remove main branch from the list.</li>
 <li><code>xargs -I</code> – Interactively merged branches.</li>
 </ul>
-<h2>Mass pull</h2>
-<pre><code>find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} pull origin main \;
+<h2><a href="#mass-pull" aria-hidden="true">#</a>Mass pull</h2><pre><code>find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} pull origin main \;
 </code></pre>
 <p>Pulls changes from the main branch into all subdirectories that are Git repositories.</p>
 <ul>

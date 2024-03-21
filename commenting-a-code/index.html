@@ -31,8 +31,7 @@
       </header><p>Last year I wrote <a href="/code-without-comments/">the note</a> about waste comments in code. But now it seems to me that this explanation is not fully right. I was supporting a lot of apps, widgets with externalized API and shareable modules this year. And I found two specific case where comments can be useful.</p>
 <p>First, comments can help explain why did you write a code in this way.</p>
 <p>Second, comments can help generate documentation of any module API for engineers who use it.</p>
-<h2>Explanation</h2>
-<p>You write the error fix over a module with bug. Or you wait some feature in it. Clarify what do you fix. Attach link to issue on tracker to clarify.</p>
+<h2><a href="#explanation" aria-hidden="true">#</a>Explanation</h2><p>You write the error fix over a module with bug. Or you wait some feature in it. Clarify what do you fix. Attach link to issue on tracker to clarify.</p>
 <p>You create a module that somebody can not understand without knowledge of relations with other parts of system. Give more info how they interact here.</p>
 <p>You increase performance and write unreadable code with binary operations. Write why do you use it. Add link to algorithm do you apply in this case.</p>
 <pre><code class="language-js">const ns = '2f1acc6c3a606b082e5eef5e54414ffb'
@@ -45,8 +44,7 @@ if (global[ns] == null) global[ns] = 0
 export default global[ns]++
 </code></pre>
 <p>Anyway, write a comment to tell something for users who will work with your code.</p>
-<h2>Documentation</h2>
-<p>API description in code is not user-friendly approach. But it’s a good start to setup auto-generated docs for systems.</p>
+<h2><a href="#documentation" aria-hidden="true">#</a>Documentation</h2><p>API description in code is not user-friendly approach. But it’s a good start to setup auto-generated docs for systems.</p>
 <pre><code class="language-js">/**
  * Initialize a new `Command`.
  *
@@ -65,8 +63,7 @@ function Command(name) {
 </code></pre>
 <p>You can write about all functions or methods of API manually in readme. Or you can describe each methods in its code. Choose <code>jsdoc</code> format for your comments and start.</p>
 <p>Then add precommit hook to transform comments from code to any human-readable format of docs. Thanks to community, there are great tools to generate docs: <a href="https://github.com/jsdoc2md/jsdoc-to-markdown">jsdoc-to-markdown</a>, <a href="https://github.com/documentationjs/documentation">documentation.js</a>, <a href="https://github.com/styleguidist/react-styleguidist">react styleguidist</a>.</p>
-<h2>***</h2>
-<p>That’s all. Write comments. With their help you’ll explain ambiguous approaches or automate documenting. But you should purge the rest comments from your code.</p>
+<h2><a href="#-" aria-hidden="true">#</a>***</h2><p>That’s all. Write comments. With their help you’ll explain ambiguous approaches or automate documenting. But you should purge the rest comments from your code.</p>
 
       <footer>
         <nav>
