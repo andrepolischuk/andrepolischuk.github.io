@@ -57,7 +57,7 @@ gulp.task('collect', () => {
             /(<h\d>)(.+)(<\/h\d>)(\n|$)/g,
             (_, prefix, title, suffix) => {
               const anchor = title.toLowerCase().replaceAll(/[^A-Za-zА-ЯЁа-яё0-9]+/g, '-')
-              return `${prefix}<a href="#${anchor}" aria-hidden="true">#</a>${title}${suffix}`
+              return `${prefix}<a href="#${anchor}" data-anchor>#</a>${title}${suffix}`
           })
         })
 

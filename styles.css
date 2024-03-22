@@ -64,28 +64,6 @@ h3 + p {
   margin-top: 0.5rem;
 }
 
-h1 [aria-hidden],
-h2 [aria-hidden],
-h3 [aria-hidden],
-h4 [aria-hidden],
-h5 [aria-hidden] {
-  float: left;
-  width: 1rem;
-  margin-left: -1rem;
-  text-align: center;
-  font-size: 1em;
-  text-decoration: none;
-  visibility: hidden;
-}
-
-h1:hover [aria-hidden],
-h2:hover [aria-hidden],
-h3:hover [aria-hidden],
-h4:hover [aria-hidden],
-h5:hover [aria-hidden] {
-  visibility: visible;
-}
-
 pre,
 code {
   font-family: SF Mono, Menlo, Monaco, Courier New, Courier, monospace;
@@ -121,6 +99,23 @@ a {
 a:hover,
 a:focus {
   color: var(--accent);
+}
+
+a[data-anchor] {
+  display: inline-block;
+  visibility: hidden;
+  width: 1rem;
+  margin-left: -1rem;
+  text-align: center;
+  font-size: 1rem;
+  text-decoration: none;
+  vertical-align: middle;
+  transform: translateY(-0.1rem);
+}
+
+:hover > a[data-anchor],
+:active > a[data-anchor] {
+  visibility: visible;
 }
 
 li {
