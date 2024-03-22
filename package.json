@@ -22,7 +22,7 @@
   "homepage": "https://github.com/andrepolischuk/andrepolischuk.github.io#readme",
   "site": {
     "title": "Blog by Andrey Polischuk",
-    "description": "Personal blog about frontend engineering, software design, and development practices.",
+    "description": "Personal blog about frontend engineering, frontend operations, and software design.",
     "author": "Andrey Polischuk",
     "feed_url": "https://andrepolischuk.com/rss.xml",
     "site_url": "https://andrepolischuk.com/",
