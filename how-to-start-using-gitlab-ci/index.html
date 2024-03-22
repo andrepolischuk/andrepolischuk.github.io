@@ -37,7 +37,7 @@
 <li>Build and deploy apps to multiple environments</li>
 <li>Create multi-staging job pipelines</li>
 </ul>
-<h2><a href="#initial-setup" aria-hidden="true">#</a>Initial setup</h2><p>Let’s test and publish some package to npm in CI. To configure it just add <a href="https://docs.gitlab.com/ee/ci/yaml/README.html#gitlab-ci-yml"><code>.gitlab-ci.yml</code></a> to the root of a repository and push it. And one more thing you need to do is <a href="https://docs.gitlab.com/runner/">configure runners</a> that is used to run jobs.</p>
+<h2><a href="#initial-setup" data-anchor>#</a>Initial setup</h2><p>Let’s test and publish some package to npm in CI. To configure it just add <a href="https://docs.gitlab.com/ee/ci/yaml/README.html#gitlab-ci-yml"><code>.gitlab-ci.yml</code></a> to the root of a repository and push it. And one more thing you need to do is <a href="https://docs.gitlab.com/runner/">configure runners</a> that is used to run jobs.</p>
 <p>In a <code>.gitlab-ci.yml</code> file you define set of <a href="https://docs.gitlab.com/ee/ci/yaml/README.html#jobs">jobs</a> you want run in repository.</p>
 <pre><code class="language-yaml">image: node:8
 
@@ -76,7 +76,7 @@ test:
     - npm run lint
     - npm test
 </code></pre>
-<h2><a href="#jobs-execution-policy" aria-hidden="true">#</a>Jobs’ execution policy</h2><p>Runners execute jobs on each push in all refs by default. You can limit running the specific job by define <code>only</code> or <code>except</code> directives in its configuration.</p>
+<h2><a href="#jobs-execution-policy" data-anchor>#</a>Jobs’ execution policy</h2><p>Runners execute jobs on each push in all refs by default. You can limit running the specific job by define <code>only</code> or <code>except</code> directives in its configuration.</p>
 <pre><code class="language-yaml">publish:
   stage: publish
   only:
@@ -85,7 +85,7 @@ test:
 </code></pre>
 <p>Now test job runs on each refs, and publish job only runs when tag is pushed. You can set refs to exectute a job using regular expressions or keywords, such a <code>branches</code>, <code>tags</code>, <code>api</code>, <code>schedules</code>, and something else.</p>
 <p>Read more about <a href="https://docs.gitlab.com/ee/ci/yaml/README.html#only-and-except-simplified">job policy in Gitlab’s docs</a>.</p>
-<h2><a href="#secret-tokens" aria-hidden="true">#</a>Secret tokens</h2><p>You can easy automate publishing or deployment workflow with <a href="https://docs.gitlab.com/ee/ci/variables/README.html">CI variables</a>. It allows publish npm packages from gitlab repository to the npm registry by run only <code>npm version</code> command on local machine.</p>
+<h2><a href="#secret-tokens" data-anchor>#</a>Secret tokens</h2><p>You can easy automate publishing or deployment workflow with <a href="https://docs.gitlab.com/ee/ci/variables/README.html">CI variables</a>. It allows publish npm packages from gitlab repository to the npm registry by run only <code>npm version</code> command on local machine.</p>
 <ol>
 <li>
 <p>Generate the npm auth token locally by logging onto npm with <code>npm login</code> command. This will save auth token to npm configuration file <code>~/.npmrc</code>:</p>
@@ -182,7 +182,7 @@ deploy_stage:
 </ol>
 <p>In this case, when you run <code>npm version</code> command, runner tests the new version of application and then automatically deploys it to stage server.</p>
 <p>Read more about <a href="https://docs.gitlab.com/ee/ci/ssh_keys/README.html">using SSH keys</a> with Gitlab CI.</p>
-<h2><a href="#manual-jobs" aria-hidden="true">#</a>Manual jobs</h2><p>Next stage jobs run automatically by default after all previous jobs have passed. But you can execute jobs manually by using <a href="https://docs.gitlab.com/ee/ci/yaml/README.html#when"><code>when</code> directive</a>.</p>
+<h2><a href="#manual-jobs" data-anchor>#</a>Manual jobs</h2><p>Next stage jobs run automatically by default after all previous jobs have passed. But you can execute jobs manually by using <a href="https://docs.gitlab.com/ee/ci/yaml/README.html#when"><code>when</code> directive</a>.</p>
 <pre><code class="language-yaml">deploy_stage:
   stage: stage
   only:
@@ -197,7 +197,7 @@ deploy_stage:
     - rsync -rpl ./dist/ stage.awesome.app:/dists/$CI_COMMIT_TAG/
 </code></pre>
 <p>Following this configuration, deploy job needs to be started by a user <a href="https://docs.gitlab.com/ee/ci/pipelines.html#manual-actions-from-the-pipeline-graph">from pipeline</a>.</p>
-<h2><a href="#caching" aria-hidden="true">#</a>Caching</h2><p>If you build or compile package before publishing, you’ll need install dependencies before running every job. Let’s speed up testing and publishing. You can specify <code>cache</code> directive with list of files which should be cached between jobs. If there are a lot of jobs, you reduce extraneous downloading the dependencies for each job. By default Gitlab doesn’t cache files untracked by git.</p>
+<h2><a href="#caching" data-anchor>#</a>Caching</h2><p>If you build or compile package before publishing, you’ll need install dependencies before running every job. Let’s speed up testing and publishing. You can specify <code>cache</code> directive with list of files which should be cached between jobs. If there are a lot of jobs, you reduce extraneous downloading the dependencies for each job. By default Gitlab doesn’t cache files untracked by git.</p>
 <p>Add <code>node_modules</code> directory to caching list:</p>
 <pre><code class="language-yaml">image: node:8
 
@@ -258,7 +258,7 @@ publish:
 </code></pre>
 <p>In this example, test job installs dependencies and pushes them to cache. Publish job pulls dependencies, compiles and publishes results.</p>
 <p>Read more about <a href="https://docs.gitlab.com/ee/ci/yaml/README.html#cache">caching in Gitlab’s docs</a>.</p>
-<h2><a href="#pages-for-api-docs" aria-hidden="true">#</a>Pages for API docs</h2><p>Another interesting task you can do in CI is a publishing docs for package to <a href="https://docs.gitlab.com/ee/user/project/pages/">Gitlab pages</a>. Add job called <code>pages</code> to <code>.gitlab-ci.yml</code> file with <a href="https://docs.gitlab.com/ee/ci/yaml/README.html#artifacts"><code>artifacts</code> directive</a> to tell runner that this job creates artifacts.</p>
+<h2><a href="#pages-for-api-docs" data-anchor>#</a>Pages for API docs</h2><p>Another interesting task you can do in CI is a publishing docs for package to <a href="https://docs.gitlab.com/ee/user/project/pages/">Gitlab pages</a>. Add job called <code>pages</code> to <code>.gitlab-ci.yml</code> file with <a href="https://docs.gitlab.com/ee/ci/yaml/README.html#artifacts"><code>artifacts</code> directive</a> to tell runner that this job creates artifacts.</p>
 <pre><code class="language-yaml">image: node:8
 
 stages:
@@ -284,7 +284,7 @@ pages:
       - public
 </code></pre>
 <p>With this configuration <code>npm run docs</code> command builds the site with API documentations to artifacts <code>./public</code> directory. This directory will be automatically deployed to Gitlab pages when job completed.</p>
-<h2><a href="#wrapping-up" aria-hidden="true">#</a>Wrapping up</h2><p>That’s it. I reviewed the basics of usage integrated Gitlab CI for testing, building or deploying packages or applications. I hope you’ll find something new for yourself.</p>
+<h2><a href="#wrapping-up" data-anchor>#</a>Wrapping up</h2><p>That’s it. I reviewed the basics of usage integrated Gitlab CI for testing, building or deploying packages or applications. I hope you’ll find something new for yourself.</p>
 <p>Read the CI docs to gain a deeper understanding how it works:</p>
 <ul>
 <li><a href="https://docs.gitlab.com/ee/ci/README.html">GitLab Continuous Integration</a></li>
