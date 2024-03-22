@@ -61,7 +61,7 @@
   },
   "devDependencies": {
     "docslint": "^0.1.1",
-    "standard": "^10.0.2"
+    "standard": "^17.1.0"
   },
   "babel": {
     "presets": [
