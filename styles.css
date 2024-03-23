@@ -114,7 +114,7 @@ a[data-anchor] {
 }
 
 :hover > a[data-anchor],
-:active > a[data-anchor] {
+:focus > a[data-anchor] {
   visibility: visible;
 }
 
