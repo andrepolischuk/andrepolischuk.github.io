@@ -6,11 +6,11 @@ Micro frontends architecture is an approach to web application development that 
 
 Micro frontends are similar to another software architecture – [microservices](https://en.wikipedia.org/wiki/Microservices). Both approaches aim for modularity and independence of system components. They also allow development teams to work on different parts of the application in parallel, using various technologies and frameworks, which increases flexibility and development speed. Micro frontends and microservices provide independence and isolation of components, simplifying scaling and support of complex systems.
 
-## Prerequisites for Micro Frontends
+## Prerequisites for micro frontends
 
 After defining what micro frontends are, let's look at the prerequisites that led to the emergence and development of this approach. This will help in understanding why micro frontends have become a relevant solution for modern web developers.
 
-### Application Complexity Growth
+### Application complexity growth
 
 User needs constantly increase requirements for speed, security, user interface convenience, and web application functionality, leading to the need for their continuous improvement and updating.
 
@@ -25,7 +25,7 @@ Web application functionality gradually moves to the client side, driven by the 
 * Developing caching mechanisms on the client-side to speed up resource loading and save traffic.
 * Implementing offline mode for web applications to ensure availability in unstable internet connections or its absence.
 
-### Technology Stack Update
+### Technology stack update
 
 Implementing new logic in the client-side of applications leads to new technical problems and challenges that require the development of new approaches to solve them.
 
@@ -35,7 +35,7 @@ To keep web applications up-to-date, meeting modern standards and user requireme
 
 Updating the monolithic codebase of a web application instantly is fraught with significant time and resource costs and can lead to difficulties in ensuring the stability of the application and its individual components.
 
-### Team Work
+### Team work
 
 The growth of codebase and functionality requires an increase in the number of engineers to support it, more careful resource planning, and coordination between team members to ensure uninterrupted development and support of the project.
 
@@ -49,15 +49,15 @@ Changes made in one part of a monolithic web application can unpredictably affec
 
 The lack of modularity and high degree of interdependence between monolithic application components lead to the need for extensive and time-consuming testing of the entire application with each change, which slows down the development process and delivery of new functional features to users.
 
-### Code Duplication
+### Code duplication
 
 If a business owns many products, there may be a need to use similar functionality in several products.
 
 In monolithic web applications, this will lead to functional duplication and increased development costs, as it will be necessary to spend time and resources on the implementation, testing, and support of the same code in different places, which increases the likelihood of errors and complicates the introduction of changes and updates.
 
-## Advantages of Micro Frontends
+## Advantages of micro frontends
 
-### Independent Code Bases
+### Independent code bases
 
 Reducing the overall amount of code simplifies its understanding, support, and updating.
 
@@ -65,19 +65,19 @@ Small independent code bases allow encapsulating data and business logic, thus h
 
 A smaller amount of code makes testing easer, as it requires checking a smaller set of functionalities, which reduces development time and improves test quality.
 
-### Independent Deployment
+### Independent deployment
 
 Independent deployment reduces the risks of introducing updates to individual system components since updates are distributed atomically and do not affect the operation of the entire system, minimizing the likelihood of errors.
 
 The independence of deployment processes for individual system elements from the general application release cycles speeds up the delivery of new features and improvements to the end user, increasing responsiveness and development flexibility.
 
-### Independent Technologies
+### Independent technologies
 
 Each part of the system can be developed using individually selected technologies and architectural solutions, allowing for maximum efficiency and optimization of each specific module.
 
 Adopting architectural and technological decisions for each component separately ensures the convenience of updating and scaling each of them without risking disrupting the functionality or performance of other parts of the system. Thus, modifying one module does not entail the need to make changes in other modules, significantly simplifying the process of supporting and developing the application.
 
-### Independent Teams
+### Independent teams
 
 Small teams formed around specific business functionalities have the opportunity to deeply immerse themselves in the specifics of the developed product, ensuring a high level of responsibility for the final result of their work and stimulating the search for the best ways to achieve the goal.
 
@@ -85,21 +85,21 @@ Communication within small teams and between different teams plays a key role in
 
 The possibility of choosing the methodology best suited for working on a specific project or its part allows teams to approach the development process as flexibly as possible. Each team can individually select and combine the most effective project management practices and tools, based on their own experience, task specificity, and preferences, which in total increases the overall productivity and quality of developed products.
 
-## Architecture Types
+## Architecture types
 
-### Vertical Architecture
+### Vertical architecture
 
 Vertical architecture of micro frontends implies dividing an application into several independent sections, each of which is developed, tested, and deployed independently. This approach allows teams to work on separate functional blocks or pages of the application.
 
-![Vertical Architecture](https://i.imgur.com/LroPaWw.png)
+![Vertical architecture](https://i.imgur.com/LroPaWw.png)
 
-### Horizontal Architecture
+### Horizontal architecture
 
 Horizontal architecture of micro frontends is an approach to web application development where functional elements (widgets) are developed, tested, and deployed independently of each other and can be displayed on the same page. This allows different teams to work on one page in parallel.
 
-![Horizontal Architecture](https://i.imgur.com/6tNXtlR.png)
+![Horizontal architecture](https://i.imgur.com/6tNXtlR.png)
 
-## Integration Types
+## Integration types
 
 Integrating micro frontends into a common system is possible at the following lifecycle stages:
 
@@ -219,7 +219,7 @@ Features of embedding through JavaScript:
 * It's difficult to set up security policies because the host application and micro-applications run in the same context.
 * Simple communication through events and JavaScript interface.
 
-#### Combined Embedding
+#### Combined embedding
 
 The previous embedding methods each have their advantages and drawbacks. To mitigate these drawbacks a bit, you can combine the two methods - using the JavaScript interface for direct embedding, which internally embeds the micro-application via an iframe.
 
@@ -257,9 +257,9 @@ Features of the combined method:
 * It's possible to set strict security policies for the content inside the iframe
 * The external JavaScript interface allows encapsulating the transport between contexts, simplifying the communication of the host application with the micro-application inside the iframe, the host application doesn't need to know anything about the internal implementation.
 
-#### Custom Elements
+#### Custom elements
 
-This method is similar to embedding through a JavaScript interface, but it is performed through native [Custom Elements](https://developer.mozilla.org/en-US/docs/Web/API/Web_Components/Using_custom_elements).
+This method is similar to embedding through a JavaScript interface, but it is performed through native [custom elements](https://developer.mozilla.org/en-US/docs/Web/API/Web_Components/Using_custom_elements).
 
 ```html
 <html>
@@ -277,15 +277,15 @@ This method is similar to embedding through a JavaScript interface, but it is pe
 </html>
 ```
 
-Features of working with Custom Elements:
+Features of working with custom elements:
 
 * They provide style and script isolation, preventing conflicts and simplifying integration.
 * Communication between custom elements and the host application can be challenging, as events are the only method available.
 * Content dynamically generated by custom elements might not be fully indexed by search engines.
 
-### During Build
+### During build
 
-#### NPM and other Artifact Repositories
+#### NPM and other artifact repositories
 
 The micro-application is integrated through a JavaScript interface, but instead of downloading an external script, it uses installed modules from artifact repositories.
 
@@ -341,9 +341,9 @@ Features of embedding during build:
 * It's impossible to update micro-applications on the fly; a new release of the host application is necessary to update the connected modules.
 * The module's code is essentially included in the build of the host application, which increases its size and may impair performance.
 
-### On the Server
+### Server-side
 
-#### During Routing
+#### During routing
 
 On the server, several micro-applications are combined by locations.
 
@@ -365,7 +365,7 @@ server {
 
 This is only suitable for a vertical architecture, where different sections of the web application are micro frontends.
 
-#### During Server-side Rendering
+#### During server-side rendering
 
 The micro-application's markup is embedded in the host application's page code during server-side template rendering using [Server Side Includes](https://en.wikipedia.org/wiki/Server_Side_Includes).
 
@@ -434,7 +434,7 @@ Communication between micro-applications has several specific features and limit
 * Micro frontends should be designed to be as isolated from each other as possible, which means they should not use a shared state.
 * However, this also means that any communication between micro frontends must happen through an existing data exchange contract. It's important to focus on creating a reliable and scalable API for interaction between different components.
 
-### URL GET Parameters
+### URL GET parameters
 
 The data needed for initialization is passed as GET parameters in the URL of the micro-application. This approach is usually used when embedding through an iframe.
 
@@ -479,7 +479,7 @@ Micro-applications communicate through [`MessageEvent`](https://developer.mozill
 </html>
 ```
 
-### JavaScript Interface
+### JavaScript interface
 
 The embedded micro-application provides an external JavaScript interface, which the host application calls to synchronize data. The external JavaScript interface simplifies the host application's communication with the micro-application, as the host application doesn't know about its internal implementation.
 
@@ -504,7 +504,7 @@ The embedded micro-application provides an external JavaScript interface, which 
 </html>
 ```
 
-### Event Bus
+### Event bus
 
 The embedded micro-application provides an external JavaScript interface, which inherits from the abstract [EventEmitter](https://nodejs.org/api/events.html#class-eventemitter). It's possible to use an event bus along with the JavaScript interface's own methods to simplify communication, for example, calling methods to pass data to the micro-application and listening for events to track state changes.
 
@@ -532,9 +532,9 @@ The embedded micro-application provides an external JavaScript interface, which 
 </html>
 ```
 
-### Custom Events
+### Custom events
 
-This method is similar to the event bus but is implemented through the built-in [`CustomEvent` API](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent). This is the only method of communication when embedding a micro-application through Custom Elements along with HTML element attributes.
+This method is similar to the event bus but is implemented through the built-in [`CustomEvent` API](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent). This is the only method of communication when embedding a micro-application through custom elements along with HTML element attributes.
 
 ```html
 <html>
@@ -560,11 +560,11 @@ This method is similar to the event bus but is implemented through the built-in 
 </html>
 ```
 
-## Possible Issues of Micro Frontends
+## Known issues of micro frontends
 
 In addition to the advantages and features listed above, the micro frontend architecture has problematic issues that need consideration both when choosing the architecture of a particular solution and in the further implementation of this architecture.
 
-### UI Compatibility
+### UI compatibility
 
 Ensure consistency in appearance and behavior of UI across micro frontends to maintain visual integration between micro-applications.
 
@@ -572,7 +572,7 @@ Ensure consistency in appearance and behavior of UI across micro frontends to ma
 
 Extract common functionality into UI component libraries and auxiliary utilities that can be used by all micro-applications to minimize code duplication, as well as simplify support and update interfaces.
 
-### Data Synchronization
+### Data synchronization
 
 It is impossible to use a shared state to isolate micro-applications from each other as much as possible.
 
@@ -580,7 +580,7 @@ It is impossible to use a shared state to isolate micro-applications from each o
 
 Design scalable APIs for interaction between different micro-applications according to documented contracts.
 
-### CSS Styles Isolation
+### CSS styles isolation
 
 Micro-applications in a horizontal architecture often work within the context of one browser page, so the global visibility of CSS styles can violate encapsulation and modularity, leading to conflicts and unpredictable errors in display.
 
@@ -588,23 +588,23 @@ Micro-applications in a horizontal architecture often work within the context of
 
 Use methodologies such as BEM, and technologies including [CSS modules](https://github.com/css-modules/css-modules), [CSS-in-JS](https://en.wikipedia.org/wiki/CSS-in-JS), and [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM) to isolate the styles of each micro-application and prevent conflicts, thus ensuring reliable encapsulation and modularity.
 
-### JavaScript Isolation
+### JavaScript isolation
 
 JavaScript scripts executed in the context of the host application can interact with the content and data of micro-applications, causing security vulnerabilities and the possibility of user data leaks.
 
 #### Solution
 
-Use iframes or vertical architecture for integrating micro-applications with sensitive data to ensure complete isolation, preventing access to DOM elements and preventing execution of host application scripts in the context of micro-applications, thus enhancing security interaction.
+Use iframe or vertical architecture for integrating micro-applications with sensitive data to ensure complete isolation, preventing access to DOM elements and preventing execution of host application scripts in the context of micro-applications, thus enhancing security interaction.
 
-### Data Isolation
+### Data isolation
 
-Third-party cookies and storage are limited in cross-domain iframes due to browser restrictions, for example, [Intelligent Tracking Prevention](https://webkit.org/blog/9521/intelligent-tracking-prevention-2-3/).
+Third-party cookies and storage are limited in cross-domain iframe due to browser restrictions, for example, [Intelligent Tracking Prevention](https://webkit.org/blog/9521/intelligent-tracking-prevention-2-3/).
 
 #### Solution
 
 Explicitly check and request user permission for access to third-party data through the [Storage Access API](https://developer.mozilla.org/en-US/docs/Web/API/Storage_Access_API). It is also possible to store data in cookies and storages within the context of the host application, which is possible in combined embedding through a JavaScript interface with an iframe inside.
 
-### Increasing the Number of Dependencies and Duplication
+### Increasing the number of dependencies and duplication
 
 Using the same framework by micro-applications may result in framework code duplication, and each micro frontend adds additional HTTP requests to load its resources, which may affect the performance of the application.
 
@@ -612,7 +612,7 @@ Using the same framework by micro-applications may result in framework code dupl
 
 Use asynchronous loading ([Lazy Loading](https://developer.mozilla.org/en-US/docs/Web/Performance/Lazy_loading)) of micro-applications and extract common code into remote modules ([Module Federation](https://webpack.js.org/concepts/module-federation/)) so that users can access the main content faster, while additional features load in the background.
 
-### Infrastructure Complexity
+### Infrastructure сomplexity
 
 Splitting monoliths into many small micro-applications leads to an increase in the number of repositories, delivery pipelines, infrastructure that needs support.
 
@@ -620,7 +620,7 @@ Splitting monoliths into many small micro-applications leads to an increase in t
 
 Implement automation of operations and development, testing, and delivery processes to manage and support the additional necessary infrastructure.
 
-### Stack and Processes Complexity
+### Stack and processes complexity
 
 The autonomy of development within micro frontends allows teams to make decisions independently, which can lead to an increase in the number of technologies, tools, and methodologies used.
 
@@ -628,7 +628,7 @@ The autonomy of development within micro frontends allows teams to make decision
 
 Develop common standards and practices, including coding style, architectural patterns, and technology stacks, to help ease the integration of micro-applications and simplify teamwork.
 
-### Increasing the Bus Factor
+### Increasing the bus factor
 
 Dividing employees into many small teams, as well as a variety of approaches and tools, may increase the risks associated with the concept of "bus factor" (project vulnerability related to the loss of key employees) and complicate the interchangeability of developers.
 
