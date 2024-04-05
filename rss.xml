@@ -4,7 +4,7 @@
         <description><![CDATA[Personal blog about frontend engineering, frontend operations, and software design.]]></description>
         <link>https://andrepolischuk.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 05 Apr 2024 09:16:31 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 05 Apr 2024 09:18:18 GMT</lastBuildDate>
         <atom:link href="https://andrepolischuk.com/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Andrey Polischuk]]></author>
         <language><![CDATA[en-us]]></language>
@@ -17,12 +17,20 @@
         <category><![CDATA[typescript]]></category>
         <category><![CDATA[web]]></category>
         <item>
+            <title><![CDATA[Как создавать переиспользуемые виджеты]]></title>
+            <description><![CDATA[В предыдущей статье мы рассмотрели архитектуру микро-фронтендов, изучили принципы, которые лежат в её основе, и то, как эта концепция может трансформировать подходы к разработке веб-приложений. Теперь, когда мы немного понимаем теорию, давайте перейдем к практике, а именно к созданию переиспользуемых виджетов с помощью библиотеки Widgetly.]]></description>
+            <link>https://andrepolischuk.com/how-to-create-reusable-widgets/</link>
+            <guid isPermaLink="true">https://andrepolischuk.com/how-to-create-reusable-widgets/</guid>
+            <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
+            <pubDate>Tue, 30 Apr 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
             <title><![CDATA[Architecture: Micro frontends]]></title>
             <description><![CDATA[Micro frontends architecture is an approach to web application development that involves breaking down the frontend (client-side) into independent modules or components (for example, sidebar, footer, widget). Each of these modules can be developed, deployed, and scaled independently from the rest of the application.]]></description>
             <link>https://andrepolischuk.com/architecture-micro-frontends/</link>
             <guid isPermaLink="true">https://andrepolischuk.com/architecture-micro-frontends/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
-            <pubDate>Thu, 04 Apr 2024 00:00:00 GMT</pubDate>
+            <pubDate>Fri, 05 Apr 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[100 valuable blogs for developers]]></title>
