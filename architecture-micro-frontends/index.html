@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Architecture: Micro frontends – Andrey Polischuk</title>
+    <link rel="preload" href="/styles.css" as="style">
+    <link rel="preload" href="/index.js" as="script">
+    <link href="https://andrepolischuk.com/rss.xml" title="Blog by Andrey Polischuk" rel="alternate" type="application/rss+xml">
+    <link rel="stylesheet" href="/styles.css">
+    <meta name="author" content="Andrey Polischuk">
+    <meta property="og:site_name" content="Blog by Andrey Polischuk">
+    <meta property="article:author" content="https://andrepolischuk.com/">
+    <meta name="twitter:card" content="summary">
+    <meta name="description" content="Micro frontends architecture is an approach to web application development that involves breaking down the frontend (client-side) into independent modules or components (for example, sidebar, footer, widget). Each of these modules can be developed, deployed, and scaled independently from the rest of the application.">
+    <meta property="article:published_time" content="1712188800">
+    <meta property="og:title" content="Architecture: Micro frontends – Andrey Polischuk">
+    <meta property="og:description" content="Micro frontends architecture is an approach to web application development that involves breaking down the frontend (client-side) into independent modules or components (for example, sidebar, footer, widget). Each of these modules can be developed, deployed, and scaled independently from the rest of the application.">
+    <meta property="og:url" content="https://andrepolischuk.com/architecture-micro-frontends/">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://i.imgur.com/LroPaWw.png">
+    <meta name="twitter:image" content="https://i.imgur.com/LroPaWw.png">
+  </head>
+  <body>
+    <article>
+      <header>
+        <h1>Architecture: Micro frontends</h1>
+        <p>
+          <time>April 4, 2024</time>
+        </p>
+      </header><p>Micro frontends architecture is an approach to web application development that involves breaking down the frontend (client-side) into independent modules or components (for example, sidebar, footer, widget). Each of these modules can be developed, deployed, and scaled independently from the rest of the application.</p>
+<p>Micro frontends are similar to another software architecture – <a href="https://en.wikipedia.org/wiki/Microservices">microservices</a>. Both approaches aim for modularity and independence of system components. They also allow development teams to work on different parts of the application in parallel, using various technologies and frameworks, which increases flexibility and development speed. Micro frontends and microservices provide independence and isolation of components, simplifying scaling and support of complex systems.</p>
+<h2><a href="#prerequisites-for-micro-frontends" data-anchor>#</a>Prerequisites for Micro Frontends</h2><p>After defining what micro frontends are, let’s look at the prerequisites that led to the emergence and development of this approach. This will help in understanding why micro frontends have become a relevant solution for modern web developers.</p>
+<h3><a href="#application-complexity-growth" data-anchor>#</a>Application Complexity Growth</h3><p>User needs constantly increase requirements for speed, security, user interface convenience, and web application functionality, leading to the need for their continuous improvement and updating.</p>
+<p>Browser developers regularly introduce new APIs that expand the capabilities of web applications, including performance improvements, access to device hardware features, etc.</p>
+<p>Web application functionality gradually moves to the client side, driven by the desire to improve user experience and reduce server load. This includes:</p>
+<ul>
+<li>Using Ajax for asynchronous server requests without the need to reload the entire page.</li>
+<li>Implementing client-side routing to manage navigation without server interaction.</li>
+<li>Dynamically generating HTML markup on the client-side for more flexible content management.</li>
+<li>Moving business logic from the backend to the frontend for a quick response to user actions.</li>
+<li>Developing caching mechanisms on the client-side to speed up resource loading and save traffic.</li>
+<li>Implementing offline mode for web applications to ensure availability in unstable internet connections or its absence.</li>
+</ul>
+<h3><a href="#technology-stack-update" data-anchor>#</a>Technology Stack Update</h3><p>Implementing new logic in the client-side of applications leads to new technical problems and challenges that require the development of new approaches to solve them.</p>
+<p>Developers constantly seek and implement new design patterns, frameworks, and libraries to address issues arising from changes in the technological landscape and business requirements.</p>
+<p>To keep web applications up-to-date, meeting modern standards and user requirements, it is necessary to regularly update the technologies and development tools used.</p>
+<p>Updating the monolithic codebase of a web application instantly is fraught with significant time and resource costs and can lead to difficulties in ensuring the stability of the application and its individual components.</p>
+<h3><a href="#team-work" data-anchor>#</a>Team Work</h3><p>The growth of codebase and functionality requires an increase in the number of engineers to support it, more careful resource planning, and coordination between team members to ensure uninterrupted development and support of the project.</p>
+<p>The larger the number of engineers, the more complex the team’s communication. Engineers cannot act independently and must negotiate with each other about the impact of one part on others, implying the presence of clear interfaces between system modules and components, as well as regular joint meetings and code review sessions to ensure architectural decisions consistency and avoid conflicts during the integration of different parts of the project.</p>
+<h3><a href="#maintenance" data-anchor>#</a>Maintenance</h3><p>Having a large and cohesive codebase dependent on one technology stack complicates the process of making changes and requires more testing and enhanced support during operation due to the high degree of interconnection between system components and modules.</p>
+<p>Changes made in one part of a monolithic web application can unpredictably affect the operation of its other parts, which increases the risk of errors and failures in the application as a whole and requires developers to pay more attention to quality control and testing issues.</p>
+<p>The lack of modularity and high degree of interdependence between monolithic application components lead to the need for extensive and time-consuming testing of the entire application with each change, which slows down the development process and delivery of new functional features to users.</p>
+<h3><a href="#code-duplication" data-anchor>#</a>Code Duplication</h3><p>If a business owns many products, there may be a need to use similar functionality in several products.</p>
+<p>In monolithic web applications, this will lead to functional duplication and increased development costs, as it will be necessary to spend time and resources on the implementation, testing, and support of the same code in different places, which increases the likelihood of errors and complicates the introduction of changes and updates.</p>
+<h2><a href="#advantages-of-micro-frontends" data-anchor>#</a>Advantages of Micro Frontends</h2><h3><a href="#independent-code-bases" data-anchor>#</a>Independent Code Bases</h3><p>Reducing the overall amount of code simplifies its understanding, support, and updating.</p>
+<p>Small independent code bases allow encapsulating data and business logic, thus hiding the implementation details of a certain set of functionalities within a separate service. This eliminates or minimizes inappropriate dependencies between different parts of the system, ensuring simpler modernization and updating.</p>
+<p>A smaller amount of code makes testing easer, as it requires checking a smaller set of functionalities, which reduces development time and improves test quality.</p>
+<h3><a href="#independent-deployment" data-anchor>#</a>Independent Deployment</h3><p>Independent deployment reduces the risks of introducing updates to individual system components since updates are distributed atomically and do not affect the operation of the entire system, minimizing the likelihood of errors.</p>
+<p>The independence of deployment processes for individual system elements from the general application release cycles speeds up the delivery of new features and improvements to the end user, increasing responsiveness and development flexibility.</p>
+<h3><a href="#independent-technologies" data-anchor>#</a>Independent Technologies</h3><p>Each part of the system can be developed using individually selected technologies and architectural solutions, allowing for maximum efficiency and optimization of each specific module.</p>
+<p>Adopting architectural and technological decisions for each component separately ensures the convenience of updating and scaling each of them without risking disrupting the functionality or performance of other parts of the system. Thus, modifying one module does not entail the need to make changes in other modules, significantly simplifying the process of supporting and developing the application.</p>
+<h3><a href="#independent-teams" data-anchor>#</a>Independent Teams</h3><p>Small teams formed around specific business functionalities have the opportunity to deeply immerse themselves in the specifics of the developed product, ensuring a high level of responsibility for the final result of their work and stimulating the search for the best ways to achieve the goal.</p>
+<p>Communication within small teams and between different teams plays a key role in the successful development of a product, and independent teams have significant advantages here, for example flexibility of communication processes. Interaction within a team and with other groups becomes more efficient and focused, speeding up decision-making, improving coordination, and solving emerging problems faster.</p>
+<p>The possibility of choosing the methodology best suited for working on a specific project or its part allows teams to approach the development process as flexibly as possible. Each team can individually select and combine the most effective project management practices and tools, based on their own experience, task specificity, and preferences, which in total increases the overall productivity and quality of developed products.</p>
+<h2><a href="#architecture-types" data-anchor>#</a>Architecture Types</h2><h3><a href="#vertical-architecture" data-anchor>#</a>Vertical Architecture</h3><p>Vertical architecture of micro frontends implies dividing an application into several independent sections, each of which is developed, tested, and deployed independently. This approach allows teams to work on separate functional blocks or pages of the application.</p>
+<p><img src="https://i.imgur.com/LroPaWw.png" alt="Vertical Architecture" /></p>
+<h3><a href="#horizontal-architecture" data-anchor>#</a>Horizontal Architecture</h3><p>Horizontal architecture of micro frontends is an approach to web application development where functional elements (widgets) are developed, tested, and deployed independently of each other and can be displayed on the same page. This allows different teams to work on one page in parallel.</p>
+<p><img src="https://i.imgur.com/6tNXtlR.png" alt="Horizontal Architecture" /></p>
+<h2><a href="#integration-types" data-anchor>#</a>Integration Types</h2><p>Integrating micro frontends into a common system is possible at the following lifecycle stages:</p>
+<ul>
+<li>During application build.</li>
+<li>Client-side during runtime.</li>
+<li>Server-side during runtime.</li>
+</ul>
+<h3><a href="#client-side" data-anchor>#</a>Client-side</h3><h4><a href="#embedding-via-iframe" data-anchor>#</a>Embedding via iframe</h4><p>The micro application is embedded into the host application via iframe.</p>
+<pre><code class="language-html">&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Main page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;header&gt;...&lt;/header&gt;
+    &lt;iframe src=&quot;https://currency.example.app/widget&quot;&gt;&lt;/iframe&gt;
+    &lt;iframe src=&quot;https://weather.example.app/widget&quot;&gt;&lt;/iframe&gt;
+    &lt;footer&gt;...&lt;/footer&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Features of working with iframe:</p>
+<ul>
+<li>Provides isolation out of the box, there’s no need for style isolation, the host application does not have access to data and DOM inside the iframe.</li>
+<li>It’s possible to set strict rules for content sources, scripts, and other resources inside the iframe (e.g., <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">Content Security Policy</a>) to protect against attacks like XSS and injections.</li>
+<li>Complex communication between the host and the embedded application through <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage"><code>postMessage</code></a>.</li>
+<li>Content loaded inside an iframe is usually not indexed by search engines, which can negatively affect SEO.</li>
+</ul>
+<h4><a href="#embedding-via-javascript" data-anchor>#</a>Embedding via JavaScript</h4><p>The micro application’s script is loaded separately and embedded through its JavaScript interface.</p>
+<pre><code class="language-html">&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Main page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;header&gt;...&lt;/header&gt;
+    &lt;main&gt;...&lt;/main&gt;
+    &lt;div id=&quot;currency&quot;&gt;&lt;/div&gt;
+    &lt;footer&gt;...&lt;/footer&gt;
+    &lt;script src=&quot;https://currency.example.app/widget.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+      const widget = new Currency({
+        element: document.querySelector('#currency')
+      })
+      // widget ready to use
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Similarly, it is possible to embed this universal micro application anywhere, for example, in a React application client-side.</p>
+<pre><code class="language-tsx">import React, {useRef, useEffect} from 'react'
+import {Header, Footer} from 'components'
+
+const commentsPromise = cache(() =&gt; import('https://comments.example.app/widget.js'))
+
+export function MainPage() {
+  const commentsRoot = useRef()
+
+  useEffect(() =&gt; {
+    commentsPromise.then((Comments) =&gt; {
+      const widget = new Comments({
+        element: commentsRoot.current,
+        appId: 123
+      })
+      // widget ready to use
+    })
+  }, [])
+
+  return (
+    &lt;&gt;
+      &lt;Header /&gt;
+      &lt;main&gt;...&lt;/main&gt;
+      &lt;div ref={commentsRoot} /&gt;
+      &lt;Footer /&gt;
+    &lt;/&gt;
+  )
+}
+</code></pre>
+<p>In a more specific stack, the micro application itself can be written in React (federated React component) and embedded in another React application.</p>
+<pre><code class="language-tsx">import React, {lazy} from 'react'
+import {Header, Footer} from 'components'
+
+const Comments = lazy(() =&gt; import('https://comments.example.app/widget.js'))
+
+export function MainPage() {
+  return (
+    &lt;&gt;
+      &lt;Header /&gt;
+      &lt;main&gt;...&lt;/main&gt;
+      &lt;Comments appId={123} /&gt;
+      &lt;Footer /&gt;
+    &lt;/&gt;
+  )
+}
+</code></pre>
+<p>Features of embedding through JavaScript:</p>
+<ul>
+<li>Scripts and styles run in the host application environment.</li>
+<li>Style isolation is necessary.</li>
+<li>Any scripts from the host application can access the content and data of the micro-application, which may lead to user data leakage.</li>
+<li>It’s difficult to set up security policies because the host application and micro-applications run in the same context.</li>
+<li>Simple communication through events and JavaScript interface.</li>
+</ul>
+<h4><a href="#combined-embedding" data-anchor>#</a>Combined Embedding</h4><p>The previous embedding methods each have their advantages and drawbacks. To mitigate these drawbacks a bit, you can combine the two methods - using the JavaScript interface for direct embedding, which internally embeds the micro-application via an iframe.</p>
+<pre><code class="language-html">&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Main page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;header&gt;...&lt;/header&gt;
+    &lt;main&gt;...&lt;/main&gt;
+    &lt;div id=&quot;comments&quot;&gt;
+      &lt;!-- dynamically added when creating a Comments instance --&gt;
+      &lt;div class=&quot;comments-container&quot;&gt;
+        &lt;iframe src=&quot;https://comments.example.app/widget/iframe?appId=123&quot;&gt;&lt;/iframe&gt;
+      &lt;/div&gt;
+      &lt;!-- / --&gt;
+    &lt;/div&gt;
+    &lt;footer&gt;...&lt;/footer&gt;
+    &lt;script src=&quot;https://comments.example.app/widget.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+      const widget = new Comments({
+        element: document.querySelector('#comments'),
+        appId: 123
+      })
+      // widget ready to use
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Features of the combined method:</p>
+<ul>
+<li>The internal iframe provides style and script isolation, preventing the service from accessing the content and data of the micro-application and vice versa.</li>
+<li>It’s possible to set strict security policies for the content inside the iframe</li>
+<li>The external JavaScript interface allows encapsulating the transport between contexts, simplifying the communication of the host application with the micro-application inside the iframe, the host application doesn’t need to know anything about the internal implementation.</li>
+</ul>
+<h4><a href="#custom-elements" data-anchor>#</a>Custom Elements</h4><p>This method is similar to embedding through a JavaScript interface, but it is performed through native <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Components/Using_custom_elements">Custom Elements</a>.</p>
+<pre><code class="language-html">&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Main page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;header&gt;...&lt;/header&gt;
+    &lt;currency-widget&gt;&lt;/currency-widget&gt;
+    &lt;weather-widget&gt;&lt;/weather-widget&gt;
+    &lt;footer&gt;...&lt;/footer&gt;
+    &lt;script src=&quot;https://currency.example.app/widget.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://weather.example.app/widget.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Features of working with Custom Elements:</p>
+<ul>
+<li>They provide style and script isolation, preventing conflicts and simplifying integration.</li>
+<li>Communication between custom elements and the host application can be challenging, as events are the only method available.</li>
+<li>Content dynamically generated by custom elements might not be fully indexed by search engines.</li>
+</ul>
+<h3><a href="#during-build" data-anchor>#</a>During Build</h3><h4><a href="#npm-and-other-artifact-repositories" data-anchor>#</a>NPM and other Artifact Repositories</h4><p>The micro-application is integrated through a JavaScript interface, but instead of downloading an external script, it uses installed modules from artifact repositories.</p>
+<pre><code class="language-tsx">import React, {useRef, useEffect} from 'react'
+import {Header, Footer} from 'components'
+import {Comments} from '@widgets/comments'
+
+export function MainPage() {
+  const commentsRoot = useRef()
+
+  useEffect(() =&gt; {
+    const widget = new Comments({
+      element: commentsRoot.current,
+      appId: 123
+    })
+    // widget ready to use
+  }, [])
+
+  return (
+    &lt;&gt;
+      &lt;Header /&gt;
+      &lt;main&gt;...&lt;/main&gt;
+      &lt;div ref={commentsRoot} /&gt;
+      &lt;Footer /&gt;
+    &lt;/&gt;
+  )
+}
+</code></pre>
+<p>The micro-application can use the same stack as the host application.</p>
+<pre><code class="language-tsx">import React from 'react'
+import {Header, Footer} from 'components'
+import {Currency} from '@widgets/currency'
+import {Weather} from '@widgets/weather'
+
+export function MainPage() {
+  return (
+    &lt;&gt;
+      &lt;Header /&gt;
+      &lt;Currency /&gt;
+      &lt;Weather /&gt;
+      &lt;Footer /&gt;
+    &lt;/&gt;
+  )
+}
+</code></pre>
+<p>Features of embedding during build:</p>
+<ul>
+<li>It’s impossible to update micro-applications on the fly; a new release of the host application is necessary to update the connected modules.</li>
+<li>The module’s code is essentially included in the build of the host application, which increases its size and may impair performance.</li>
+</ul>
+<h3><a href="#on-the-server" data-anchor>#</a>On the Server</h3><h4><a href="#during-routing" data-anchor>#</a>During Routing</h4><p>On the server, several micro-applications are combined by locations.</p>
+<pre><code class="language-nginx">server {
+  ...
+
+  location /search {
+    proxy_pass https://search.example.app;
+  }
+
+  location /order {
+    proxy_pass https://order.example.app;
+  }
+
+  ...
+}
+</code></pre>
+<p>This is only suitable for a vertical architecture, where different sections of the web application are micro frontends.</p>
+<h4><a href="#during-server-side-rendering" data-anchor>#</a>During Server-side Rendering</h4><p>The micro-application’s markup is embedded in the host application’s page code during server-side template rendering using <a href="https://en.wikipedia.org/wiki/Server_Side_Includes">Server Side Includes</a>.</p>
+<pre><code class="language-html">&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Main page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;header&gt;...&lt;/header&gt;
+    &lt;!--# include file=&quot;https://currency.example.app&quot; --&gt;
+    &lt;!--# include file=&quot;https://weather.example.app&quot; --&gt;
+    &lt;footer&gt;...&lt;/footer&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>It is also possible to embed markup using any stack, for example, in React server components.</p>
+<pre><code class="language-tsx">import React from 'react'
+import {Header, Footer} from 'components'
+
+export async function MainPage() {
+  const commentsMarkup = await fetchMarkup('https://comments.example.app/ssr?appId=123')
+  return (
+    &lt;&gt;
+      &lt;Header /&gt;
+      &lt;main&gt;...&lt;/main&gt;
+      &lt;div dangerouslySetInnerHTML={{__html: commentsMarkup}} /&gt;
+      &lt;Footer /&gt;
+    &lt;/&gt;
+  )
+}
+</code></pre>
+<p>And the micro-application can have the same stack as the host application.</p>
+<pre><code class="language-tsx">import React from 'react'
+import {Header, Footer} from 'components'
+
+export async function MainPage() {
+  const Comments = await cache(() =&gt; import('https://comments.example.app/widget.js'))
+  return (
+    &lt;&gt;
+      &lt;Header /&gt;
+      &lt;main&gt;...&lt;/main&gt;
+      &lt;Comments appId={123} /&gt;
+      &lt;Footer /&gt;
+    &lt;/&gt;
+  )
+}
+</code></pre>
+<p>Features of embedding during server-side markup generation:</p>
+<ul>
+<li>Markup is prepared on the server and indexed by search engines.</li>
+<li>Scripts and styles run in the host application environment, so style isolation is needed.</li>
+<li>Any scripts from the host application can access the content and data of the micro-application, which could lead to user data leakage.</li>
+</ul>
+<h2><a href="#communication" data-anchor>#</a>Communication</h2><p>Communication between micro-applications has several specific features and limitations:</p>
+<ul>
+<li>Micro frontends should be designed to be as isolated from each other as possible, which means they should not use a shared state.</li>
+<li>However, this also means that any communication between micro frontends must happen through an existing data exchange contract. It’s important to focus on creating a reliable and scalable API for interaction between different components.</li>
+</ul>
+<h3><a href="#url-get-parameters" data-anchor>#</a>URL GET Parameters</h3><p>The data needed for initialization is passed as GET parameters in the URL of the micro-application. This approach is usually used when embedding through an iframe.</p>
+<pre><code class="language-html">&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Main page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;header&gt;...&lt;/header&gt;
+    &lt;main&gt;...&lt;/main&gt;
+    &lt;iframe src=&quot;https://comments.example.app/widget?appId=123&quot;&gt;&lt;/iframe&gt;
+    &lt;footer&gt;...&lt;/footer&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3><a href="#messages" data-anchor>#</a>Messages</h3><p>Micro-applications communicate through <a href="https://developer.mozilla.org/en-US/docs/Web/API/MessageEvent"><code>MessageEvent</code></a>, send data via <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage"><code>postMessage</code></a> and listen for the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/message_event"><code>message</code></a> event to receive data. This is also used when embedding through an iframe.</p>
+<pre><code class="language-html">&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Main page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;header&gt;...&lt;/header&gt;
+    &lt;main&gt;...&lt;/main&gt;
+    &lt;iframe id=&quot;comments&quot; src=&quot;https://comments.example.app/widget&quot;&gt;&lt;/iframe&gt;
+    &lt;footer&gt;...&lt;/footer&gt;
+    &lt;script&gt;
+      const {contentWindow} = document.querySelector('#comments')
+      window.addEventListener('message', (event) =&gt; {
+        if (event.data.type === 'ready') {
+          // widget ready to use
+        }
+      })
+      contentWindow.postMessage({type: 'init', appId: 123}, '*')
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3><a href="#javascript-interface" data-anchor>#</a>JavaScript Interface</h3><p>The embedded micro-application provides an external JavaScript interface, which the host application calls to synchronize data. The external JavaScript interface simplifies the host application’s communication with the micro-application, as the host application doesn’t know about its internal implementation.</p>
+<pre><code class="language-html">&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Main page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;header&gt;...&lt;/header&gt;
+    &lt;main&gt;...&lt;/main&gt;
+    &lt;div id=&quot;comments&quot;&gt;&lt;/div&gt;
+    &lt;footer&gt;...&lt;/footer&gt;
+    &lt;script src=&quot;https://comments.example.app/widget.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+      const widget = new Comments({
+        element: document.querySelector('#comments')
+      })
+      widget.init({appId: 123})
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3><a href="#event-bus" data-anchor>#</a>Event Bus</h3><p>The embedded micro-application provides an external JavaScript interface, which inherits from the abstract <a href="https://nodejs.org/api/events.html#class-eventemitter">EventEmitter</a>. It’s possible to use an event bus along with the JavaScript interface’s own methods to simplify communication, for example, calling methods to pass data to the micro-application and listening for events to track state changes.</p>
+<pre><code class="language-html">&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Main page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;header&gt;...&lt;/header&gt;
+    &lt;main&gt;...&lt;/main&gt;
+    &lt;div id=&quot;comments&quot;&gt;&lt;/div&gt;
+    &lt;footer&gt;...&lt;/footer&gt;
+    &lt;script src=&quot;https://comments.example.app/widget.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+      const widget = new Comments({
+        element: document.querySelector('#comments')
+      })
+      widget.on('ready', () =&gt; {
+        // widget ready to use
+      })
+      widget.emit('init', {appId: 123})
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3><a href="#custom-events" data-anchor>#</a>Custom Events</h3><p>This method is similar to the event bus but is implemented through the built-in <a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent"><code>CustomEvent</code> API</a>. This is the only method of communication when embedding a micro-application through Custom Elements along with HTML element attributes.</p>
+<pre><code class="language-html">&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Main page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;header&gt;...&lt;/header&gt;
+    &lt;main&gt;...&lt;/main&gt;
+    &lt;comments-widget&gt;&lt;/comments-widget&gt;
+    &lt;footer&gt;...&lt;/footer&gt;
+    &lt;script src=&quot;https://comments.example.app/widget.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+      const commentsRoot = document.querySelector('comments-widget')
+      commentsRoot.addEventListener('ready', () =&gt; {
+        // widget ready to use
+      })
+      commentsRoot.dispatchEvent(
+        new CustomEvent('init', {detail: {appId: 123}})
+      )
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2><a href="#possible-issues-of-micro-frontends" data-anchor>#</a>Possible Issues of Micro Frontends</h2><p>In addition to the advantages and features listed above, the micro frontend architecture has problematic issues that need consideration both when choosing the architecture of a particular solution and in the further implementation of this architecture.</p>
+<h3><a href="#ui-compatibility" data-anchor>#</a>UI Compatibility</h3><p>Ensure consistency in appearance and behavior of UI across micro frontends to maintain visual integration between micro-applications.</p>
+<h4><a href="#solution" data-anchor>#</a>Solution</h4><p>Extract common functionality into UI component libraries and auxiliary utilities that can be used by all micro-applications to minimize code duplication, as well as simplify support and update interfaces.</p>
+<h3><a href="#data-synchronization" data-anchor>#</a>Data Synchronization</h3><p>It is impossible to use a shared state to isolate micro-applications from each other as much as possible.</p>
+<h4><a href="#solution" data-anchor>#</a>Solution</h4><p>Design scalable APIs for interaction between different micro-applications according to documented contracts.</p>
+<h3><a href="#css-styles-isolation" data-anchor>#</a>CSS Styles Isolation</h3><p>Micro-applications in a horizontal architecture often work within the context of one browser page, so the global visibility of CSS styles can violate encapsulation and modularity, leading to conflicts and unpredictable errors in display.</p>
+<h4><a href="#solution" data-anchor>#</a>Solution</h4><p>Use methodologies such as BEM, and technologies including <a href="https://github.com/css-modules/css-modules">CSS modules</a>, <a href="https://en.wikipedia.org/wiki/CSS-in-JS">CSS-in-JS</a>, and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM">Shadow DOM</a> to isolate the styles of each micro-application and prevent conflicts, thus ensuring reliable encapsulation and modularity.</p>
+<h3><a href="#javascript-isolation" data-anchor>#</a>JavaScript Isolation</h3><p>JavaScript scripts executed in the context of the host application can interact with the content and data of micro-applications, causing security vulnerabilities and the possibility of user data leaks.</p>
+<h4><a href="#solution" data-anchor>#</a>Solution</h4><p>Use iframes or vertical architecture for integrating micro-applications with sensitive data to ensure complete isolation, preventing access to DOM elements and preventing execution of host application scripts in the context of micro-applications, thus enhancing security interaction.</p>
+<h3><a href="#data-isolation" data-anchor>#</a>Data Isolation</h3><p>Third-party cookies and storage are limited in cross-domain iframes due to browser restrictions, for example, <a href="https://webkit.org/blog/9521/intelligent-tracking-prevention-2-3/">Intelligent Tracking Prevention</a>.</p>
+<h4><a href="#solution" data-anchor>#</a>Solution</h4><p>Explicitly check and request user permission for access to third-party data through the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Storage_Access_API">Storage Access API</a>. It is also possible to store data in cookies and storages within the context of the host application, which is possible in combined embedding through a JavaScript interface with an iframe inside.</p>
+<h3><a href="#increasing-the-number-of-dependencies-and-duplication" data-anchor>#</a>Increasing the Number of Dependencies and Duplication</h3><p>Using the same framework by micro-applications may result in framework code duplication, and each micro frontend adds additional HTTP requests to load its resources, which may affect the performance of the application.</p>
+<h4><a href="#solution" data-anchor>#</a>Solution</h4><p>Use asynchronous loading (<a href="https://developer.mozilla.org/en-US/docs/Web/Performance/Lazy_loading">Lazy Loading</a>) of micro-applications and extract common code into remote modules (<a href="https://webpack.js.org/concepts/module-federation/">Module Federation</a>) so that users can access the main content faster, while additional features load in the background.</p>
+<h3><a href="#infrastructure-complexity" data-anchor>#</a>Infrastructure Complexity</h3><p>Splitting monoliths into many small micro-applications leads to an increase in the number of repositories, delivery pipelines, infrastructure that needs support.</p>
+<h4><a href="#solution" data-anchor>#</a>Solution</h4><p>Implement automation of operations and development, testing, and delivery processes to manage and support the additional necessary infrastructure.</p>
+<h3><a href="#stack-and-processes-complexity" data-anchor>#</a>Stack and Processes Complexity</h3><p>The autonomy of development within micro frontends allows teams to make decisions independently, which can lead to an increase in the number of technologies, tools, and methodologies used.</p>
+<h4><a href="#solution" data-anchor>#</a>Solution</h4><p>Develop common standards and practices, including coding style, architectural patterns, and technology stacks, to help ease the integration of micro-applications and simplify teamwork.</p>
+<h3><a href="#increasing-the-bus-factor" data-anchor>#</a>Increasing the Bus Factor</h3><p>Dividing employees into many small teams, as well as a variety of approaches and tools, may increase the risks associated with the concept of “bus factor” (project vulnerability related to the loss of key employees) and complicate the interchangeability of developers.</p>
+<h4><a href="#solution" data-anchor>#</a>Solution</h4><p>Maintain a high level of documentation and ensure cross-review of code. Create cross-functional teams where members from different teams can be involved in other projects and be aware of key aspects of various micro-applications, promoting flexibility and resilience of teams.</p>
+<h2><a href="#conclusion" data-anchor>#</a>Conclusion</h2><p>The growth complexity of applications and the need for rapid and high-quality development have led to the development of micro frontends as a way of managing large projects, makes updates, support, and scaling easer.</p>
+<p>Micro frontend architecture allows breaking down web applications into independent components, promoting modularity, flexibility, and parallel work of teams. There are also problems, such as an increase in the number of resources and dependencies loaded, application isolation, and some management difficulties.</p>
+<p>Nevertheless, micro frontends represent an important stage in the evolution of web application development, allowing companies to scale their projects and teams more effectively. Despite the complexities, this approach promises greater flexibility and speed of development, as well as simplifying support and updating products.</p>
+<p>For further reading, check the following additional materials:</p>
+<ul>
+<li><a href="https://github.com/billyjov/microfrontend-resources">Curated list of resources about Micro frontends</a></li>
+<li><a href="https://micro-frontends.org">Micro Frontends by Michael Geers</a></li>
+<li><a href="https://dev.to/florianrappl/top-10-micro-frontend-anti-patterns-3809">Top 10 Micro Frontend Anti-Patterns</a></li>
+</ul>
+
+      <footer>
+        <nav>
+          <ul>
+            <li><a href="/">↑&nbsp;All&nbsp;stories</a></li>
+          </ul>
+        </nav>
+      </footer>
+    </article>
+    <script async="" src="/index.js"></script>
+  </body>
+</html>
