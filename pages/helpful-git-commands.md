@@ -256,22 +256,22 @@ tent="width=device-width, initial-scale=1" />
 ## Cleanup branches
 
 ```
-git branch --merged | sed "s/* main//g" | xargs -I % bash -c "git branch -d %; git push origin :%"
+git branch --merged | sed "s/* master//g" | xargs -I % bash -c "git branch -d %; git push origin :%"
 ```
 
-Deletes all local branches that have been merged into the main branch and removes them from the remote repository.
+Deletes all local branches that have been merged into the master branch and removes them from the remote repository.
 
 * `--merged` – List branches that have been merged into the current branch.
-* `sed "s/* main//g"` – Remove main branch from the list.
+* `sed "s/* master//g"` – Remove master branch from the list.
 * `xargs -I` – Interactively merged branches.
 
 ## Mass pull
 
 ```
-find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} pull origin main \;
+find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} pull origin master \;
 ```
 
-Pulls changes from the main branch into all subdirectories that are Git repositories.
+Pulls changes from the master branch into all subdirectories that are Git repositories.
 
 * `-type d` – Search for directories.
 * `-depth 1` – Only search the current directory.
