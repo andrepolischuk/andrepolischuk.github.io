@@ -498,7 +498,9 @@ The embedded micro-application provides an external JavaScript interface, which 
       const widget = new Comments({
         element: document.querySelector('#comments')
       })
-      widget.init({appId: 123})
+      widget.init({appId: 123}).then(() => {
+        // widget ready to use
+      })
     </script>
   </body>
 </html>
