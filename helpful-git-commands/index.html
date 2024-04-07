@@ -218,17 +218,17 @@ patible&quot; content=&quot;IE=edge&quot; /&gt;
 0c954d8e019c4b152e082e1fcf70f47392100c0e:src/components/document.tsx:      &lt;meta name=&quot;viewport&quot; con
 tent=&quot;width=device-width, initial-scale=1&quot; /&gt;
 </code></pre>
-<h2><a href="#cleanup-branches" data-anchor>#</a>Cleanup branches</h2><pre><code>git branch --merged | sed &quot;s/* main//g&quot; | xargs -I % bash -c &quot;git branch -d %; git push origin :%&quot;
+<h2><a href="#cleanup-branches" data-anchor>#</a>Cleanup branches</h2><pre><code>git branch --merged | sed &quot;s/* master//g&quot; | xargs -I % bash -c &quot;git branch -d %; git push origin :%&quot;
 </code></pre>
-<p>Deletes all local branches that have been merged into the main branch and removes them from the remote repository.</p>
+<p>Deletes all local branches that have been merged into the master branch and removes them from the remote repository.</p>
 <ul>
 <li><code>--merged</code> – List branches that have been merged into the current branch.</li>
-<li><code>sed &quot;s/* main//g&quot;</code> – Remove main branch from the list.</li>
+<li><code>sed &quot;s/* master//g&quot;</code> – Remove master branch from the list.</li>
 <li><code>xargs -I</code> – Interactively merged branches.</li>
 </ul>
-<h2><a href="#mass-pull" data-anchor>#</a>Mass pull</h2><pre><code>find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} pull origin main \;
+<h2><a href="#mass-pull" data-anchor>#</a>Mass pull</h2><pre><code>find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} pull origin master \;
 </code></pre>
-<p>Pulls changes from the main branch into all subdirectories that are Git repositories.</p>
+<p>Pulls changes from the master branch into all subdirectories that are Git repositories.</p>
 <ul>
 <li><code>-type d</code> – Search for directories.</li>
 <li><code>-depth 1</code> – Only search the current directory.</li>
