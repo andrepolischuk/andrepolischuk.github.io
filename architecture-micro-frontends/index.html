@@ -391,7 +391,9 @@ export async function MainPage() {
       const widget = new Comments({
         element: document.querySelector('#comments')
       })
-      widget.init({appId: 123})
+      widget.init({appId: 123}).then(() =&gt; {
+        // widget ready to use
+      })
     &lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;
