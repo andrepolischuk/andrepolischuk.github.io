@@ -91,13 +91,13 @@ The possibility of choosing the methodology best suited for working on a specifi
 
 Vertical architecture of micro frontends implies dividing an application into several independent sections, each of which is developed, tested, and deployed independently. This approach allows teams to work on separate functional blocks or pages of the application.
 
-![Vertical architecture](https://i.imgur.com/LroPaWw.png)
+![Vertical architecture](https://i.imgur.com/HEueGql.png)
 
 ### Horizontal architecture
 
 Horizontal architecture of micro frontends is an approach to web application development where functional elements (widgets) are developed, tested, and deployed independently of each other and can be displayed on the same page. This allows different teams to work on one page in parallel.
 
-![Horizontal architecture](https://i.imgur.com/6tNXtlR.png)
+![Horizontal architecture](https://i.imgur.com/x28rxo6.png)
 
 ## Integration types
 
