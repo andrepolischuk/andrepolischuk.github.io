@@ -96,9 +96,9 @@ Comprehensive collection of tech blogs to explore the technological and developm
 
 * [Hemanth.hm on DEV](https://dev.to/hemanth) – Updates from various TC39 meetings.
 * [Addy Osmani's Blog](https://addyosmani.com/blog/) – A collection of articles focused on engineering, development practices, and insights from Addy Osmani, an Engineering Manager at Google working on Chrome.
-* [Chris Coyier](https://chriscoyier.net/) – A web designer and developer who co-founded CodePen and co-hosts the ShopTalk podcast.
+* [John’s thoughts](https://johnjago.com/) – John Jago's blog with thoughts about programming, technology, productivity, and personal reflections.
 * [Overreacted](https://overreacted.io/) – A blog by Dan Abramov, covering deep dives into React concepts, design patterns, and the evolution of JavaScript and React itself.
-* [Zach Leatherman](https://www.zachleat.com/web/) – A blog by Zach Leatherman, covering a wide range of topics including web development, performance, responsive design, and JavaScript.
+* [Zach Leatherman](https://www.zachleat.com/web/) – A blog by Zach Leatherman, covering web development, performance, responsive design, and JavaScript.
 * [David Walsh](https://davidwalsh.name/) – A blog by David Walsh offering a wide range of tutorials, features, and insights on web development topics, including JavaScript, CSS, and HTML5.
 * [Bram.us](https://www.bram.us/) – Weblog of Bramus Van Damme, a Freelance Web Developer, covering web-related technologies, geeky topics (robots, space, etc.), and personal interests (cartography, music, movies, etc.).
 * [Kyle Shevlin](https://kyleshevlin.com/) – Kyle Shevlin is a software engineer and online instructor who shares content including articles and courses.
