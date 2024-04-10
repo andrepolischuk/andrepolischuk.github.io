@@ -23,11 +23,16 @@ let sitePages = []
 let storyPages = []
 
 gulp.task('collect', () => {
+  const sources = [
+    'pages/*.md',
+    ...process.env.NODE_ENV !== 'development' && ['!pages/_*']
+  ]
+
   let pages = []
   sitePages = []
   storyPages = []
 
-  return gulp.src(['pages/*.md', '!pages/_*'])
+  return gulp.src(sources)
     .pipe((() => through.obj(
       (file, enc, next) => {
         const source = file.contents.toString()
