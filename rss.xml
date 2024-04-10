@@ -4,7 +4,7 @@
         <description><![CDATA[Personal blog about frontend engineering, frontend operations, and software design.]]></description>
         <link>https://andrepolischuk.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 10 Apr 2024 07:34:11 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 10 Apr 2024 20:42:03 GMT</lastBuildDate>
         <atom:link href="https://andrepolischuk.com/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Andrey Polischuk]]></author>
         <language><![CDATA[en-us]]></language>
@@ -103,14 +103,6 @@
             <guid isPermaLink="true">https://andrepolischuk.com/code-without-comments/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
             <pubDate>Fri, 25 Aug 2017 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Personal should be a personal]]></title>
-            <description><![CDATA[In this article I describe rules for keeping personal data for yourself.]]></description>
-            <link>https://andrepolischuk.com/personal-should-be-a-personal/</link>
-            <guid isPermaLink="true">https://andrepolischuk.com/personal-should-be-a-personal/</guid>
-            <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
-            <pubDate>Tue, 15 Aug 2017 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Latest tools]]></title>
