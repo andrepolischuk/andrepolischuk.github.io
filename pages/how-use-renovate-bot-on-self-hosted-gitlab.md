@@ -61,7 +61,7 @@ If you use [`CODEOWNERS`](https://docs.gitlab.com/ee/user/project/codeowners/ind
 }
 ```
 
-## Step 2: GitLab CI pipeline configuration
+## Step #2: GitLab CI pipeline configuration
 
 Add a stage to your pipeline that uses Renovate Bot Docker image. Also, add environment settings so that Renovate Bot can use the API of your self-hosted GitLab:
 
@@ -91,7 +91,7 @@ update deps:
     - renovate
 ```
 
-## Step 3: Creating a schedule
+## Step #3: Creating a schedule
 
 Dependency updates are released continuously. To reduce noise, add a schedule for running Renovate Bot, for example, once a week before the start of sprint. You will receive a list of updates and will be able to plan critical updates for the current sprint.
 
