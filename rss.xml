@@ -4,7 +4,7 @@
         <description><![CDATA[Personal blog about frontend engineering, frontend operations, and software design.]]></description>
         <link>https://andrepolischuk.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 10 Apr 2024 20:42:03 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 22 Apr 2024 11:07:08 GMT</lastBuildDate>
         <atom:link href="https://andrepolischuk.com/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Andrey Polischuk]]></author>
         <language><![CDATA[en-us]]></language>
@@ -16,6 +16,14 @@
         <category><![CDATA[javascript]]></category>
         <category><![CDATA[typescript]]></category>
         <category><![CDATA[web]]></category>
+        <item>
+            <title><![CDATA[How use Renovate Bot on self-hosted GitLab]]></title>
+            <description><![CDATA[There is no built-in Renovate Bot on a self-hosted GitLab. What can we do to set it up and enjoy all the benefits of automatic dependency updates?]]></description>
+            <link>https://andrepolischuk.com/how-use-renovate-bot-on-self-hosted-gitlab/</link>
+            <guid isPermaLink="true">https://andrepolischuk.com/how-use-renovate-bot-on-self-hosted-gitlab/</guid>
+            <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
+            <pubDate>Mon, 22 Apr 2024 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Architecture: Micro frontends]]></title>
             <description><![CDATA[Micro frontends architecture is an approach to web application development that involves breaking down the frontend (client-side) into independent modules or components (for example, sidebar, footer, widget). Each of these modules can be developed, deployed, and scaled independently from the rest of the application.]]></description>
