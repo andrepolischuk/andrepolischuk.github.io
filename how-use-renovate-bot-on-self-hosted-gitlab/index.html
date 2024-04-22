@@ -76,7 +76,7 @@
   ...
 }
 </code></pre>
-<h2><a href="#step-2-gitlab-ci-pipeline-configuration" data-anchor>#</a>Step 2: GitLab CI pipeline configuration</h2><p>Add a stage to your pipeline that uses Renovate Bot Docker image. Also, add environment settings so that Renovate Bot can use the API of your self-hosted GitLab:</p>
+<h2><a href="#step-2-gitlab-ci-pipeline-configuration" data-anchor>#</a>Step #2: GitLab CI pipeline configuration</h2><p>Add a stage to your pipeline that uses Renovate Bot Docker image. Also, add environment settings so that Renovate Bot can use the API of your self-hosted GitLab:</p>
 <ul>
 <li><a href="https://docs.renovatebot.com/self-hosted-configuration/#platform"><code>RENOVATE_PLATFORM</code></a> – platform type, in our case – <code>gitlab</code>.</li>
 <li><a href="https://docs.renovatebot.com/self-hosted-configuration/#endpoint"><code>RENOVATE_ENDPOINT</code></a> – entry point of the GitLab API.</li>
@@ -101,7 +101,7 @@ update deps:
   script:
     - renovate
 </code></pre>
-<h2><a href="#step-3-creating-a-schedule" data-anchor>#</a>Step 3: Creating a schedule</h2><p>Dependency updates are released continuously. To reduce noise, add a schedule for running Renovate Bot, for example, once a week before the start of sprint. You will receive a list of updates and will be able to plan critical updates for the current sprint.</p>
+<h2><a href="#step-3-creating-a-schedule" data-anchor>#</a>Step #3: Creating a schedule</h2><p>Dependency updates are released continuously. To reduce noise, add a schedule for running Renovate Bot, for example, once a week before the start of sprint. You will receive a list of updates and will be able to plan critical updates for the current sprint.</p>
 <p>GitLab has <a href="https://docs.gitlab.com/ee/ci/pipelines/schedules.html">scheduled pipelines</a> where you can set up a schedule for checking updates. The schedule is set in <code>crontab</code> file format.</p>
 <pre><code class="language-crontab">00 9 * * 1
 </code></pre>
