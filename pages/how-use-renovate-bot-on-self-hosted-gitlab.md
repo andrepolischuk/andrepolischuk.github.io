@@ -21,8 +21,10 @@ Create a file [`renovate.json`](https://docs.renovatebot.com/configuration-optio
 
 * [`reviewers`](https://docs.renovatebot.com/configuration-options/#reviewers) – a list of developers who should be aware of updates and on whom merge requests with updates will be assigned.
 * [`minimumReleaseAge`](https://docs.renovatebot.com/configuration-options/#minimumreleaseage) – npm packages can be unpublished within 72 hours, so it's worth waiting this time before updating to a new version of the package.
+* [`prHourlyLimit`](https://docs.renovatebot.com/configuration-options/#prhourlylimit) – disable the limit of 2 updates per hour.
+* [`prConcurrentLimit`](https://docs.renovatebot.com/configuration-options/#prconcurrentlimit) – disable the limit of 10 concurrent updates.
 * [`addLabels`](https://docs.renovatebot.com/configuration-options/#addlabels) – a list of labels for merge requests with the update type.
-* [`automerge`](https://docs.renovatebot.com/configuration-options/#automerge) – if your code is typed, sufficiently covered with static checks and tests, it makes sense to enable auto-merge for `patch` and `minor` updates that does not break packages API.
+* [`automerge`](https://docs.renovatebot.com/configuration-options/#automerge) – if your code is typed, sufficiently covered with static checks and tests, it makes sense to enable auto-merge for `patch` and `minor` updates that does not break packages API. Also exclude auto-merging for unstable 0.x updates by `matchCurrentVersion`.
 
 Final settings:
 
@@ -31,20 +33,25 @@ Final settings:
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "minimumReleaseAge": "3 days",
   "reviewers": ["andrepolischuk", "unicorn"],
+  "prHourlyLimit": 0,
+  "prConcurrentLimit": 0,
   "packageRules": [
     {
       "matchUpdateTypes": ["patch"],
-      "addLabels": ["patch"],
-      "automerge": true
+      "addLabels": ["dependencies", "patch"]
     },
     {
       "matchUpdateTypes": ["minor"],
-      "addLabels": ["minor"],
-      "automerge": true
+      "addLabels": ["dependencies", "minor"]
     },
     {
       "matchUpdateTypes": ["major"],
-      "addLabels": ["major"]
+      "addLabels": ["dependencies", "major"]
+    },
+    {
+      "matchUpdateTypes": ["patch", "minor"],
+      "matchCurrentVersion": "!/^0/",
+      "automerge": true
     }
   ]
 }
