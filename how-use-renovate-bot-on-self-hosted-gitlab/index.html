@@ -42,28 +42,35 @@
 <ul>
 <li><a href="https://docs.renovatebot.com/configuration-options/#reviewers"><code>reviewers</code></a> – a list of developers who should be aware of updates and on whom merge requests with updates will be assigned.</li>
 <li><a href="https://docs.renovatebot.com/configuration-options/#minimumreleaseage"><code>minimumReleaseAge</code></a> – npm packages can be unpublished within 72 hours, so it’s worth waiting this time before updating to a new version of the package.</li>
+<li><a href="https://docs.renovatebot.com/configuration-options/#prhourlylimit"><code>prHourlyLimit</code></a> – disable the limit of 2 updates per hour.</li>
+<li><a href="https://docs.renovatebot.com/configuration-options/#prconcurrentlimit"><code>prConcurrentLimit</code></a> – disable the limit of 10 concurrent updates.</li>
 <li><a href="https://docs.renovatebot.com/configuration-options/#addlabels"><code>addLabels</code></a> – a list of labels for merge requests with the update type.</li>
-<li><a href="https://docs.renovatebot.com/configuration-options/#automerge"><code>automerge</code></a> – if your code is typed, sufficiently covered with static checks and tests, it makes sense to enable auto-merge for <code>patch</code> and <code>minor</code> updates that does not break packages API.</li>
+<li><a href="https://docs.renovatebot.com/configuration-options/#automerge"><code>automerge</code></a> – if your code is typed, sufficiently covered with static checks and tests, it makes sense to enable auto-merge for <code>patch</code> and <code>minor</code> updates that does not break packages API. Also exclude auto-merging for unstable 0.x updates by <code>matchCurrentVersion</code>.</li>
 </ul>
 <p>Final settings:</p>
 <pre><code class="language-json">{
   &quot;$schema&quot;: &quot;https://docs.renovatebot.com/renovate-schema.json&quot;,
   &quot;minimumReleaseAge&quot;: &quot;3 days&quot;,
   &quot;reviewers&quot;: [&quot;andrepolischuk&quot;, &quot;unicorn&quot;],
+  &quot;prHourlyLimit&quot;: 0,
+  &quot;prConcurrentLimit&quot;: 0,
   &quot;packageRules&quot;: [
     {
       &quot;matchUpdateTypes&quot;: [&quot;patch&quot;],
-      &quot;addLabels&quot;: [&quot;patch&quot;],
-      &quot;automerge&quot;: true
+      &quot;addLabels&quot;: [&quot;dependencies&quot;, &quot;patch&quot;]
     },
     {
       &quot;matchUpdateTypes&quot;: [&quot;minor&quot;],
-      &quot;addLabels&quot;: [&quot;minor&quot;],
-      &quot;automerge&quot;: true
+      &quot;addLabels&quot;: [&quot;dependencies&quot;, &quot;minor&quot;]
     },
     {
       &quot;matchUpdateTypes&quot;: [&quot;major&quot;],
-      &quot;addLabels&quot;: [&quot;major&quot;]
+      &quot;addLabels&quot;: [&quot;dependencies&quot;, &quot;major&quot;]
+    },
+    {
+      &quot;matchUpdateTypes&quot;: [&quot;patch&quot;, &quot;minor&quot;],
+      &quot;matchCurrentVersion&quot;: &quot;!/^0/&quot;,
+      &quot;automerge&quot;: true
     }
   ]
 }
