@@ -4,7 +4,7 @@
         <description><![CDATA[Personal blog about frontend engineering, frontend operations, and software design.]]></description>
         <link>https://andrepolischuk.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 06 May 2024 12:22:12 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 06 May 2024 12:26:57 GMT</lastBuildDate>
         <atom:link href="https://andrepolischuk.com/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Andrey Polischuk]]></author>
         <language><![CDATA[en-us]]></language>
@@ -35,8 +35,8 @@
         <item>
             <title><![CDATA[Valuable blogs for frontend developers]]></title>
             <description><![CDATA[Comprehensive collection of tech blogs to explore the technological and development landscape.]]></description>
-            <link>https://andrepolischuk.com/valuable-blogs-for-developers/</link>
-            <guid isPermaLink="true">https://andrepolischuk.com/valuable-blogs-for-developers/</guid>
+            <link>https://andrepolischuk.com/valuable-blogs-for-frontend-developers/</link>
+            <guid isPermaLink="true">https://andrepolischuk.com/valuable-blogs-for-frontend-developers/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
             <pubDate>Sat, 09 Mar 2024 00:00:00 GMT</pubDate>
         </item>
