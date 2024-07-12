@@ -4,7 +4,7 @@
         <description><![CDATA[Personal blog about frontend engineering, frontend operations, and software design.]]></description>
         <link>https://andrepolischuk.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 06 Jun 2024 19:44:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 12 Jul 2024 10:43:29 GMT</lastBuildDate>
         <atom:link href="https://andrepolischuk.com/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Andrey Polischuk]]></author>
         <language><![CDATA[en-us]]></language>
@@ -111,14 +111,6 @@
             <guid isPermaLink="true">https://andrepolischuk.com/code-without-comments/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
             <pubDate>Fri, 25 Aug 2017 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Latest tools]]></title>
-            <description><![CDATA[Useful apps and tools that I found recently. JavaScript Standard Style, Firefox Focus, and some other.]]></description>
-            <link>https://andrepolischuk.com/latest-tools/</link>
-            <guid isPermaLink="true">https://andrepolischuk.com/latest-tools/</guid>
-            <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
-            <pubDate>Tue, 08 Aug 2017 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Why do I use Vim?]]></title>
