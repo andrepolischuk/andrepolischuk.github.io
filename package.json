@@ -1,5 +1,5 @@
 {
-  "name": "andrepolischuk.com",
+  "name": "polischuk.xyz",
   "version": "0.0.0",
   "description": "Blog by Andrey Polischuk",
   "main": "gulpfile.babel.js",
@@ -24,8 +24,8 @@
     "title": "Blog by Andrey Polischuk",
     "description": "Personal blog about frontend engineering, frontend operations, and software design.",
     "author": "Andrey Polischuk",
-    "feed_url": "https://andrepolischuk.com/rss.xml",
-    "site_url": "https://andrepolischuk.com/",
+    "feed_url": "https://polischuk.xyz/rss.xml",
+    "site_url": "https://polischuk.xyz/",
     "managingEditor": "Andrey Polischuk",
     "webMaster": "Andrey Polischuk",
     "language": "en-us",
