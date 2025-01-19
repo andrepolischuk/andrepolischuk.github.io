@@ -2,10 +2,10 @@
     <channel>
         <title><![CDATA[Blog by Andrey Polischuk]]></title>
         <description><![CDATA[Personal blog about frontend engineering, frontend operations, and software design.]]></description>
-        <link>https://andrepolischuk.com/</link>
+        <link>https://polischuk.xyz/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 21 Oct 2024 07:53:23 GMT</lastBuildDate>
-        <atom:link href="https://andrepolischuk.com/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Sun, 19 Jan 2025 14:34:32 GMT</lastBuildDate>
+        <atom:link href="https://polischuk.xyz/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Andrey Polischuk]]></author>
         <language><![CDATA[en-us]]></language>
         <managingEditor><![CDATA[Andrey Polischuk]]></managingEditor>
@@ -19,96 +19,96 @@
         <item>
             <title><![CDATA[How use Renovate Bot on self-hosted GitLab]]></title>
             <description><![CDATA[There is no built-in Renovate Bot on a self-hosted GitLab. What can we do to set it up and enjoy all the benefits of automatic dependency updates?]]></description>
-            <link>https://andrepolischuk.com/how-use-renovate-bot-on-self-hosted-gitlab/</link>
-            <guid isPermaLink="true">https://andrepolischuk.com/how-use-renovate-bot-on-self-hosted-gitlab/</guid>
+            <link>https://polischuk.xyz/how-use-renovate-bot-on-self-hosted-gitlab/</link>
+            <guid isPermaLink="true">https://polischuk.xyz/how-use-renovate-bot-on-self-hosted-gitlab/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
             <pubDate>Mon, 22 Apr 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Architecture: Micro frontends]]></title>
             <description><![CDATA[Micro frontends architecture is an approach to web application development that involves breaking down the frontend (client-side) into independent modules or components (for example, sidebar, footer, widget). Each of these modules can be developed, deployed, and scaled independently from the rest of the application.]]></description>
-            <link>https://andrepolischuk.com/architecture-micro-frontends/</link>
-            <guid isPermaLink="true">https://andrepolischuk.com/architecture-micro-frontends/</guid>
+            <link>https://polischuk.xyz/architecture-micro-frontends/</link>
+            <guid isPermaLink="true">https://polischuk.xyz/architecture-micro-frontends/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
             <pubDate>Fri, 05 Apr 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Valuable blogs for frontend developers]]></title>
             <description><![CDATA[Comprehensive collection of tech blogs to explore the technological and development landscape.]]></description>
-            <link>https://andrepolischuk.com/valuable-blogs-for-frontend-developers/</link>
-            <guid isPermaLink="true">https://andrepolischuk.com/valuable-blogs-for-frontend-developers/</guid>
+            <link>https://polischuk.xyz/valuable-blogs-for-frontend-developers/</link>
+            <guid isPermaLink="true">https://polischuk.xyz/valuable-blogs-for-frontend-developers/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
             <pubDate>Sat, 09 Mar 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Helpful git commands]]></title>
             <description><![CDATA[A list of git commands to improve your source code management skills.]]></description>
-            <link>https://andrepolischuk.com/helpful-git-commands/</link>
-            <guid isPermaLink="true">https://andrepolischuk.com/helpful-git-commands/</guid>
+            <link>https://polischuk.xyz/helpful-git-commands/</link>
+            <guid isPermaLink="true">https://polischuk.xyz/helpful-git-commands/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
             <pubDate>Tue, 05 Mar 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Tools for frontend monitoring with Prometheus]]></title>
             <description><![CDATA[Developers widely use Prometheus as a system for operational monitoring and alerting for their projects. Here is a list of tools for monitoring frontend services with Prometheus.]]></description>
-            <link>https://andrepolischuk.com/tools-for-frontend-monitoring-with-prometheus/</link>
-            <guid isPermaLink="true">https://andrepolischuk.com/tools-for-frontend-monitoring-with-prometheus/</guid>
+            <link>https://polischuk.xyz/tools-for-frontend-monitoring-with-prometheus/</link>
+            <guid isPermaLink="true">https://polischuk.xyz/tools-for-frontend-monitoring-with-prometheus/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
             <pubDate>Wed, 28 Feb 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[How to split pages by device type in Next.js]]></title>
             <description><![CDATA[We work with complex applications that use different content layouts for mobile and desktop devices. Some desktop components also differ from mobile ones and vice versa, so it would be great to avoid including components for one device type in the bundle for another. How can we separate pages for mobile devices, desktop, etc., but still open them with the same URLs?]]></description>
-            <link>https://andrepolischuk.com/how-to-split-pages-by-device-type-in-next/</link>
-            <guid isPermaLink="true">https://andrepolischuk.com/how-to-split-pages-by-device-type-in-next/</guid>
+            <link>https://polischuk.xyz/how-to-split-pages-by-device-type-in-next/</link>
+            <guid isPermaLink="true">https://polischuk.xyz/how-to-split-pages-by-device-type-in-next/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
             <pubDate>Tue, 27 Feb 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Commenting a code]]></title>
             <description><![CDATA[Last year I wrote the note about waste comments in code. But now it seems to me that this explanation is not fully right. I was supporting a lot of apps, widgets with externalized API and shareable modules this year. And I found two specific case where comments can be useful.]]></description>
-            <link>https://andrepolischuk.com/commenting-a-code/</link>
-            <guid isPermaLink="true">https://andrepolischuk.com/commenting-a-code/</guid>
+            <link>https://polischuk.xyz/commenting-a-code/</link>
+            <guid isPermaLink="true">https://polischuk.xyz/commenting-a-code/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
             <pubDate>Mon, 10 Dec 2018 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[How to start using Gitlab CI]]></title>
             <description><![CDATA[Quick start of testing, building and deploying packages or applications with the built-in CI.]]></description>
-            <link>https://andrepolischuk.com/how-to-start-using-gitlab-ci/</link>
-            <guid isPermaLink="true">https://andrepolischuk.com/how-to-start-using-gitlab-ci/</guid>
+            <link>https://polischuk.xyz/how-to-start-using-gitlab-ci/</link>
+            <guid isPermaLink="true">https://polischuk.xyz/how-to-start-using-gitlab-ci/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
             <pubDate>Thu, 01 Feb 2018 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Questions to ask before writing code]]></title>
             <description><![CDATA[A few questions that you can ask yourself every time to avoid writing unnecessary code.]]></description>
-            <link>https://andrepolischuk.com/questions-to-ask-before-writing-code/</link>
-            <guid isPermaLink="true">https://andrepolischuk.com/questions-to-ask-before-writing-code/</guid>
+            <link>https://polischuk.xyz/questions-to-ask-before-writing-code/</link>
+            <guid isPermaLink="true">https://polischuk.xyz/questions-to-ask-before-writing-code/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
             <pubDate>Thu, 19 Oct 2017 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[How to load single-page app faster]]></title>
             <description><![CDATA[Yet another research about ways to slightly reduce size and loading time of the frontend applications.]]></description>
-            <link>https://andrepolischuk.com/how-to-load-single-page-app-faster/</link>
-            <guid isPermaLink="true">https://andrepolischuk.com/how-to-load-single-page-app-faster/</guid>
+            <link>https://polischuk.xyz/how-to-load-single-page-app-faster/</link>
+            <guid isPermaLink="true">https://polischuk.xyz/how-to-load-single-page-app-faster/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
             <pubDate>Tue, 03 Oct 2017 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Protect the frontend]]></title>
             <description><![CDATA[Here I review the basics of security for web applications.]]></description>
-            <link>https://andrepolischuk.com/protect-the-frontend/</link>
-            <guid isPermaLink="true">https://andrepolischuk.com/protect-the-frontend/</guid>
+            <link>https://polischuk.xyz/protect-the-frontend/</link>
+            <guid isPermaLink="true">https://polischuk.xyz/protect-the-frontend/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
             <pubDate>Thu, 31 Aug 2017 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Code without comments]]></title>
             <description><![CDATA[Let’s explain yourself in code without a bunch of comments. And that’s why.]]></description>
-            <link>https://andrepolischuk.com/code-without-comments/</link>
-            <guid isPermaLink="true">https://andrepolischuk.com/code-without-comments/</guid>
+            <link>https://polischuk.xyz/code-without-comments/</link>
+            <guid isPermaLink="true">https://polischuk.xyz/code-without-comments/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
             <pubDate>Fri, 25 Aug 2017 00:00:00 GMT</pubDate>
         </item>
@@ -116,24 +116,24 @@
             <title><![CDATA[Why do I use Vim?]]></title>
             <description><![CDATA[This article in vim
 My reasons why I preferred vim to other code editors such an atom and sublime.]]></description>
-            <link>https://andrepolischuk.com/why-do-i-use-vim/</link>
-            <guid isPermaLink="true">https://andrepolischuk.com/why-do-i-use-vim/</guid>
+            <link>https://polischuk.xyz/why-do-i-use-vim/</link>
+            <guid isPermaLink="true">https://polischuk.xyz/why-do-i-use-vim/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
             <pubDate>Tue, 01 Aug 2017 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Webpack with nginx upstreams]]></title>
             <description><![CDATA[A simple guide to setup the dev environment using webpack with a nginx server.]]></description>
-            <link>https://andrepolischuk.com/webpack-with-nginx-upstreams/</link>
-            <guid isPermaLink="true">https://andrepolischuk.com/webpack-with-nginx-upstreams/</guid>
+            <link>https://polischuk.xyz/webpack-with-nginx-upstreams/</link>
+            <guid isPermaLink="true">https://polischuk.xyz/webpack-with-nginx-upstreams/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
             <pubDate>Tue, 25 Jul 2017 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Entry point]]></title>
             <description><![CDATA[I’m Andrey Polischuk, a frontend engineer. This site is my first try to write about tech things.]]></description>
-            <link>https://andrepolischuk.com/entry-point/</link>
-            <guid isPermaLink="true">https://andrepolischuk.com/entry-point/</guid>
+            <link>https://polischuk.xyz/entry-point/</link>
+            <guid isPermaLink="true">https://polischuk.xyz/entry-point/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
             <pubDate>Thu, 20 Jul 2017 00:00:00 GMT</pubDate>
         </item>
