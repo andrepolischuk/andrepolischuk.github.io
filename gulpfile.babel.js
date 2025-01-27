@@ -183,7 +183,7 @@ gulp.task('rss', next => {
   })
 })
 
-gulp.task('copy', () => gulp.src('{CNAME,gpg*,styles.css,index.js,sw.js}').pipe(gulp.dest('dist')))
+gulp.task('copy', () => gulp.src('{CNAME,gpg*,robots.txt,styles.css,index.js,sw.js}').pipe(gulp.dest('dist')))
 gulp.task('clean', next => del(['dist'], next))
 
 gulp.task('layout', gulp.series(
