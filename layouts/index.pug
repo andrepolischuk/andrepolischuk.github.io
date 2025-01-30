@@ -16,20 +16,19 @@ block content
   main
     header
       h1= site.author
-      p= site.description
-
+    
+    h2 Notes
     ul
       each page in pages
         li
           a(href='/' + page.url)= page.title.text
           time= page.date.text
 
-    footer
-      nav
-        ul
-          li
-            a(href='https://github.com/andrepolischuk') GitHub
-          li
-            a(href='/gpg.asc') GPG
-          li
-            a(href='/rss.xml') RSS
+    h2 Links
+    ul
+      li
+        a(href='https://github.com/andrepolischuk') GitHub
+      li
+        a(href='/gpg.asc') GPG
+      li
+        a(href='/rss.xml') RSS
