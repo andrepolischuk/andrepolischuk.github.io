@@ -161,33 +161,3 @@ main li a {
 main li time {
   font-size: 0.9em;
 }
-
-footer {
-  margin-top: 3rem;
-  font-size: 0.9em;
-}
-
-footer p {
-  font-style: italic;
-}
-
-footer ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  list-style: none;
-  margin: 3em 0 0;
-  padding: 0;
-}
-
-footer li {
-  margin: 0;
-}
-
-footer li + li {
-  margin-left: 0.9rem;
-}
-
-footer li:last-child {
-  text-align: right;
-}
