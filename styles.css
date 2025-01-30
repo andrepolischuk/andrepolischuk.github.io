@@ -161,3 +161,7 @@ main li a {
 main li time {
   font-size: 0.9em;
 }
+
+footer {
+  margin-top: 2rem;
+}
