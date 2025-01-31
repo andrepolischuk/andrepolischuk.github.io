@@ -4,7 +4,7 @@
         <description><![CDATA[Blog by Andrey Polischuk]]></description>
         <link>https://polischuk.xyz/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 31 Jan 2025 20:21:13 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 31 Jan 2025 20:27:58 GMT</lastBuildDate>
         <atom:link href="https://polischuk.xyz/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Andrey Polischuk]]></author>
         <language><![CDATA[en-us]]></language>
@@ -120,14 +120,6 @@ My reasons why I preferred vim to other code editors such an atom and sublime.]]
             <guid isPermaLink="true">https://polischuk.xyz/webpack-with-nginx-upstreams/</guid>
             <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
             <pubDate>Tue, 25 Jul 2017 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Entry point]]></title>
-            <description><![CDATA[I’m Andrey Polischuk, a frontend engineer. This site is my first try to write about tech things.]]></description>
-            <link>https://polischuk.xyz/entry-point/</link>
-            <guid isPermaLink="true">https://polischuk.xyz/entry-point/</guid>
-            <dc:creator><![CDATA[Andrey Polischuk]]></dc:creator>
-            <pubDate>Thu, 20 Jul 2017 00:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>
