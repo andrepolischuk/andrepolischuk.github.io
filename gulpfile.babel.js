@@ -66,7 +66,7 @@ gulp.task('collect', () => {
                 .replaceAll(/[^A-Za-zА-ЯЁа-яё0-9]+/g, ' ')
                 .trim()
                 .replaceAll(' ', '-')
-              return `${prefix}<a href="#${anchor}" data-anchor>#</a>${title}${suffix}`
+              return `${prefix}${title} <a href="#${anchor}" data-anchor>#</a>${suffix}`
           })
         })
 
