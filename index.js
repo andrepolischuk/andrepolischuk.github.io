@@ -3,8 +3,8 @@
 function onHashChange () {
   const {hash} = window.location
   const anchor = document.querySelector(`a[href="${decodeURIComponent(hash)}"]`)
-  if (anchor) {
-    anchor.scrollIntoView()
+  if (anchor && anchor.parentElement) {
+    anchor.parentElement.scrollIntoView()
   }
 }
 
