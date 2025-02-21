@@ -20,8 +20,10 @@ body {
   padding-bottom: 2rem;
   background-color: var(--background);
   color: var(--main);
+  line-height: 1.5;
   text-align: left;
   text-rendering: optimizeLegibility;
+  letter-spacing: 0.01rem;
   font-feature-settings: "liga" on;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
