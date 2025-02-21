@@ -12,7 +12,7 @@
 }
 
 html {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 body {
@@ -31,11 +31,6 @@ body {
 
 h1 {
   font-size: 2rem;
-}
-
-p {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
 }
 
 pre,
@@ -95,7 +90,6 @@ body > article {
 
 main li a {
   margin: 0;
-  margin-right: 0.3rem;
 }
 
 footer {
