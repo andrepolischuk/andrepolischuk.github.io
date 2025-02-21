@@ -38,7 +38,7 @@
 <li>Deploy Renovate <a href="https://github.com/mend/renovate-ce-ee">Community Edition or Enterprise Edition</a> on your own.</li>
 </ul>
 <p>The first option is not suitable for us because it’s designed for the npm projects, and we would like a more universal approach. The last option is also not suitable because it would require maintaining a separate Renovate instance. We also do not want to maintain a separate runner, so we will use the Docker image that can be run on any existing runner.</p>
-<h2><a href="#step-1-repository-configuration" data-anchor>#</a>Step #1: Repository configuration</h2><p>Create a file <a href="https://docs.renovatebot.com/configuration-options/"><code>renovate.json</code></a> in the root of your repository. I recommend adding the following options:</p>
+<h2>Step #1: Repository configuration <a href="#step-1-repository-configuration" data-anchor>#</a></h2><p>Create a file <a href="https://docs.renovatebot.com/configuration-options/"><code>renovate.json</code></a> in the root of your repository. I recommend adding the following options:</p>
 <ul>
 <li><a href="https://docs.renovatebot.com/configuration-options/#reviewers"><code>reviewers</code></a> – a list of developers who should be aware of updates and on whom merge requests with updates will be assigned.</li>
 <li><a href="https://docs.renovatebot.com/configuration-options/#minimumreleaseage"><code>minimumReleaseAge</code></a> – npm packages can be unpublished within 72 hours, so it’s worth waiting this time before updating to a new version of the package.</li>
@@ -83,7 +83,7 @@
   ...
 }
 </code></pre>
-<h2><a href="#step-2-gitlab-ci-pipeline-configuration" data-anchor>#</a>Step #2: GitLab CI pipeline configuration</h2><p>Add a stage to your pipeline that uses Renovate Bot Docker image. Also, add environment settings so that Renovate Bot can use the API of your self-hosted GitLab:</p>
+<h2>Step #2: GitLab CI pipeline configuration <a href="#step-2-gitlab-ci-pipeline-configuration" data-anchor>#</a></h2><p>Add a stage to your pipeline that uses Renovate Bot Docker image. Also, add environment settings so that Renovate Bot can use the API of your self-hosted GitLab:</p>
 <ul>
 <li><a href="https://docs.renovatebot.com/self-hosted-configuration/#platform"><code>RENOVATE_PLATFORM</code></a> – platform type, in our case – <code>gitlab</code>.</li>
 <li><a href="https://docs.renovatebot.com/self-hosted-configuration/#endpoint"><code>RENOVATE_ENDPOINT</code></a> – entry point of the GitLab API.</li>
@@ -108,7 +108,7 @@ update deps:
   script:
     - renovate
 </code></pre>
-<h2><a href="#step-3-creating-a-schedule" data-anchor>#</a>Step #3: Creating a schedule</h2><p>Dependency updates are released continuously. To reduce noise, add a schedule for running Renovate Bot, for example, once a week before the start of sprint. You will receive a list of updates and will be able to plan critical updates for the current sprint.</p>
+<h2>Step #3: Creating a schedule <a href="#step-3-creating-a-schedule" data-anchor>#</a></h2><p>Dependency updates are released continuously. To reduce noise, add a schedule for running Renovate Bot, for example, once a week before the start of sprint. You will receive a list of updates and will be able to plan critical updates for the current sprint.</p>
 <p>GitLab has <a href="https://docs.gitlab.com/ee/ci/pipelines/schedules.html">scheduled pipelines</a> where you can set up a schedule for checking updates. The schedule is set in <code>crontab</code> file format.</p>
 <pre><code class="language-crontab">00 9 * * 1
 </code></pre>
@@ -127,7 +127,7 @@ update deps:
   script:
     - renovate
 </code></pre>
-<h2><a href="#bonus" data-anchor>#</a>Bonus</h2><p>This configuration is not dependent on language and can be used not for frontend projects with npm but also for the rest located on your GitLab.</p>
+<h2>Bonus <a href="#bonus" data-anchor>#</a></h2><p>This configuration is not dependent on language and can be used not for frontend projects with npm but also for the rest located on your GitLab.</p>
 <p>For further reading, check the <a href="https://docs.renovatebot.com">Renovate Bot</a> documentation.</p>
 
       <footer><a href="/">← Home</a></footer>

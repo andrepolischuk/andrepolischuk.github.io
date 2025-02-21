@@ -38,7 +38,7 @@
 <li>I need to use dev mode for few applications sometimes. This is not achived by proxy application parts with built-in webpack dev server proxy.</li>
 </ol>
 <p>Therefore to start enviroment I will need to create <strong>webpack dev server</strong> for each of my applications and <strong>nginx server</strong> as a proxy.</p>
-<h2><a href="#webpack-dev-server" data-anchor>#</a>webpack dev server</h2><p>Create two applications with own <a href="https://webpack.js.org/configuration/dev-server/">webpack dev server</a> on different ports:</p>
+<h2>webpack dev server <a href="#webpack-dev-server" data-anchor>#</a></h2><p>Create two applications with own <a href="https://webpack.js.org/configuration/dev-server/">webpack dev server</a> on different ports:</p>
 <ul>
 <li><a href="https://github.com/andrepolischuk/webpack-nginx-example/tree/master/login">login</a> — <a href="http://awesome.app:3001/">http://awesome.app:3001/</a></li>
 <li><a href="https://github.com/andrepolischuk/webpack-nginx-example/tree/master/profile">profile</a> — <a href="http://awesome.app:3002/">http://awesome.app:3002/</a></li>
@@ -90,7 +90,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = config
 </code></pre>
-<h2><a href="#nginx-server" data-anchor>#</a>nginx server</h2><p>Create nginx server on <code>awesome.app:80</code> to <a href="http://nginx.org/en/docs/http/ngx_http_proxy_module.html">proxy</a> webpack dev server through <a href="http://nginx.org/en/docs/http/ngx_http_upstream_module.html">upstreams</a> if it’s reachable or proxy production.</p>
+<h2>nginx server <a href="#nginx-server" data-anchor>#</a></h2><p>Create nginx server on <code>awesome.app:80</code> to <a href="http://nginx.org/en/docs/http/ngx_http_proxy_module.html">proxy</a> webpack dev server through <a href="http://nginx.org/en/docs/http/ngx_http_upstream_module.html">upstreams</a> if it’s reachable or proxy production.</p>
 <p><a href="https://github.com/andrepolischuk/webpack-nginx-example/blob/master/nginx.awesome.conf">nginx.awesome.conf</a>:</p>
 <pre><code class="language-nginx">upstream login {
   server awesome.app:80 backup;
@@ -130,7 +130,7 @@ server {
 <p>Append domain into the <code>hosts</code> file:</p>
 <pre><code class="language-raw">0.0.0.0 awesome.app
 </code></pre>
-<h2><a href="#summary" data-anchor>#</a>Summary</h2><p>Congrats! You have a simple dev enviroment for your projects. Now you just need to start nginx and webpack dev server for application you want make some magic.</p>
+<h2>Summary <a href="#summary" data-anchor>#</a></h2><p>Congrats! You have a simple dev enviroment for your projects. Now you just need to start nginx and webpack dev server for application you want make some magic.</p>
 <p>You can find all sources in <a href="https://github.com/andrepolischuk/webpack-nginx-example">example</a> repo and play with it.</p>
 
       <footer><a href="/">← Home</a></footer>
